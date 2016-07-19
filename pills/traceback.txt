@@ -1,0 +1,25 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/options.rpy", line 261, in script
+    init -1 python hide:
+  File "game/options.rpy", line 291, in <module>
+    style.menu_choice.button.xanchor = 1
+AttributeError: 'renpy.styledata.styleclass.Style' object has no attribute 'button'
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/options.rpy", line 261, in script
+    init -1 python hide:
+  File "/Users/brittanybrassell/repos/pillsprototype/renpy-6.99.10-sdk/renpy/ast.py", line 806, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/Users/brittanybrassell/repos/pillsprototype/renpy-6.99.10-sdk/renpy/python.py", line 1577, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/options.rpy", line 291, in <module>
+    style.menu_choice.button.xanchor = 1
+AttributeError: 'renpy.styledata.styleclass.Style' object has no attribute 'button'
+
+Darwin-15.5.0-x86_64-i386-64bit
+Ren'Py 6.99.10.1227
+pills 0.0
