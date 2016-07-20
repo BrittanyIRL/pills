@@ -6,7 +6,7 @@ a story game
 - Git Cheats : 
 
 - to get the updated copy of code from github:
-  -- git pull
+  - git pull
 
 - to submit updates to github
   - git add -u
