@@ -2,6 +2,12 @@
 errors listed below, and try again.
 
 
-File "game/options.rpy", line 146: indentation mismatch.
+File "game/script.rpy", line 443: u'chapter2_0' is not a keyword argument or valid child for the screen statement.
+    chapter2_0 movie 
+              ^
+
+File "game/script.rpy", line 461: end of line expected.
+    call screen chapter2_map movie
+                             ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227

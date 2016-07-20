@@ -439,8 +439,9 @@ label pills_scene:
 
 
 screen chapter2_map:
-    imagemap:
-        #ground chapter2_0 movie Do I need to specify the base image?
+    # imagemap:
+        chapter2_0 movie 
+        # Do I need to specify the base image?
         #hover "Hover.jpg" I don't want a hover change thing
 
         hotspot (8, 200, 78, 78) clicked Return("book")        #library book for bus/email
@@ -450,7 +451,7 @@ screen chapter2_map:
         
 label chapter2:
 
-     $ scene_count += 1
+    $ scene_count += 1
      
      #scene chapter2_%r movie % stress_count
      #scene chapter2_0 movie
@@ -459,9 +460,9 @@ label chapter2:
     
     call screen chapter2_map movie
     with fade
-    
-     j "What am I forgetting?"
-     j "I always forget something."
+
+    j "What am I forgetting?"
+    j "I always forget something."
     
     $ result = _return
     
