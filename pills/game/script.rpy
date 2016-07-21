@@ -27,7 +27,7 @@ image chapter1_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="
 image getup_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="getup_0", play="getup_0.webm")
 # image bg getup1_1 = "getup1_1.webm"
 # image bg getup1_2 = "getup1_2.webm"
-
+# image chapter2_0 = "conner.png"
 image chapter2_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter2_0", play="chapter2_0.webm")
 # image bg chapter2_1 = "chapter2_1.webm"
 # image bg chapter2_2 = "chapter2_2.webm"
@@ -437,10 +437,10 @@ label pills_scene:
     #jump scene_%r % scene_count + 1
     jump chapter2
 
-
+# defining hotspots here, to be called later 
 screen chapter2_map:
-    # imagemap:
-        chapter2_0 movie 
+    imagemap:
+        ground "conner.png"
         # Do I need to specify the base image?
         #hover "Hover.jpg" I don't want a hover change thing
 
@@ -454,11 +454,11 @@ label chapter2:
     $ scene_count += 1
      
      #scene chapter2_%r movie % stress_count
-     #scene chapter2_0 movie
-     #with fade
+    scene chapter2_0
+    with fade
      #weird imagemap call below - probably gonna break
     
-    call screen chapter2_map movie
+    call screen chapter2_map
     with fade
 
     j "What am I forgetting?"
@@ -486,7 +486,8 @@ label chapter2:
         j "Guess I should hit the road."
         j "Hope whatever it was isn't important."
         # play the outro cutscene where I leave or turn out light or something
-        jump chapter3
+
+    jump chapter3
         
 label chapter3:
 
