@@ -440,29 +440,33 @@ label pills_scene:
 # defining hotspots here, to be called later 
 screen chapter2_map:
     imagemap:
-        ground "conner.png"
+        ground "blank.png"
         # Do I need to specify the base image?
         #hover "Hover.jpg" I don't want a hover change thing
 
-        hotspot (8, 200, 78, 78) clicked Return("book")        #library book for bus/email
+        hotspot (0, 600, 100, 100) clicked Return("book")        #library book for bus/email
         hotspot (204, 50, 78, 78) clicked Return("bag")        #bag for bus pass
         hotspot (452, 79, 78, 78) clicked Return("calendar")   #calendar for meeting 
-        hotspot (602, 316, 78, 78) clicked Return("door")      #door is leave
+        hotspot (700, 100, 300, 300) clicked Return("door")      #door is leave
         
 label chapter2:
 
     $ scene_count += 1
      
      #scene chapter2_%r movie % stress_count
-    scene chapter2_0
+    scene chapter2_0 movie
     with fade
      #weird imagemap call below - probably gonna break
     
-    call screen chapter2_map
-    with fade
-
     j "What am I forgetting?"
     j "I always forget something."
+
+    jump chapter2_w_map
+
+label chapter2_w_map:
+
+    call screen chapter2_map
+    with fade
     
     $ result = _return
     
@@ -472,22 +476,24 @@ label chapter2:
         j "I think it's due already."
         j "I never have time to read finish anything."
         j "Whatever. One more bus ride made less awkward."
+        jump chapter2_w_map
     elif result == "bag":
         $ bag_check = 1
         j "Did I pack everything for today?"
         j "Oh damn I almost forgot my bus pass."
         j "That would have been annoying."
+        jump chapter2_w_map
     elif result == "calendar":
         $ calendar_check = 1
         j "Do I have anything at work today?"
         j "Sure doesn't look like it."
         j "Probably for the best."
+        jump chapter2_w_map
     elif result == "door":
         j "Guess I should hit the road."
         j "Hope whatever it was isn't important."
         # play the outro cutscene where I leave or turn out light or something
-
-    jump chapter3
+        jump chapter3
         
 label chapter3:
 
