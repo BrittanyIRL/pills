@@ -2,8 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 492: Line is indented, but the preceding return statement statement does not expect a block. Please check this line's indentation.
-    jump chapter3
-    ^
+File "game/script.rpy", line 443: u'movie' is not a keyword argument or valid child for the imagemap statement.
+    ground chapter2_0 movie
+                           ^
 
 Ren'Py Version: Ren'Py 6.99.10.1227

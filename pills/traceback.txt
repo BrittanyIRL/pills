@@ -1,24 +1,58 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 30, in script
-    image chapter2_0 = conner.png
-  File "game/script.rpy", line 30, in <module>
-    image chapter2_0 = conner.png
-NameError: name 'conner' is not defined
+  File "game/script.rpy", line 468, in script
+    call screen chapter2_map
+  File "renpy/common/000statements.rpy", line 463, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "game/script.rpy", line 441, in execute
+    screen chapter2_map:
+  File "game/script.rpy", line 441, in execute
+    screen chapter2_map:
+  File "game/script.rpy", line 442, in execute
+    imagemap:
+Exception: Could not find a ground image for imagemap.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 30, in script
-    image chapter2_0 = conner.png
-  File "/Users/brittanybrassell/repos/pills/renpy-6.99.10-sdk/renpy/ast.py", line 897, in execute
-    img = renpy.python.py_eval_bytecode(self.code.bytecode)
-  File "/Users/brittanybrassell/repos/pills/renpy-6.99.10-sdk/renpy/python.py", line 1601, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 30, in <module>
-    image chapter2_0 = conner.png
-NameError: name 'conner' is not defined
+  File "game/script.rpy", line 468, in script
+    call screen chapter2_map
+  File "/Users/brittanybrassell/repos/pills/renpy-6.99.10-sdk/renpy/ast.py", line 1697, in execute
+    self.call("execute")
+  File "/Users/brittanybrassell/repos/pills/renpy-6.99.10-sdk/renpy/ast.py", line 1715, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/Users/brittanybrassell/repos/pills/renpy-6.99.10-sdk/renpy/statements.py", line 144, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 463, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/Users/brittanybrassell/repos/pills/renpy-6.99.10-sdk/renpy/exports.py", line 2475, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/Users/brittanybrassell/repos/pills/renpy-6.99.10-sdk/renpy/ui.py", line 277, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/Users/brittanybrassell/repos/pills/renpy-6.99.10-sdk/renpy/display/core.py", line 2437, in interact
+    scene_lists.replace_transient()
+  File "/Users/brittanybrassell/repos/pills/renpy-6.99.10-sdk/renpy/display/core.py", line 727, in replace_transient
+    self.remove(layer, tag)
+  File "/Users/brittanybrassell/repos/pills/renpy-6.99.10-sdk/renpy/display/core.py", line 1014, in remove
+    self.hide_or_replace(layer, remove_index, "hide")
+  File "/Users/brittanybrassell/repos/pills/renpy-6.99.10-sdk/renpy/display/core.py", line 938, in hide_or_replace
+    d = oldsle.displayable._hide(now - st, now - at, prefix)
+  File "/Users/brittanybrassell/repos/pills/renpy-6.99.10-sdk/renpy/display/screen.py", line 430, in _hide
+    self.update()
+  File "/Users/brittanybrassell/repos/pills/renpy-6.99.10-sdk/renpy/display/screen.py", line 565, in update
+    self.screen.function(**self.scope)
+  File "game/script.rpy", line 441, in execute
+    screen chapter2_map:
+  File "game/script.rpy", line 441, in execute
+    screen chapter2_map:
+  File "game/script.rpy", line 442, in execute
+    imagemap:
+  File "/Users/brittanybrassell/repos/pills/renpy-6.99.10-sdk/renpy/ui.py", line 1159, in _imagemap
+    ground = pick(ground, "ground", None)
+  File "/Users/brittanybrassell/repos/pills/renpy-6.99.10-sdk/renpy/ui.py", line 1156, in pick
+    raise Exception("Could not find a %s image for imagemap." % name)
+Exception: Could not find a ground image for imagemap.
 
 Darwin-15.5.0-x86_64-i386-64bit
 Ren'Py 6.99.10.1227

@@ -444,10 +444,10 @@ screen chapter2_map:
         # Do I need to specify the base image?
         #hover "Hover.jpg" I don't want a hover change thing
 
-        hotspot (0, 600, 100, 100) clicked Return("book")        #library book for bus/email
+        hotspot (8, 200, 100, 100) clicked Return("book")        #library book for bus/email
         hotspot (204, 50, 78, 78) clicked Return("bag")        #bag for bus pass
         hotspot (452, 79, 78, 78) clicked Return("calendar")   #calendar for meeting 
-        hotspot (700, 100, 300, 300) clicked Return("door")      #door is leave
+        hotspot (602, 316, 300, 300) clicked Return("door")      #door is leave
         
 label chapter2:
 
