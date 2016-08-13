@@ -32,6 +32,10 @@ footer {
 .intro h1 {
 	text-align: center;
 	vertical-align: center;
-	font-size: 7rem;
-	font-weight: 700;
+	font-size: 9rem;
+	font-weight: 800;
+	color: white;  /* Fallback: assume this color ON TOP of image */
+   	background: url(../images/static.jpg);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
 }
