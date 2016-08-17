@@ -352,9 +352,9 @@ screen save():
     # use file_picker
     imagemap:
         ground "images/blank.png"
-        idle "images/blank.png"
-        hover "images/blank.png"
-        cache False
+        idle "images/ingamemenu.png"
+        hover "images/ingamemenu-hover.png"
+        # cache False
      
         # hotspot (0,0,0,0) clicked FilePage(1) 
         
@@ -362,9 +362,9 @@ screen save():
         #     use load_save_slot(number=1)
        
         # change this if this menu is showing up at all to have a back option show up in image
-        hotspot (182, 188, 175, 71) action Return()
-        hotspot (150, 188, 175, 71) action MainMenu()
-        hotspot (130, 188, 175, 71) action Quit()
+        hotspot (623, 400, 114, 43) action Return()
+        hotspot (623, 449, 147, 43) action MainMenu()
+        hotspot (623, 501, 67, 43) action Quit()
 
 
 
@@ -548,24 +548,24 @@ init -2:
 
 screen yesno_prompt(message, yes_action, no_action):
 
-    modal True
+    modal False
 
     imagemap:
-        ground 'images/blank.png'
-        idle 'images/blank.png' 
-        hover 'images/blank.png'
+        ground 'images/bg-verify.png'
+        idle 'images/verify.png' 
+        hover 'images/verify-hover.png'
         
-        hotspot (182, 188, 175, 71)  action yes_action
-        hotspot (182, 150, 175, 71) action no_action
+        hotspot (222, 176, 114, 66)  action yes_action
+        hotspot (448, 176, 114, 66) action no_action
     
     if message == layout.ARE_YOU_SURE:
-        add 'images/blank.png'
+        add 'images/verify.png'
         
     elif message == layout.QUIT:
-        add 'images/blank.png'
+        add 'images/verify.png'
         
     elif message == layout.MAIN_MENU:
-        add 'images/blank.png'
+        add 'images/verify.png'
     
     # window:
     #     style "gm_root"
