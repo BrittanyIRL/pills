@@ -1,5 +1,9 @@
 ﻿# Pills script - draft copy from RenPy
 # remember to put a "return" at the end of the last scene 
+# init:
+    # image main_menu = Movie(size=(1200, 600), xalign=0.5, yalign=0, play="mainmenu.webm")
+
+
 $ _game_menu_screen = None
 $ renpy.register_sfont('new_sfont', 22, spacewidth=6)
 # transition options: fade, pixelate, dissolve
@@ -71,6 +75,11 @@ image chapter2_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="
 # image bg chapter9_1 = "chapter9_1.webm"
 # image bg chapter9_2 = "chapter9_2.webm"
 
+# screen main_menu:
+#     add Movie(size=(800, 600))
+#     on "show" action Play("movie", "mainmenu.webm", loop=True)
+#     on "hide" action Stop("movie")
+#     on "replaced" action Stop("movie")
 
 ##############################################################
 ## Chapter 1 begins here                                    ##
