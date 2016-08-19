@@ -19,6 +19,7 @@ $ renpy.register_sfont('new_sfont', 22, spacewidth=6)
 ## Dependent variables are defined below                    ##
 ##############################################################
 
+
 # want slow text mode
 
 # Alter Character text
@@ -658,6 +659,83 @@ label bus_time:
         jump chapter4
 
 
+
+##############################################################
+## Chapter 4 begins here                                    ##
+## On the bus headed to work                                ##
+## Chapter 4 involves a hotspot for looking around the bus  ##
+## The window should return a random choice of outside      ##
+## This chapter also checks if in Chp2 you checked the book ##
+##############################################################
+
+label chapter4:
+    # on the bus
+    
+    $ scene_count += 1
+    
+    #scene chapter3_%r movie % stress_count
+    scene chapter3_0 movie
+    with fade
+
+    j "Bus arrives in... zero minutes?"
+    j "It's not even down the hill yet."
+    j "I can see the damn hill."
+    j "I don't understand why they even make apps for bus times."
+    j "Pure masochism is what it is."
+    j "I wonder how much the small sanctions of every day life"
+    j "are responsible for all the stress you feel."
+    
+    menu:
+         "Some sanctions.":
+             j "I mean, probably at least a couple."
+             j "But which ones?"
+             j "How the hell are you supposed to figure that out?"
+             $ stress_count += 1
+             if stress_count > 2:
+                 jump pills_scene
+             else:
+                 jump bus_time
+
+         "All the sanctions.":
+             j "Yeah. Probably the whole enchilada."
+             j "Actually, admitting it like that kind of takes a load off."
+             j "Maybe everybody else feels the same way."
+             j "Or maybe not. Who knows?"
+             jump bus_time
+
+         "Am I using that word correctly?":
+             j "Ah, never mind." 
+             j "Boring conversation with myself anyway."
+             jump bus_time
+    
+label bus_time:
+
+    #scene chapter3_%r movie % stress_count
+    scene chapter3_0 movie
+
+    # play sound "busarrival.wav"
+    j "There's the bus, finally."
+    
+    if bag_check > 0:
+        j "Glad I remembered my pass."
+        j "That would have been stupid."
+        j "Normal days have enough stupidity already."
+        j "They don't need any extra."
+    else:
+        j "Let me just grab my pass..."
+        j "Wait... where is it?"
+        j "Did I take it out of my bag?"
+        j "I totally took it out of my bag."
+        j "Last night, when I was rushing to catch the bus back from downtown."
+        j "Dammit."
+        j "I hate everything."
+    $ stress_count += 2
+    if stress_count > 2:
+        jump pills_scene
+    else:
+        jump chapter4
+
+
 ##############################################################
 ## Chapter 4 begins here                                    ##
 ## On the bus headed to work                                ##
@@ -1079,7 +1157,7 @@ label coffeeshop:
              jump loud_coffee
 
          "Leave without coffee.":
-        
+                 
              jump nada_coffee
             
 label quiet_coffee:
