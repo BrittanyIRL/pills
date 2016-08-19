@@ -179,29 +179,57 @@ screen main_menu():
     # This ensures that any other menu screen is replaced.
     tag menu
 
+    # add "images/blank.png" # Adds background image for the main menu
+    
+    # imagebutton auto "images/blank_%s.png" xpos 600 ypos 110 focus_mask True action Start()
+    # imagebutton auto "images/blank_%s.png" xpos 600 ypos 140 focus_mask True  action ShowMenu('load')
+    # imagebutton auto "images/blank_%s.png" xpos 600 ypos 180 focus_mask True action ShowMenu('preferences')
+    # imagebutton auto "images/blank_%s.png" xpos 600 ypos 220 focus_mask True action Quit(confirm=False)
+
     # The background of the main menu.
     window:
         style "mm_root"
 
     # The main menu buttons.
-    frame:
-        style_group "mm"
-        xalign .98
-        yalign .98
+    # frame:
+    #     style_group "mm"
+    #     xalign .78
+    #     yalign .78
+    #     has vbox 
+    screen main_menu:
+        add Movie(size=(800, 600))
+        on "show" action Play("movie", "mainmenu.webm", loop=True)
+        on "hide" action Stop("movie")
+        on "replaced" action Stop("movie")
 
-        has vbox
 
-        textbutton _("Start Game") action Start()
-        textbutton _("Load Game") action ShowMenu("load")
-        textbutton _("Preferences") action ShowMenu("preferences")
-        textbutton _("Help") action Help()
-        textbutton _("Quit") action Quit(confirm=False)
+    imagemap:
+        ground "images/mainmenu.png"
+        idle "images/mainmenu.png"
+        hover "images/mainmenu-hover.png"
+
+        alpha False
+
+        hotspot (635, 393, 114, 49) action Start()
+        # hotspot (#, #, #, #) action ShowMenu("load")
+        # hotspot (#, #, #, #) action ShowMenu("preferences")
+        # hotspot (#, #, #, #) action ShowMenu("MENU NAME")
+        # hotspot (#, #, #, #) action Help()
+        hotspot (635, 451, 114, 49) action Quit(confirm=False)
+        
+        # textbutton _("Start") action Start()
+        # textbutton _("Load Game") action ShowMenu("load")
+        # textbutton _("Preferences") action ShowMenu("preferences")
+        # textbutton _("Help") action Help()
+        # textbutton _("Quit") action Quit(confirm=False)
 
 init -2:
 
     # Make all the main menu buttons be the same size.
     style mm_button:
         size_group "mm"
+        # mm_button_text
+        # color "#ff0000"
 
 
 
@@ -226,18 +254,23 @@ screen navigation():
         has vbox
 
         textbutton _("Return") action Return()
-        textbutton _("Preferences") action ShowMenu("preferences")
-        textbutton _("Save Game") action ShowMenu("save")
-        textbutton _("Load Game") action ShowMenu("load")
         textbutton _("Main Menu") action MainMenu()
-        textbutton _("Help") action Help()
         textbutton _("Quit") action Quit()
+# we don't want these 
+        # textbutton _("Preferences") action ShowMenu("preferences")
+        # textbutton _("Save Game") action ShowMenu("save")
+        # textbutton _("Load Game") action ShowMenu("load")
+        # textbutton _("Main Menu") action MainMenu()
+        # textbutton _("Help") action Help()
+        # textbutton _("Quit") action Quit()
 
 init -2:
 
     # Make all game menu navigation buttons the same size.
     style gm_nav_button:
         size_group "gm_nav"
+
+
 
 
 ##############################################################################
@@ -315,24 +348,59 @@ screen save():
     # This ensures that any other menu screen is replaced.
     tag menu
 
-    use navigation
-    use file_picker
+    # use navigation
+    # use file_picker
+    imagemap:
+        ground "images/blank.png"
+        idle "images/ingamemenu.png"
+        hover "images/ingamemenu-hover.png"
+        # cache False
+     
+        # hotspot (0,0,0,0) clicked FilePage(1) 
+        
+        # hotspot (0,0,0,0) clicked FileSave(1) :
+        #     use load_save_slot(number=1)
+       
+        # change this if this menu is showing up at all to have a back option show up in image
+        hotspot (623, 400, 114, 43) action Return()
+        hotspot (623, 449, 147, 43) action MainMenu()
+        hotspot (623, 501, 67, 43) action Quit()
+
+
 
 screen load():
-
+    # We aren't using the load functions, so this is irrelevant, but leaving so it doesn't break
     # This ensures that any other menu screen is replaced.
     tag menu
 
-    use navigation
-    use file_picker
+    # use navigation
+    # use file_picker
+    imagemap:
+        ground "images/blank.png"
+        idle "images/blank.png"
+        hover "images/blank.png"
+        cache False
+     
+        # hotspot (0,0,0,0) clicked FilePage(1) 
+        
+        # hotspot (0,0,0,0) clicked FileLoad(1) :
+        #     use load_save_slot(number=1)
+       
+        # change this if this menu is showing up at all to have a back option show up in image
+        hotspot (0,0,0,0) action Return()
 
-init -2:
-    style file_picker_frame is menu_frame
-    style file_picker_nav_button is small_button
-    style file_picker_nav_button_text is small_button_text
-    style file_picker_button is large_button
-    style file_picker_text is large_button_text
+#init -2:
+    # style file_picker_frame is menu_frame
+    # style file_picker_nav_button is small_button
+    # style file_picker_nav_button_text is small_button_text
+    # style file_picker_button is large_button
+    # style file_picker_text is large_button_text
 
+    
+init -2 python:
+    
+    config.thumbnail_width = 180
+    config.thumbnail_height = 150
 
 ##############################################################################
 # Preferences
@@ -454,8 +522,8 @@ screen preferences():
 init -2:
     style pref_frame:
         xfill True
-        xmargin 5
-        top_margin 5
+        xmargin 0
+        top_margin 0
 
     style pref_vbox:
         xfill True
@@ -480,34 +548,51 @@ init -2:
 
 screen yesno_prompt(message, yes_action, no_action):
 
-    modal True
+    modal False
 
-    window:
-        style "gm_root"
+    imagemap:
+        ground 'images/bg-verify.png'
+        idle 'images/verify.png' 
+        hover 'images/verify-hover.png'
+        
+        hotspot (222, 176, 114, 66)  action yes_action
+        hotspot (448, 176, 114, 66) action no_action
+    
+    if message == layout.ARE_YOU_SURE:
+        add 'images/verify.png'
+        
+    elif message == layout.QUIT:
+        add 'images/verify.png'
+        
+    elif message == layout.MAIN_MENU:
+        add 'images/verify.png'
+    
+    # window:
+    #     style "gm_root"
 
-    frame:
-        style_group "yesno"
+    # frame:
+    #     style_group "yesno"
 
-        xfill True
-        xmargin .05
-        ypos .1
-        yanchor 0
-        ypadding .05
+    #     xfill True
+    #     xmargin .05
+    #     ypos .1
+    #     yanchor 0
+    #     ypadding .05
 
-        has vbox:
-            xalign .5
-            yalign .5
-            spacing 30
+    #     has vbox:
+    #         xalign .5
+    #         yalign .5
+    #         spacing 30
 
-        label _(message):
-            xalign 0.5
+    #     label _(message):
+    #         xalign 0.5
 
-        hbox:
-            xalign 0.5
-            spacing 100
+    #     hbox:
+    #         xalign 0.5
+    #         spacing 100
 
-            textbutton _("Yes") action yes_action
-            textbutton _("No") action no_action
+    #         textbutton _("Yes") action yes_action
+    #         textbutton _("No") action no_action
 
     # Right-click and escape answer "no".
     key "game_menu" action no_action

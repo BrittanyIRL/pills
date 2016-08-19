@@ -1,5 +1,9 @@
 ﻿# Pills script - draft copy from RenPy
 # remember to put a "return" at the end of the last scene 
+# init:
+    # image main_menu = Movie(size=(1200, 600), xalign=0.5, yalign=0, play="mainmenu.webm")
+
+
 $ _game_menu_screen = None
 $ renpy.register_sfont('new_sfont', 22, spacewidth=6)
 # transition options: fade, pixelate, dissolve
@@ -15,7 +19,6 @@ $ renpy.register_sfont('new_sfont', 22, spacewidth=6)
 ## Dependent variables are defined below                    ##
 ##############################################################
 
-$ esfont = Character(_("Eileen"), color="#c8ffc8", what_font="new_sfont")
 
 # want slow text mode
 
@@ -43,7 +46,7 @@ image chapter2_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="
 # image bg chapter2_1 = "chapter2_1.webm"
 # image bg chapter2_2 = "chapter2_2.webm"
 
-# image bg chapter3_0 = "chapter3_0.webm"
+image chapter3_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter3_0", play="chapter3_0.webm")
 # image bg chapter3_1 = "chapter3_1.webm"
 # image bg chapter3_2 = "chapter3_2.webm"
 
@@ -51,15 +54,18 @@ image chapter2_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="
 # image bg chapter4_1 = "chapter4_1.webm"
 # image bg chapter4_2 = "chapter4_2.webm"
 
-# image bg chapter5_0 = "chapter5_0.webm"
+image chapter5_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter5_0", play="chapter5_0.webm")
 # image bg chapter5_1 = "chapter5_1.webm"
 # image bg chapter5_2 = "chapter5_2.webm"
-
-# image bg chapter6_0 = "chapter6_0.webm"
+image chapter5_stoplight movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter5_stoplight", play="chapter5_stoplight.webm")
+# image bg chapter5_1 = "chapter5_1.webm"
+image chapter6_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter6_0", play="chapter6_0.webm")
 # image bg chapter6_1 = "chapter6_1.webm"
 # image bg chapter6_2 = "chapter6_2.webm"
+image mgmt_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="mgmt_0", play="mgmt_0.webm")
+image clientmtg_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="clientmtg_0", play="clientmtg_0.webm")
 
-# image bg chapter7_0 = "chapter7_0.webm"
+image chapter7_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter7_0", play="chapter7_0.webm")
 # image bg chapter7_1 = "chapter7_1.webm"
 # image bg chapter7_2 = "chapter7_2.webm"
 
@@ -653,6 +659,83 @@ label bus_time:
         jump chapter4
 
 
+
+##############################################################
+## Chapter 4 begins here                                    ##
+## On the bus headed to work                                ##
+## Chapter 4 involves a hotspot for looking around the bus  ##
+## The window should return a random choice of outside      ##
+## This chapter also checks if in Chp2 you checked the book ##
+##############################################################
+
+label chapter4:
+    # on the bus
+    
+    $ scene_count += 1
+    
+    #scene chapter3_%r movie % stress_count
+    scene chapter3_0 movie
+    with fade
+
+    j "Bus arrives in... zero minutes?"
+    j "It's not even down the hill yet."
+    j "I can see the damn hill."
+    j "I don't understand why they even make apps for bus times."
+    j "Pure masochism is what it is."
+    j "I wonder how much the small sanctions of every day life"
+    j "are responsible for all the stress you feel."
+    
+    menu:
+         "Some sanctions.":
+             j "I mean, probably at least a couple."
+             j "But which ones?"
+             j "How the hell are you supposed to figure that out?"
+             $ stress_count += 1
+             if stress_count > 2:
+                 jump pills_scene
+             else:
+                 jump bus_time
+
+         "All the sanctions.":
+             j "Yeah. Probably the whole enchilada."
+             j "Actually, admitting it like that kind of takes a load off."
+             j "Maybe everybody else feels the same way."
+             j "Or maybe not. Who knows?"
+             jump bus_time
+
+         "Am I using that word correctly?":
+             j "Ah, never mind." 
+             j "Boring conversation with myself anyway."
+             jump bus_time
+    
+label bus_time:
+
+    #scene chapter3_%r movie % stress_count
+    scene chapter3_0 movie
+
+    # play sound "busarrival.wav"
+    j "There's the bus, finally."
+    
+    if bag_check > 0:
+        j "Glad I remembered my pass."
+        j "That would have been stupid."
+        j "Normal days have enough stupidity already."
+        j "They don't need any extra."
+    else:
+        j "Let me just grab my pass..."
+        j "Wait... where is it?"
+        j "Did I take it out of my bag?"
+        j "I totally took it out of my bag."
+        j "Last night, when I was rushing to catch the bus back from downtown."
+        j "Dammit."
+        j "I hate everything."
+    $ stress_count += 2
+    if stress_count > 2:
+        jump pills_scene
+    else:
+        jump chapter4
+
+
 ##############################################################
 ## Chapter 4 begins here                                    ##
 ## On the bus headed to work                                ##
@@ -1074,7 +1157,7 @@ label coffeeshop:
              jump loud_coffee
 
          "Leave without coffee.":
-        
+                 
              jump nada_coffee
             
 label quiet_coffee:

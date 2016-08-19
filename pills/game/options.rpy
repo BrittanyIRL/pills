@@ -18,11 +18,16 @@ init -1 python hide:
     ## running in a window.
 
     config.window_title = u"pills"
+    # config.window_icon = "icon.icns", in ../game directory, 256x256
 
     # These control the name and version of the game, that are reported
     # with tracebacks and other debugging logs.
     config.name = "pills"
     config.version = "0.0"
+    # config.about = _("""\
+        # About Pills.
+        # Update me in options.rpy
+        # """)
 
     #########################################
     # Themes
@@ -38,39 +43,41 @@ init -1 python hide:
         ## Color scheme: Muted Horror
 
         ## The color of an idle widget face.
-        widget = "#777777",
+        widget = "#000000",
 
         ## The color of a focused widget face.
-        widget_hover = "#73735C",
+        widget_hover = "#000000",
 
         ## The color of the text in a widget.
-        widget_text = "#404033",
+        widget_text = "#ffffff",
 
         ## The color of the text in a selected widget. (For
         ## example, the current value of a preference.)
-        widget_selected = "#000000",
+        widget_selected = "#ffffff",
 
         ## The color of a disabled widget face.
-        disabled = "#73735C",
+        disabled = "#000000",
 
         ## The color of disabled widget text.
-        disabled_text = "#8C8C70",
+        disabled_text = "#ffffff",
 
         ## The color of informational labels.
-        label = "#1A0001",
+        label = "#ffffff",
 
         ## The color of a frame containing widgets.
-        frame = "#555544",
+        ## we want this transparent
+        frame = "#32cd32",
 
         ## The background of the main menu. This can be a color
         ## beginning with '#', or an image filename. The latter
         ## should take up the full height and width of the screen.
-        mm_root = "#1A0001",
+        ## replace this with image/movie, correspondes with init
+        # mm_root = "images/mainmenu.",
 
         ## The background of the game menu. This can be a color
         ## beginning with '#', or an image filename. The latter
         ## should take up the full height and width of the screen.
-        gm_root = "#1A0001",
+        # gm_root = "images/blank.png",
 
         ## If this is True, the in-game window is rounded. If False,
         ## the in-game window is square.
@@ -132,6 +139,7 @@ init -1 python hide:
     # style.mm_menu_frame.xanchor = 0.5
     # style.mm_menu_frame.ypos = 0.75
     # style.mm_menu_frame.yanchor = 0.5
+    style.mm_menu_frame.background = ("#000000")
 
 
     #########################################
@@ -139,7 +147,7 @@ init -1 python hide:
 
     ## The file containing the default font.
 
-    # style.default.font = "DejaVuSans.ttf"
+    style.default.font = "DejaVuSans.ttf"
 
     ## The default size of text.
 
