@@ -19,8 +19,6 @@ $ renpy.register_sfont('new_sfont', 22, spacewidth=6)
 ## Dependent variables are defined below                    ##
 ##############################################################
 
-$ esfont = Character(_("Eileen"), color="#c8ffc8", what_font="new_sfont")
-
 # want slow text mode
 
 # Alter Character text
@@ -47,7 +45,7 @@ image chapter2_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="
 # image bg chapter2_1 = "chapter2_1.webm"
 # image bg chapter2_2 = "chapter2_2.webm"
 
-# image bg chapter3_0 = "chapter3_0.webm"
+image chapter3_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter3_0", play="chapter3_0.webm")
 # image bg chapter3_1 = "chapter3_1.webm"
 # image bg chapter3_2 = "chapter3_2.webm"
 
@@ -55,15 +53,18 @@ image chapter2_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="
 # image bg chapter4_1 = "chapter4_1.webm"
 # image bg chapter4_2 = "chapter4_2.webm"
 
-# image bg chapter5_0 = "chapter5_0.webm"
+image chapter5_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter5_0", play="chapter5_0.webm")
 # image bg chapter5_1 = "chapter5_1.webm"
 # image bg chapter5_2 = "chapter5_2.webm"
-
-# image bg chapter6_0 = "chapter6_0.webm"
+image chapter5_stoplight movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter5_stoplight", play="chapter5_stoplight.webm")
+# image bg chapter5_1 = "chapter5_1.webm"
+image chapter6_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter6_0", play="chapter6_0.webm")
 # image bg chapter6_1 = "chapter6_1.webm"
 # image bg chapter6_2 = "chapter6_2.webm"
+image mgmt_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="mgmt_0", play="mgmt_0.webm")
+image clientmtg_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="clientmtg_0", play="clientmtg_0.webm")
 
-# image bg chapter7_0 = "chapter7_0.webm"
+image chapter7_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter7_0", play="chapter7_0.webm")
 # image bg chapter7_1 = "chapter7_1.webm"
 # image bg chapter7_2 = "chapter7_2.webm"
 
@@ -75,11 +76,6 @@ image chapter2_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="
 # image bg chapter9_1 = "chapter9_1.webm"
 # image bg chapter9_2 = "chapter9_2.webm"
 
-# screen main_menu:
-#     add Movie(size=(800, 600))
-#     on "show" action Play("movie", "mainmenu.webm", loop=True)
-#     on "hide" action Stop("movie")
-#     on "replaced" action Stop("movie")
 
 ##############################################################
 ## Chapter 1 begins here                                    ##
