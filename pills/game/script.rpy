@@ -585,10 +585,10 @@ screen chapter2_map:
         # Do I need to specify the base image?
         #hover "Hover.jpg" I don't want a hover change thing
 
-        hotspot (8, 250, 250, 70) clicked Return("book")        #library book for bus/email
-        hotspot (50, 100, 150, 150) clicked Return("bag")        #bag for bus pass
-        hotspot (400, 450, 200, 50) clicked Return("calendar")   #calendar for meeting 
-        hotspot (400, 5, 200, 350) clicked Return("door")      #door is leave
+        hotspot (22, 300, 314, 106) clicked Return("book")        #library book for bus/email
+        hotspot (0, 93, 168, 80) clicked Return("bag")        #bag for bus pass
+        hotspot (436, 406, 186, 92) clicked Return("calendar")   #calendar for meeting 
+        hotspot (575, 133, 122, 167) clicked Return("door")      #door is leave
         
 label chapter2:
     #getting out the door
@@ -797,11 +797,11 @@ screen chapter4_map:
         ground "blank.png"
         #we need to change these
 
-        hotspot (8, 200, 100, 100) clicked Return("window")        #look out window
-        hotspot (204, 50, 78, 78) clicked Return("openbag")        #look in yr bag
-        hotspot (452, 79, 78, 78) clicked Return("ads")            #ads on bus 
-        hotspot (602, 316, 300, 300) clicked Return("people")      #people on bus
-        hotspot (1, 1, 1, 1) clicked Return("nothingbus")          #NOTHINGNESS 
+        hotspot (163, 75, 332, 86) clicked Return("window")        #look out window
+        hotspot (525, 132, 222, 204) clicked Return("openbag")        #look in yr bag
+        hotspot (228, 268, 130, 84) clicked Return("ads")            #ads on bus 
+        hotspot (0, 300, 163, 225) clicked Return("people")      #people on bus
+        # hotspot (1, 1, 1, 1) clicked Return("nothingbus")          #NOTHINGNESS 
     
 label chapter4_w_map:
 
@@ -852,6 +852,8 @@ label chapter4_w_map:
             scene bag_1_0_0 movie
         elif stress_count == 2 and calendar_check < 1 and book_check < 1:
             scene bag_2_0_0 movie
+        # really hard to notice the ellipsis, adding second one
+        j "..."
         j "..."
         jump chapter4_w_map
     elif result == "ads":
