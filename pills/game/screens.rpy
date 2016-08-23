@@ -210,12 +210,12 @@ screen main_menu():
 
         alpha False
 
-        hotspot (635, 393, 114, 49) action Start()
+        hotspot (268, 262, 107, 80) action Start()
         # hotspot (#, #, #, #) action ShowMenu("load")
         # hotspot (#, #, #, #) action ShowMenu("preferences")
         # hotspot (#, #, #, #) action ShowMenu("MENU NAME")
         # hotspot (#, #, #, #) action Help()
-        hotspot (635, 451, 114, 49) action Quit(confirm=False)
+        hotspot (581, 244, 107, 80) action Quit(confirm=False)
         
         # textbutton _("Start") action Start()
         # textbutton _("Load Game") action ShowMenu("load")
@@ -362,11 +362,9 @@ screen save():
         #     use load_save_slot(number=1)
        
         # change this if this menu is showing up at all to have a back option show up in image
-        hotspot (623, 400, 114, 43) action Return()
-        hotspot (623, 449, 147, 43) action MainMenu()
-        hotspot (623, 501, 67, 43) action Quit()
-
-
+        hotspot (588, 256, 193, 61) action Return()
+        hotspot (588, 332, 193, 65) action MainMenu()
+        hotspot (588, 409, 193, 57) action Quit()
 
 screen load():
     # We aren't using the load functions, so this is irrelevant, but leaving so it doesn't break
