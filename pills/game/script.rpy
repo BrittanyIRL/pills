@@ -143,6 +143,10 @@ label start:
     $ guy_talk = 0
     $ phone_talk = 0
     $ go_to_meeting = 0
+    $ check_email = 0
+    
+    $ randmtg = renpy.random.choice(["plan", "projection", "marketing", "benefits"])
+    $ randlng = renpy.random.choice(["french", "latin"])
 
     scene black
 
@@ -557,9 +561,13 @@ label pills_scene:
         jump chapter4
     elif scene_count == 4:
         jump chapter5
-    elif scene_count == 5:
+    elif scene_count == 5 and coffee_choice > 0:
+        jump coffeeshop
+    elif scene_count == 5 and coffee_choice < 1:
         jump chapter6
-    elif scene_count == 6:
+    elif scene_count == 6 and go_to_meeting > 0:
+        jump clientmeeting
+    elif scene_count == 6 and go_to_meeting < 1:
         jump chapter7
     elif scene_count == 7:
         jump chapter8
@@ -1387,12 +1395,33 @@ label chapter6:
     menu:
 
          "Check nonexistent email.":
+             $ check_email += 1
              j "Guess I should sift through my inbox..."
              j "Wait..."
              j "What is this email about a meeting?"
-             j "Something about globalized marketing outreach?"
-             j "More hot words into the all-consuming fire of relevance."
-             j "This is bonkers."
+             
+             if randmtg = "plan":
+                 j "Something about a renewed business plan?"
+                 j "Focus on big picture."
+                 j "Moving the wheels of history..."
+                 j "Wait, where have I heard that before?"
+             elif randmtg = "projection":
+                 j "Something about bad quarterly earnings?"
+                 j "Yada yada yada..."
+                 j "Trying to turn things around in the future..."
+                 j "Well, yeah. Aren't we all?"
+             elif randmtg = "marketing":
+                 j "Something about globalized marketing outreach?"
+                 j "Globally unified..."
+                 j "Traditionally untraditional..."
+                 j "Could there be any more hot words in here?"
+                 j "This is bonkers."
+             elif randmtg = "benefits":
+                 j "Something about an updated benefits package?"
+                 j "Wow, I wonder if I get acupuncture now..."
+                 j "Oh wait, it's not for me. It's for someone else..."
+                 j "Whatever."
+             
              if calendar_check > 0:
                  "I don't have anything today - I checked my calendar."
                  "This can't be for me."
@@ -1442,6 +1471,15 @@ label chapter6:
              j "Where Alec Baldwin is a total dick,"
              j "but he's also like some kind of sales god."
              j "Is his name four words or three?"
+             
+             jump phonering
+         
+         "Make sure to get the memo.":
+             j "I sure try and take the initiative to..."
+             j "Wait, do we even do memos anymore?"
+             j "Why do I feel this sudden need to make sure I got the memo?"
+             j "I swear, they put something in the air conditioning here."
+             j "Makes us all crazy."
              
              jump phonering
          
@@ -1518,6 +1556,8 @@ label phonecall:
                  
                  j "..."
                  j "What the hell just happened?"
+                 
+                 $ go_to_meeting += 1
              
                  jump clientmeeting
              
@@ -1537,6 +1577,8 @@ label phonecall:
                  
                  j "..."
                  j "What the hell just happened?"
+                 
+                 $ go_to_meeting += 1
                  
                  jump clientmeeting
              
@@ -1559,6 +1601,8 @@ label phonecall:
                           j "..."
                           j "What did I just get myself into?"
                           j "I am so screwed."
+                          
+                          $ go_to_meeting += 1
                           
                           $ stress_count += 2
                           if stress_count > 2:
@@ -1604,6 +1648,8 @@ label phonecall:
                  
                  j "..."
                  j "What the hell just happened?"
+                 
+                 $ go_to_meeting += 1
              
                  jump clientmeeting
              
@@ -1623,6 +1669,8 @@ label phonecall:
                  
                  j "..."
                  j "What the hell just happened?"
+                 
+                 $ go_to_meeting += 1
                  
                  jump clientmeeting
 
@@ -1697,6 +1745,8 @@ label mgmtmeeting:
                  
                  j "..."
                  j "Sounds good?"
+                 
+                 $ go_to_meeting += 1
              
                  jump clientmeeting
              
@@ -1716,6 +1766,8 @@ label mgmtmeeting:
                  
                  j "..."
                  j "I'll be there?"
+                 
+                 $ go_to_meeting += 1
                  
                  jump clientmeeting
              
@@ -1751,6 +1803,8 @@ label mgmtmeeting:
                           j "..."
                           j "What did I just get myself into?"
                           j "I am so screwed."
+                          
+                          $ go_to_meeting += 1
                           
                           $ stress_count += 2
                           if stress_count > 2:
@@ -1813,6 +1867,8 @@ label mgmtmeeting:
                  
                  j "..."
                  j "Sounds good?"
+                 
+                 $ go_to_meeting += 1
              
                  jump clientmeeting
              
@@ -1832,6 +1888,8 @@ label mgmtmeeting:
                  
                  j "..."
                  j "You sure will?"
+                 
+                 $ go_to_meeting += 1
                  
                  jump clientmeeting
     
@@ -1857,23 +1915,869 @@ label clientmeeting:
     
     j "Oh my god."
     j "How is this happening?"
-    j "This is horrible."
-    j "I don't have a presentation."
     j "I'm going to die."
     j "No, worse..."
     j "I'm going to get fired."
     j "What am I going to do?"
     
-    #would be more fun if this was clickable
-    #dependence on other things?
+    o "Alright, Joe. This is Tom on the speakerphone here."
+    o "Did you catch the email I sent this morning?"
     
-    o "Alright, I think we can get started."
-    o "Joe, did you see the email I sent this morning?"
+    if check_email > 0:
+        j "I sure did."
+        o "Great! Excellent work, as always."
+    else:
+        j "I... didn't quite get to it, yet."
+        o "Well, good thing you've been prepping for this for weeks!"
     
-    #MORE HERE
+    o "Mr. Mills is there with you in the conference room now."
+    
+    j "Of course he picks the chair furthest from me..."
+    
+    if coffee_choice > 0:
+        j "Wait a second..."
+        j "Oh my god."
+        j "That's the guy from the coffee shop."
+        
+        if guy_talk > 0:
+            o "Well what are the odds?"
+            o "Joe, did you say it was?"
+            
+            j "Um... Joseph, actually."
+            
+            o "Alright, Joe."
+            
+            j "Let's see what brilliant stuff you have for me."
+            
+            $ stress_count += 2
+            
+            if stress_count > 2:
+                j "Oh no."
+                j "I think I'm having a panic attack."
+                
+                o "Please."
+                o "You are totally faking it, you scumbag."
+                
+                j "No, really."
+                j "I need my pills."
+                j "They are at my desk."
+                
+                o "This is ridiculous."
+                
+                j "This is..."
+                j "I need to get out of here..."
+                
+                $ meeting_panic += 1
+                
+                jump pills_scene
+            else:
+                jump meeting_prompt
+                
+        else:
+            j "That guy was a complete jerk to that barista."
+            j "What the hell is going to do to me?"
+            
+            o "Go ahead whenever you feel like it, Joe."
+            o "I don't have all day here, you know."
+            
+            $ stress_count += 1
+            
+            if stress_count > 2:
+                j "Oh no."
+                j "I think I'm having a panic attack."
+                
+                o "What?"
+                o "What's going on?"
+                
+                j "Please."
+                j "I need my pills."
+                j "They are at my desk."
+                j "I need to go get them."
+                
+                o "This is utterly bizarre."
+                o "We aren't selling a Life Alert, here, you know..."
+                
+                j "I know that..."
+                j "It's just..."
+                j "Really..."
+                j "I need to get out of here..."
+                
+                $ meeting_panic += 1
+                
+                jump pills_scene
+            else:
+                jump meeting_prompt
+    
+    else:
+    
+        o "Get on with it whenever you're ready."
+        o "I don't really mean that, by the way."
+        o "Whenever you're ready..."
+        o "I mean get on with it as soon as possible."
+        
+        j "Geez, what a jerk..."
+        j "Still, I have to think of something..."
+        
+        jump meeting_prompt            
 
-    jump chapter7
+label meeting_prompt:
+
+    menu:
+        
+        "So about your business plan...":
+            if randmtg = "plan":
+                o "I know full well about our business plan."
+                o "What I want to hear about is how you are going to fix it."
+                o "You are a consultant, aren't you?"
+            
+                j "Well, actually I'm..."
+                j "Yeah, I'm definitely a consultant."
+            
+                o "Well then, get on with it."
+            
+                jump meeting_w_map
+            
+            else:
+                o "Business plan?"
+                o "You don't even know what this meeting is for, do you?"
+                o "Tom, who the hell is this asshat?"
+            
+                $ stress_count += 2
+            
+                if stress_count > 2:
+                    j "Oh no."
+                    j "I think I'm having a panic attack."
+                
+                    o "You'd better have a panic attack."
+                    o "I don't see any way this is going to end any better."
+                
+                    j "No, really."
+                    j "I need my pills."
+                    j "They are at my desk."
+                
+                    o "Well I'm not going to carry you if that's what you're asking."
+                
+                    j "This is..."
+                    j "I need to get out of here..."
+                
+                    $ meeting_panic += 1
+                
+                    jump pills_scene
+                else:
+                    jump meeting_w_map
+
+             
+        "So about your quarterly projections...":
+            if randmtg = "projection":
+                o "Not the best opening line I've ever heard..."
+                o "But I'll take it."
+                o "Let's see what you plan on doing about them."
+                 
+                jump meeting_w_map
+            
+            else:
+                o "Quarterly projections?"
+                o "You don't even know what this meeting is for, do you?"
+                o "Tom, who are these monkeys that do your dirty work nowadays?"
+            
+                $ stress_count += 2
+            
+                if stress_count > 2:
+                    j "Oh no."
+                    j "I think I'm having a panic attack."
+                
+                    o "I've got a quarterly projection for you."
+                    o "It's called a quarter life crisis."
+                
+                    j "No, really."
+                    j "I need my pills."
+                    j "They are at my desk."
+                
+                    o "Get a job."
+                
+                    j "This is..."
+                    j "I need to get out of here..."
+                
+                    $ meeting_panic += 1
+                
+                    jump pills_scene
+                else:
+                    jump meeting_w_map
+             
+        "So about your marketing campaign...":
+            if randmtg = "marketing":
+                o "I know."
+                o "Currently, it sucks."
+                o "Which is why we are paying you people way more than you deserve."
+                o "You like getting paid more than you deserve, Joe?"
+        
+                j "I... no..."
+                j "I mean, yes?"
+        
+                o "Sure you do."
+                o "Let's get on with it."
+        
+                jump meeting_w_map
+        
+            else:
+                o "Marketing campaign?"
+                o "You don't even know what this meeting is for, do you?"
+                o "You want to talk marketing?"
+                o "How about you try marketing yourself to a new client?"
+            
+                $ stress_count += 2
+            
+                if stress_count > 2:
+                    j "Oh no."
+                    j "I think I'm having a panic attack."
+                
+                    o "Not a good brand image, Joe."
+                
+                    j "No, really."
+                    j "I need my pills."
+                    j "They are at my desk."
+                
+                    o "Survey says..."
+                    o "Whoops, sorry Joe."
+                    o "Just not a very popular response."
+                
+                    j "This is..."
+                    j "I need to get out of here..."
+                
+                    $ meeting_panic += 1
+                
+                    jump pills_scene
+                else:
+                    jump meeting_w_map
+        
+        "So about your employee benefits policy...":
+            if randmtg = "benefits":
+                o "It's absolutely..."
+                o "Wait..."
+                o "You're not one of my employees, are you?"
+            
+                j "I... don't think I am..."
+            
+                o "Right."
+                o "It's the legal bottom of the barrel."
+                o "Uncle Sam is making us raise it a bit."
+                o "That's all there is to this."
+                o "So let's hurry up and get it over with."
+        
+                jump meeting_w_map
+            
+            else:
+                o "Employee benefits?"
+                o "You don't even know what this meeting is for, do you?"
+                o "You trying to ask for a job or something?"
+                o "Because buddy, this is about the worst way to go about it."
+            
+                $ stress_count += 2
+            
+                if stress_count > 2:
+                    j "Oh no."
+                    j "I think I'm having a panic attack."
+                
+                    o "Still not covered under our policy, sorry."
+                
+                    j "No, really."
+                    j "I need my pills."
+                    j "They are at my desk."
+                
+                    o "I sure hope I didn't pay for those."
+                    o "What's your copay here, anyways?"
+                    o "Swanky lookin' office like this, probably pretty low."
+                    o "Damn socialists."
+                
+                    j "This is..."
+                    j "I need to get out of here..."
+                
+                    $ meeting_panic += 1
+                
+                    jump pills_scene
+                else:
+                    jump meeting_w_map
+
+# defining hotspots here, to be called later 
+screen meeting_map:
+    imagemap:
+        ground "blank.png"
+        #we need to change these
+
+        hotspot (8, 200, 100, 100) clicked Return("phone")        #use the phone
+        hotspot (204, 50, 78, 78) clicked Return("easel")         #use the easel
+        hotspot (452, 79, 78, 78) clicked Return("tv")            #use the tv 
+        hotspot (602, 316, 300, 300) clicked Return("papers")     #use the papers
+        hotspot (1, 1, 1, 1) clicked Return("desk")               #use the desk 
     
+label meeting_w_map:
+
+    call screen meeting_map
+    
+    $ result = _return
+    
+    if result == "phone":
+        j "Tom, can we dial in Jim over in... um... Operations?"
+        
+        o "Who the hell is Jim?"
+        
+        j "He's my main contact for..."
+        j "Pretty much everything..."
+        
+        o "Joe, this is Tom on the speakerphone again."
+        o "Looks like Jim is out today."
+        o "Did he have something crucial to your presentation?"
+        
+        menu:
+            "He sure did.":
+                j "Can't believe he backed out on me like that."
+                j "Guess we'll have to... you know..."
+                
+                o "Well you know what they say in the biz."
+                o "Show must go on!"
+                
+                $ stress_count += 1
+            
+                if stress_count > 2:
+                    j "Oh no."
+                    j "I think I'm having a panic attack."
+                
+                    o "Wow, sure a shame Jim isn't here."
+                    o "Sounds like it was more his presentation than yours."
+                
+                    j "No, really."
+                    j "I need my pills."
+                    j "They are at my desk."
+                
+                    o "I don't have time for this."
+                
+                    j "I need to get out of here..."
+                
+                    $ meeting_panic += 1
+                
+                    jump pills_scene
+                else:
+                    jump meeting_w_map
+                    
+            "Not really.":
+                j "I just felt like getting his input on this."
+                j "You know... all hands on deck."
+                
+                o "I didn't realize we were in that sort of a situation."
+                o "But alright... whatever you think is best."
+                o "As long as this doesn't take much longer."
+                
+                jump meeting_w_map
+                
+    elif result == "easel":
+
+        j "Tom, do you have a pen on you?"
+        j "I think I'll draw up a diagram for all of our findings."
+        
+        o "Still just on the speakerphone here, Joe."
+        o "But it's great to know this thing has such a lifelike quality!"
+        
+        o "Tom, this is Mills."
+        o "Why the hell do we need a diagram?"
+        o "This is a waste of my time."
+        
+        menu:
+            "Visualize the profits cycle.":
+                j "Gotta see that money, Mr. Mills!"
+                j "How else do you stay hungry?"
+                
+                o "What a load of baloney!"
+                o "Tom, is this really the best you have to offer me?"
+                
+                $ stress_count += 1
+            
+                if stress_count > 2:
+                    j "Oh no."
+                    j "I think I'm having a panic attack."
+                
+                    o "You should visualize some serenity."
+                
+                    j "No, really."
+                    j "I need my pills."
+                    j "They are at my desk."
+                
+                    o "No really. It's worth my time and yours."
+                    o "Take all you need."
+                
+                    j "I need to get out of here..."
+                
+                    $ meeting_panic += 1
+                
+                    jump pills_scene
+                else:
+                    jump meeting_w_map
+
+            "Business is art.":
+                j "If you really think about it..."
+                j "You try so hard and get so far..."
+                j "But in the end..."
+                
+                o "Cripes."
+                o "Tom, you've really outdone yourself this time."
+                o "Am I being filmed or something?"
+                o "Please get this idiot out of my face."
+                
+                $ stress_count += 1
+            
+                if stress_count > 2:
+                    j "Oh no."
+                    j "I think I'm having a panic attack."
+                
+                    o "Is this part of your art piece, or..."
+                
+                    j "No, really."
+                    j "I need my pills."
+                    j "They are at my desk."
+                
+                    o "I don't have time for this."
+                
+                    j "I need to get out of here..."
+                
+                    $ meeting_panic += 1
+                
+                    jump pills_scene
+                else:
+                    jump meeting_w_map
+                    
+            "You are right - we probably don't.":
+                j "Just felt like it would help."
+                
+                o "Well stop helping."
+                o "I mean..."
+                o "Help in more expedient ways."
+                
+                jump meeting_w_map  
+
+    elif result == "tv":
+        j "Tom, can we get this screen going?"
+        
+        o "Sure, Joe. Do you have a presentation ready to go?"
+        
+        menu:
+            "You betcha.":
+                j "Got it right here."
+                
+                o "..."
+                o "Where?"
+                
+                menu:
+                
+                    "Right the hell here, Tom!":
+                        o "Alright, Joe, I think you need to calm down, son."
+                        
+                        o "Tom, this is Mills. Who is this psycho?"
+                        o "Because if he's not going to tell me what I need to know..."
+                        o "I'm not interested in his problems."
+                        
+                        j "I don't have any problems!"
+                        
+                        o "What do you call your lack of a presentation then?"
+                        o "Right... not problems."
+                        o "Just failure."
+                        
+                        $ meeting_panic += 1
+                
+                        jump pills_scene   
+                    
+                    "At my desk, actually.":
+                    
+                        o "Is it on a..."
+                        o "Flash drive or something?"
+                        
+                        j "That's exactly where it is."
+                        j "I forgot to grab it."
+                        j "Sorry about that."
+                        
+                        o "Well go and grab it, Joe."
+                        o "Don't want to waste Mr. Mills' time."
+                        o "Any more than necessary that is..."
+                        
+                        if stress_count == 0:
+                            scene clientmtg_0 movie
+                            with fade
+                        elif stress_count == 1:
+                            scene clientmtg_1 movie
+                            with fade
+                        else:
+                            scene clientmtg_2 movie
+                            with fade
+                            
+                        o "Alright, now that that colossal waste of time is over."
+                        o "Let's see this presentation you have for me."
+                        
+                        j "Right."
+                        j "Let me just get it up and running..."
+                        j "Oh wait..."
+                        j "Looks like it's not here anymore."
+                        
+                        o "What is that folder that says Presentation?"
+                        
+                        j "..."
+                        j "I don't think that's the same presentation."
+                        
+                        o "Come on, let's break it open and see what's in there."
+                        
+                        j "..."
+                        j "Alright."
+                        
+                        o "..."
+                        o "This is just a slideshow of photos from your..."
+                        o "Family trip to Greece?"
+                        o "Good lord, is that your grandfather in a speedo?"
+                        
+                        o "Joe, this is Tom, still on the speakerphone."
+                        o "What the hell kind of presentation is this?"
+                        o "This is utterly unacceptable."
+                        
+                        $ stress_count += 2
+            
+                        if stress_count > 2:
+                            j "Oh no."
+                            j "I think I'm having a panic attack."
+                
+                            o "You better be."
+                            o "It can't be worse than this."
+                
+                            j "No, really."
+                            j "I need my pills."
+                            j "They are at my desk."
+                
+                            o "Great, fine with me."
+                            o "I'm getting out of here."
+                
+                            $ meeting_panic += 1
+                
+                            jump pills_scene
+                        else:
+                            jump meeting_w_map
+                    
+                    "In my mind...":
+                        o "Joe, I'm going to be honest..."
+                        o "That doesn't sound incredibly helpful right now."
+                        
+                        o "Tom, this is Mills."
+                        o "Is there any way we can crack this bozo's head open?"
+                        o "I might be able to see the presentation better that way."
+                
+                        $ stress_count += 1
+            
+                        if stress_count > 2:
+                            j "Oh no."
+                            j "I think I'm having a panic attack."
+                
+                            o "Wow, sure a shame Jim isn't here."
+                            o "Sounds like it was more his presentation than yours."
+                
+                            j "No, really."
+                            j "I need my pills."
+                            j "They are at my desk."
+                
+                            o "I don't have time for this."
+                
+                            j "I need to get out of here..."
+                 
+                            $ meeting_panic += 1
+                
+                            jump pills_scene
+                        else:
+                            jump meeting_w_map
+                    
+            "Not really.":
+                j "My mistake."
+                j "You can leave it off."
+                
+                o "Damn screens."
+                o "We are addicted to them, I swear."
+                o "It's like everywhere you turn, you can't be away from them."
+                
+                o "Alright, enough banter."
+                o "Well let's keep it right along, then."
+                
+                jump meeting_w_map
+                
+    elif result == "papers":
+
+        j "Printed a few things off."
+        
+        o "Joe, this is Tom on the speakerphone."
+        o "I can't see the printouts."
+        o "Are they relevant to the presentation?"
+        
+        menu:
+            "You bet your ass.":
+                j "In fact, I'd say they are important enough"
+                j "that you should come sit in on the rest of the meeting."
+                
+                o "..."
+                o "You really think so?"
+                o "I have another meeting in 15..."
+                o "Mills, can you look at those papers?"
+                o "What do you make of it?"
+                
+                o "Tom, looks like some kind of graph."
+                o "Hell if I know."
+                
+                o "You sure about this, Joe?"
+                
+                menu:
+                
+                    "Lassez-faire, Tom.":
+                        if randlng = "french":
+                            o "Wow, French?"
+                            o "You run a sophisticated crowd around here, Tom."
+                            o "Forget the presentation."
+                            o "I'm sold."
+                            o "Let's go with whatever you have."
+                            
+                            j "Wow, just like that?"
+                            
+                            o "Just like that."
+                            o "Art of the deal, son."
+                            o "You've got it."
+                        else:
+                            o "Wow, French?"
+                            o "What a bunch of snobs."
+                            o "Forget it, I don't want want to see the damn presentation."
+                            o "I'm calling this off."
+                            
+                            $ stress_count += 2
+            
+                            if stress_count > 2:
+                                j "Oh no."
+                                j "I think I'm having a panic attack."
+                
+                                o "Probably better this way, son."
+                                o "You don't have to be here when Tom comes over."
+                
+                                j "No, really."
+                                j "I need my pills."
+                                j "They are at my desk."
+                
+                                o "Well, good luck."
+                                o "I'll be seein' ya."
+                
+                                j "I need to get out of here..."
+                 
+                                $ meeting_panic += 1
+                
+                                jump pills_scene
+                            else:
+                                jump meeting_w_map
+                    
+                    "C'est la vie, Tom.":
+                        if randlng = "french":
+                            o "Wow, French?"
+                            o "You run a sophisticated crowd around here, Tom."
+                            o "Forget the presentation."
+                            o "I'm sold."
+                            o "Let's go with whatever you have."
+                            
+                            j "Wow, just like that?"
+                            
+                            o "Just like that."
+                            o "Art of the deal, son."
+                            o "You've got it."
+                        else:
+                            o "Wow, French?"
+                            o "What a bunch of snobs."
+                            o "Forget it, I don't want want to see the damn presentation."
+                            o "I'm calling this off."
+                            
+                            $ stress_count += 2
+            
+                            if stress_count > 2:
+                                j "Oh no."
+                                j "I think I'm having a panic attack."
+                
+                                o "Probably better this way, son."
+                                o "You don't have to be here when Tom comes over."
+                
+                                j "No, really."
+                                j "I need my pills."
+                                j "They are at my desk."
+                
+                                o "Well, good luck."
+                                o "I'll be seein' ya."
+                
+                                j "I need to get out of here..."
+                 
+                                $ meeting_panic += 1
+                
+                                jump pills_scene
+                            else:
+                                jump meeting_w_map
+                    
+                    "Carpe diem, Tom.":
+                        if randlng = "latin":
+                            o "Wow, Latin?"
+                            o "You run a sophisticated crowd around here, Tom."
+                            o "Forget the presentation."
+                            o "I'm sold."
+                            o "Let's go with whatever you have."
+                            
+                            j "Wow, just like that?"
+                            
+                            o "Just like that."
+                            o "Art of the deal, son."
+                            o "You've got it."
+                        else:
+                            o "Wow, Latin?"
+                            o "What a bunch of snobs."
+                            o "Forget it, I don't want want to see the damn presentation."
+                            o "I'm calling this off."
+                            
+                            $ stress_count += 2
+            
+                            if stress_count > 2:
+                                j "Oh no."
+                                j "I think I'm having a panic attack."
+                
+                                o "Probably better this way, son."
+                                o "You don't have to be here when Tom comes over."
+                
+                                j "No, really."
+                                j "I need my pills."
+                                j "They are at my desk."
+                
+                                o "Well, good luck."
+                                o "I'll be seein' ya."
+                
+                                j "I need to get out of here..."
+                 
+                                $ meeting_panic += 1
+                
+                                jump pills_scene
+                            else:
+                                jump meeting_w_map
+
+                    
+                    "Quid pro quo, Tom.":
+                        if randlng = "latin":
+                            o "Wow, Latin?"
+                            o "You run a sophisticated crowd around here, Tom."
+                            o "Forget the presentation."
+                            o "I'm sold."
+                            o "Let's go with whatever you have."
+                            
+                            j "Wow, just like that?"
+                            
+                            o "Just like that."
+                            o "Art of the deal, son."
+                            o "You've got it."
+                        else:
+                            o "Wow, Latin?"
+                            o "What a bunch of snobs."
+                            o "Forget it, I don't want want to see the damn presentation."
+                            o "I'm calling this off."
+                            
+                            $ stress_count += 2
+            
+                            if stress_count > 2:
+                                j "Oh no."
+                                j "I think I'm having a panic attack."
+                
+                                o "Probably better this way, son."
+                                o "You don't have to be here when Tom comes over."
+                
+                                j "No, really."
+                                j "I need my pills."
+                                j "They are at my desk."
+                
+                                o "Well, good luck."
+                                o "I'll be seein' ya."
+                
+                                j "I need to get out of here..."
+                 
+                                $ meeting_panic += 1
+                
+                                jump pills_scene
+                            else:
+                                jump meeting_w_map
+                    
+            "Matter of perspective, really.":
+                j "I mean, who can really say?"
+                j "Isn't everything subjective at some level?"
+                
+                o "Tom on the speakerphone again."
+                o "I'm gonna have to disagree with you there, Joe."
+                o "I'd say when it's a professional opinion for sale..."
+                o "We try to limit the subjectivity."
+                o "Try to stay off the bud for the rest of the presentation."
+                
+                $ stress_count += 1
+            
+                if stress_count > 2:
+                    j "Oh no."
+                    j "I think I'm having a panic attack."
+                
+                    o "Kind of depends on your point of view."
+                
+                    j "No, really."
+                    j "I need my pills."
+                    j "They are at my desk."
+                
+                    o "Tom, I think your employees might have a drug problem."
+                
+                    j "I need to get out of here..."
+                
+                    $ meeting_panic += 1
+                
+                    jump pills_scene
+                else:
+                    jump meeting_w_map
+                                
+            
+            "Nah.":
+                j "I just needed something to take notes on."
+                j "Never come unprepared, that's what I always say."
+                j "You want me to write anything down, Mr. Mills?"
+                
+                o "Um..."
+                o "Not particularly at the moment, no."
+                o "Continue with your presentation."
+                
+                jump meeting_w_map
+                
+    elif result == "desk":
+
+        j "I haven't really taken the time to think about it before."
+        j "But isn't this a great desk?"
+        
+        o "Why are we talking about the damn desk?"
+        
+        o "Joe, this is Tom on the speakerphone."
+        o "Let's avoid talking about the desk as much as possible, please."
+        o "Unless it plays a very key role in your presentation."
+                
+        $ stress_count += 1
+            
+        if stress_count > 2:
+            j "Oh no."
+            j "I think I'm having a panic attack."
+                
+            o "From the desk?"
+            o "Wow."
+            o "You are a complete basket case."
+                
+            j "No, really."
+            j "I need my pills."
+            j "They are at my desk."
+                
+            o "I think you need a lot more than pills, buddy."
+                
+            j "I need to get out of here..."
+                
+            $ meeting_panic += 1
+                
+            jump pills_scene
+        else:
+            jump meeting_w_map
+
 
 ##############################################################
 ## Chapter 7 starts here                                    ##
@@ -1897,6 +2801,18 @@ label chapter7:
     
     play music "sounds/pills_chp_7_ost.wav" fadein 2.0
 
+    if go_to_meeting > 0 and meeting_panic > 0:
+        j "That sure was good of Tom to take over that meeting for me."
+        j "Maybe I underestimated that guy."
+        j "Still..."
+    elif go_to_meeting > 0 and meeting_panic < 1:
+        j "I can't believe I got through that meeting."
+        j "I don't even think I was supposed to be there."
+        j "That was a miracle!"
+        j "Still..."
+    else:
+        j "That business with Tom was ridiculous."
+        
     j "How does this happen every day?"
     j "Here I am, taking my lunchtime escape from the madness,"
     j "And already, just this morning, I've been through the ringer."
