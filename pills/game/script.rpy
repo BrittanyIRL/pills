@@ -31,6 +31,7 @@ define o = Character(_(''), color="#c8ffc8", window_left_margin=0, window_yminim
 
 # Declare images used by this game.
 # Put all the videos here - one for each stress level.
+# For now, while we only have 1 video for each, set all webm videos to _0 version
 
 image chapter1_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter1_0", play="chapter1_0.webm")
 image chapter1_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter1_0", play="chapter1_0.webm")
@@ -40,47 +41,81 @@ image getup_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="get
 image getup_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="getup_0", play="getup_0.webm")
 image getup_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="getup_0", play="getup_0.webm")
 
-#$ getup = [getup_0 movie, getup_1 movie, getup_2 movie]
-
 image chapter2_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter2_0", play="chapter2_0.webm")
-# image bg chapter2_1 = "chapter2_1.webm"
-# image bg chapter2_2 = "chapter2_2.webm"
+image chapter2_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter2_0", play="chapter2_0.webm")
+image chapter2_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter2_0", play="chapter2_0.webm")
 
 image chapter3_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter3_0", play="chapter3_0.webm")
-# image bg chapter3_1 = "chapter3_1.webm"
-# image bg chapter3_2 = "chapter3_2.webm"
+image chapter3_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter3_0", play="chapter3_0.webm")
+image chapter3_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter3_0", play="chapter3_0.webm")
 
 image chapter4_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter4_0", play="chapter4_0.webm")
-image busppl_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="busppl_0", play="busppl_0.webm")
+image chapter4_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter4_0", play="chapter4_0.webm")
+image chapter4_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter4_0", play="chapter4_0.webm")
+
+image bag_0_0_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_0_1", play="bag_0_0_1.webm")
+image bag_1_0_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_0_1", play="bag_0_0_1.webm")
+image bag_2_0_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_0_1", play="bag_0_0_1.webm")
+
+image bag_0_1_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_1_1", play="bag_0_1_1.webm")
+image bag_1_1_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_1_1", play="bag_0_1_1.webm")
+image bag_2_1_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_1_1", play="bag_0_1_1.webm")
+
+image bag_0_1_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_1_0", play="bag_0_1_0.webm")
+image bag_1_1_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_1_0", play="bag_0_1_0.webm")
+image bag_2_1_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_1_0", play="bag_0_1_0.webm")
+
+image bag_0_0_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_1_0", play="bag_0_0_0.webm")
+image bag_1_0_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_1_0", play="bag_0_0_0.webm")
+image bag_2_0_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_1_0", play="bag_0_0_0.webm")
+
+image window_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="window_0", play="window_0.webm")
+image window_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="window_0", play="window_0.webm")
+image window_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="window_0", play="window_0.webm")
+
 image rafters_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="rafters_0", play="rafters_0.webm")
-image window1_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="window1_0", play="window1_0.webm")
-# image bg chapter4_0 = "chapter4_0.webm"
-# image bg chapter4_1 = "chapter4_1.webm"
-# image bg chapter4_2 = "chapter4_2.webm"
+image rafters_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="rafters_0", play="rafters_0.webm")
+image rafters_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="rafters_0", play="rafters_0.webm")
+
+image busppl_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="busppl_0", play="busppl_0.webm")
+image busppl_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="busppl_0", play="busppl_0.webm")
+image busppl_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="busppl_0", play="busppl_0.webm")
 
 image chapter5_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter5_0", play="chapter5_0.webm")
-# image bg chapter5_1 = "chapter5_1.webm"
-# image bg chapter5_2 = "chapter5_2.webm"
-image chapter5_stoplight movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="stoplight_0", play="stoplight_0.webm")
-# image bg chapter5_1 = "chapter5_1.webm"
+image chapter5_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter5_0", play="chapter5_0.webm")
+image chapter5_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter5_0", play="chapter5_0.webm")
+
+image stoplight_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="stoplight_0", play="stoplight_0.webm")
+image stoplight_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="stoplight_0", play="stoplight_0.webm")
+image stoplight_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="stoplight_0", play="stoplight_0.webm")
+
 image chapter6_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter6_0", play="chapter6_0.webm")
-# image bg chapter6_1 = "chapter6_1.webm"
-# image bg chapter6_2 = "chapter6_2.webm"
+image chapter6_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter6_0", play="chapter6_0.webm")
+image chapter6_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter6_0", play="chapter6_0.webm")
+
 image mgmt_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="mgmt_0", play="mgmt_0.webm")
+image mgmt_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="mgmt_0", play="mgmt_0.webm")
+image mgmt_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="mgmt_0", play="mgmt_0.webm")
+
 image clientmtg_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="clientmtg_0", play="clientmtg_0.webm")
+image clientmtg_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="clientmtg_0", play="clientmtg_0.webm")
+image clientmtg_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="clientmtg_0", play="clientmtg_0.webm")
 
 image chapter7_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter7_0", play="chapter7_0.webm")
-# image bg chapter7_1 = "chapter7_1.webm"
-# image bg chapter7_2 = "chapter7_2.webm"
+image chapter7_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter7_0", play="chapter7_0.webm")
+image chapter7_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter7_0", play="chapter7_0.webm")
 
-# image bg chapter8_0 = "chapter8_0.webm"
-# image bg chapter8_1 = "chapter8_1.webm"
-# image bg chapter8_2 = "chapter8_2.webm"
+# then we have the three montage videos, for chapter 8, which we want to treat as not clickable videos
 
-# image bg chapter9_0 = "chapter9_0.webm"
-# image bg chapter9_1 = "chapter9_1.webm"
-# image bg chapter9_2 = "chapter9_2.webm"
+# image chapter9_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter9_0", play="chapter9_0.webm")
+# image chapter9_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter9_0", play="chapter9_0.webm")
+# image chapter9_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter9_0", play="chapter9_0.webm")
 
+# image chapter10_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter10_0", play="chapter10_0.webm")
+# image chapter10_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter10_0", play="chapter10_0.webm")
+# image chapter10_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter10_0", play="chapter10_0.webm")
+
+# then we have the credits which we want to treat as not clickable videos, but still want to keep the car alarm
 
 ##############################################################
 ## Chapter 1 begins here                                    ##
@@ -109,7 +144,6 @@ label start:
     $ phone_talk = 0
     $ go_to_meeting = 0
 
-#    play music "illurock.ogg"
     scene black
 
     j "There's this feeling..."
@@ -130,24 +164,13 @@ label start:
 
     scene chapter1_0 movie
     with fade
+    
+    play sound "sounds/alarm_clock.wav"
 
     $ randchp1 = renpy.random.choice(["Already? Wow.", "Please tell me it\'s Sunday.", "... How is it morning?"])
 
     j "[randchp1]"
     j "I should probably get up."
-
-# here is an example of a layered animation scene
-
-#    scene bg uni
-#    with fade
-
-#    "When we came out of the university, I saw her."
-
-#    show sylvie normal
-#    with dissolve
-
-#    "She was a wonderful person."
-#    "And I decided..."
 
     menu:
 
@@ -161,16 +184,18 @@ label start:
 
 
 label getup:
-
-    #image getup_x movie = ConditionSwitch("stress_count = 0", "getup_0.webm",
-    #"stress_count = 1", "getup_1.webm",
-    #"stress_count = 2", "getup_2.webm")
     
-    #scene getup_x movie
-    scene getup_0 movie
-    with fade
+    if stress_count == 0:
+        scene getup_0 movie
+        with fade
+    elif stress_count == 1:
+        scene getup_1 movie
+        with fade
+    else:
+        scene getup_2 movie
+        with fade
 
-    #play music "getup.wav" fadein 1.0
+    play music "sounds/pills_getting_ready_ost.wav" fadein 2.0
 
     j "Another day." # "Here we go again." "Alright, alright, I'm up."
     
@@ -259,6 +284,8 @@ label snooze_1:
 
     scene chapter1_0 movie
     with fade
+    
+    play sound "sounds/alarm_clock.wav"
 
     j "Was that already 10 minutes?"
 
@@ -279,6 +306,8 @@ label snooze_2:
 
     scene chapter1_0 movie
     with fade
+    
+    play sound "sounds/alarm_clock.wav"
 
     j "Damn."
 
@@ -299,6 +328,8 @@ label snooze_3:
     
     scene chapter1_0 movie
     with fade
+    
+    play sound "sounds/alarm_clock.wav"
 
     j "I hate that car."
 
@@ -319,6 +350,8 @@ label snooze_4:
     
     scene chapter1_1 movie
     with fade
+    
+    play sound "sounds/alarm_clock.wav"
     
     $ stress_count += 1
     
@@ -341,6 +374,8 @@ label snooze_5:
     
     scene chapter1_1 movie
     with fade
+    
+    play sound "sounds/alarm_clock.wav"
 
     j "My head is going to explode."
 
@@ -361,6 +396,8 @@ label snooze_6:
     
     scene chapter1_1 movie
     with fade
+    
+    play sound "sounds/alarm_clock.wav"
     
     j "Nope."
 
@@ -383,6 +420,8 @@ label snooze_7:
     scene chapter1_2 movie
     with fade
     
+    play sound "sounds/alarm_clock.wav"
+    
     $ stress_count += 1
 
     j "I'm going to murder that car."
@@ -404,6 +443,8 @@ label snooze_8:
     
     scene chapter1_2 movie
     with fade
+    
+    play sound "sounds/alarm_clock.wav"
 
     j "Ok, this time maybe the snooze will do something else."
 
@@ -424,6 +465,8 @@ label snooze_9:
     
     scene chapter1_2 movie
     with fade
+    
+    play sound "sounds/alarm_clock.wav"
 
     j "Is today over yet?"
 
@@ -444,6 +487,8 @@ label snooze_10:
     
     scene chapter1_2 movie
     with fade
+    
+    play sound "sounds/alarm_clock.wav"
 
     j "Holy crap I hit snooze 10 times?!"
     j "I overslept."
@@ -465,6 +510,8 @@ label pills_scene:
 
     scene black
     with dissolve
+    
+    stop music fadeout 1.0
 
     if pills_count == 0:
         j "I don't need this right now."
@@ -492,7 +539,7 @@ label pills_scene:
         j "I need escape."
         j "Now."
     
-    # play sound "pillbottle.wav"
+    play sound "sounds/pill_bottle.wav"
     # play sound "exhale.wav"
     
     j "That's better."
@@ -547,11 +594,18 @@ label chapter2:
     #getting out the door
 
     $ scene_count += 1
-     
-     #scene chapter2_%r movie % stress_count
-    scene chapter2_0 movie
-    with fade
-     #weird imagemap call below - probably gonna break
+    
+    if stress_count == 0:
+        scene chapter2_0 movie
+        with fade
+    elif stress_count == 1:
+        scene chapter2_1 movie
+        with fade
+    else:
+        scene chapter2_2 movie
+        with fade
+    
+    play music "sounds/pills_chp_2_ost.wav" fadein 2.0
     
     j "What am I forgetting?"
     j "I always forget something."
@@ -600,23 +654,42 @@ label chapter3:
 
     $ scene_count += 1
     
-    #scene chapter3_%r movie % stress_count
-    scene chapter3_0 movie
-    with fade
+    if stress_count == 0:
+        scene chapter3_0 movie
+        with fade
+    elif stress_count == 1:
+        scene chapter3_1 movie
+        with fade
+    else:
+        scene chapter3_2 movie
+        with fade
+    
+    play music "sounds/pills_chp_3_ost.wav" fadein 2.0
 
     j "Bus arrives in... zero minutes?"
     j "It's not even down the hill yet."
-    j "I can see the damn hill."
+    j "I can see the damn hill - it's not there."
     j "I don't understand why they even make apps for bus times."
     j "Pure masochism is what it is."
-    j "I wonder how much the small sanctions of every day life"
-    j "are responsible for all the stress you feel."
+    j "..."
+    j "I wonder how much those small sanctions of every day life..."
+    j "the plausibility of a missed bus..."
+    j "the crosswalk you see in the distance that you might not catch..."
+    j "the time you probably won't have to go to the gym..."
+    j "How many are responsible for all the stress you feel?"
     
     menu:
          "Some sanctions.":
              j "I mean, probably at least a couple."
+             j "Other circumstances are probably a bit more universal."
              j "But which ones?"
              j "How the hell are you supposed to figure that out?"
+             j "I'm not a genius or a social scientist."
+             j "And yet somehow, we all need to learn how to deal."
+             j "Well that's a hilarious gambit."
+             j "Who's going to succeed at that?"
+             j "I'll tell you."
+             j "Nobody."
              $ stress_count += 1
              if stress_count > 2:
                  jump pills_scene
@@ -626,105 +699,38 @@ label chapter3:
          "All the sanctions.":
              j "Yeah. Probably the whole enchilada."
              j "Actually, admitting it like that kind of takes a load off."
+             j "That way, a lot less to blame on myself."
+             j "I can't possibly be the only one, right?"
              j "Maybe everybody else feels the same way."
              j "Or maybe not. Who knows?"
+             j "I'm no genius."
+             j "I'm just a guy trying catch his bus."
+             j "On the way to another round of daily monotony."
              jump bus_time
 
          "Am I using that word correctly?":
-             j "Ah, never mind." 
+             j "Ah, never mind."
+             j "I swear, I can get on these tangents with myself"
+             j "and get lost for days at a time."
+             j "This one is hardly worth it."
              j "Boring conversation with myself anyway."
+             j "Still... I'm deleting this app."
+             j "It's horrible and pointless."
+             j "There."
+             j "I feel better already."
              jump bus_time
     
 label bus_time:
-
-    #scene chapter3_%r movie % stress_count
-    scene chapter3_0 movie
 
     # play sound "busarrival.wav"
     j "There's the bus, finally."
     
     if bag_check > 0:
         j "Glad I remembered my pass."
-        j "That would have been stupid."
-        j "Normal days have enough stupidity already."
-        j "They don't need any extra."
-    else:
-        j "Let me just grab my pass..."
-        j "Wait... where is it?"
-        j "Did I take it out of my bag?"
-        j "I totally took it out of my bag."
-        j "Last night, when I was rushing to catch the bus back from downtown."
-        j "Dammit."
-        j "I hate everything."
-    $ stress_count += 2
-    if stress_count > 2:
-        jump pills_scene
-    else:
-        jump chapter4
-
-
-
-##############################################################
-## Chapter 4 begins here                                    ##
-## On the bus headed to work                                ##
-## Chapter 4 involves a hotspot for looking around the bus  ##
-## The window should return a random choice of outside      ##
-## This chapter also checks if in Chp2 you checked the book ##
-##############################################################
-
-label chapter4:
-    # on the bus
-    
-    $ scene_count += 1
-    
-    #scene chapter3_%r movie % stress_count
-    scene chapter3_0 movie
-    with fade
-
-    j "Bus arrives in... zero minutes?"
-    j "It's not even down the hill yet."
-    j "I can see the damn hill."
-    j "I don't understand why they even make apps for bus times."
-    j "Pure masochism is what it is."
-    j "I wonder how much the small sanctions of every day life"
-    j "are responsible for all the stress you feel."
-    
-    menu:
-         "Some sanctions.":
-             j "I mean, probably at least a couple."
-             j "But which ones?"
-             j "How the hell are you supposed to figure that out?"
-             $ stress_count += 1
-             if stress_count > 2:
-                 jump pills_scene
-             else:
-                 jump bus_time
-
-         "All the sanctions.":
-             j "Yeah. Probably the whole enchilada."
-             j "Actually, admitting it like that kind of takes a load off."
-             j "Maybe everybody else feels the same way."
-             j "Or maybe not. Who knows?"
-             jump bus_time
-
-         "Am I using that word correctly?":
-             j "Ah, never mind." 
-             j "Boring conversation with myself anyway."
-             jump bus_time
-    
-label bus_time:
-
-    #scene chapter3_%r movie % stress_count
-    scene chapter3_0 movie
-
-    # play sound "busarrival.wav"
-    j "There's the bus, finally."
-    
-    if bag_check > 0:
-        j "Glad I remembered my pass."
-        j "That would have been stupid."
-        j "Normal days have enough stupidity already."
-        j "They don't need any extra."
+        j "That would have been really annoying."
+        j "Let alone stressful."
+        j "I probably don't need any more stress than a normal day holds."
+        j "Let's just try and keep it at a minimum today."
     else:
         j "Let me just grab my pass..."
         j "Wait... where is it?"
@@ -753,14 +759,17 @@ label chapter4:
     
     $ scene_count += 1
     
-    #consider using image map for easter eggs
-    #look out the bus window
-    #look into Joe's bag
-    #maybe even look at other people staring at Joe? Would be really disconcerting.
+    if stress_count == 0:
+        scene chapter4_0 movie
+        with fade
+    elif stress_count == 1:
+        scene chapter4_1 movie
+        with fade
+    else:
+        scene chapter4_2 movie
+        with fade
     
-    #scene chapter4_%r movie % stress_count
-    scene chapter4_0 movie
-    with fade
+    play music "sounds/pills_chp_4_ost.wav" fadein 2.0
 
     if bag_check > 0:
         j "Only three minutes late today."
@@ -801,7 +810,15 @@ label chapter4_w_map:
     $ result = _return
     
     if result == "window":
-        scene window1_0 movie
+        if stress_count == 0:
+            scene window_0 movie
+            with fade
+        elif stress_count == 1:
+            scene window_1 movie
+            with fade
+        else:
+            scene window_2 movie
+            with fade
         j "I look out the window."
         j "I see a city unhappy with itself."
         j "Constantly changing."
@@ -811,14 +828,46 @@ label chapter4_w_map:
         j "I wonder if it will ever find that."
         jump chapter4_w_map
     elif result == "openbag":
-        scene chapter4_bag movie
-        j ""
+        if stress_count == 0 and calendar_check > 0 and book_check > 0:
+            scene bag_0_1_1 movie
+        elif stress_count == 1 and calendar_check > 0 and book_check > 0:
+            scene bag_1_1_1 movie
+        elif stress_count == 2 and calendar_check > 0 and book_check > 0:
+            scene bag_2_1_1 movie
+        elif stress_count == 0 and calendar_check < 1 and book_check > 0:
+            scene bag_0_0_1 movie
+        elif stress_count == 1 and calendar_check < 1 and book_check > 0:
+            scene bag_1_0_1 movie
+        elif stress_count == 2 and calendar_check < 1 and book_check > 0:
+            scene bag_2_0_1 movie
+        elif stress_count == 0 and calendar_check > 0 and book_check < 1:
+            scene bag_0_1_0 movie
+        elif stress_count == 1 and calendar_check > 0 and book_check < 1:
+            scene bag_1_1_0 movie
+        elif stress_count == 2 and calendar_check > 0 and book_check < 1:
+            scene bag_2_1_0 movie
+        elif stress_count == 0 and calendar_check < 1 and book_check < 1:
+            scene bag_0_0_0 movie
+        elif stress_count == 1 and calendar_check < 1 and book_check < 1:
+            scene bag_1_0_0 movie
+        elif stress_count == 2 and calendar_check < 1 and book_check < 1:
+            scene bag_2_0_0 movie
+        j "..."
         jump chapter4_w_map
     elif result == "ads":
         $ bus_check = 2
-        scene rafters_0 movie
-        j "Look at this bus."
-        j "Look at these ads lining the perimeter."
+        if stress_count == 0:
+            scene rafters_0 movie
+            with fade
+        elif stress_count == 1:
+            scene rafters_1 movie
+            with fade
+        else:
+            scene rafters_2 movie
+            with fade
+        j "Look at these ads."
+        j "They line every page."
+        j "Hell, they even line the rafters of the bus."
         j "Have you recently gone through a divorce?"
         j "Are you going through a fiscal dillema?"
         j "Have you lost your sexual potency?"
@@ -826,11 +875,19 @@ label chapter4_w_map:
         j "Call here."
         j "Call there."
         j "Talk to someone, anyone."
-        j "When has that crap ever helped anyone?"
+        j "When has that kind of anonymous offer ever helped anyone?"
         jump chapter4_w_choice
     elif result == "people":
         $ bus_check = 1
-        scene busppl_0 movie
+        if stress_count == 0:
+            scene busppl_0 movie
+            with fade
+        elif stress_count == 1:
+            scene busppl_1 movie
+            with fade
+        else:
+            scene busppl_2 movie
+            with fade
         j "Look at these poor suckers."
         j "Just like me."
         j "Sucked into some false dream of stability."
@@ -843,13 +900,20 @@ label chapter4_w_map:
         j "Or I don't know..."
         j "maybe they do."
         jump chapter4_w_choice
-    elif result == "nothingbus":
-        jump chapter4_w_choice
+#    elif result == "nothingbus":
+#        jump chapter4_w_choice
         
 label chapter4_w_choice:
-
-    #scene chapter4_%r movie % stress_count
-    scene chapter4_0 movie
+    
+    if stress_count == 0:
+        scene chapter4_0 movie
+        with fade
+    elif stress_count == 1:
+        scene chapter4_1 movie
+        with fade
+    else:
+        scene chapter4_2 movie
+        with fade
     
     if bus_check > 1:
         j "You can't really help but look away though can you?"
@@ -1001,9 +1065,17 @@ label chapter5:
 
     $ scene_count += 1
     
-    #scene chapter5_%r movie % stress_count
-    scene chapter5_0 movie
-    with fade
+    if stress_count == 0:
+        scene chapter5_0 movie
+        with fade
+    elif stress_count == 1:
+        scene chapter5_1 movie
+        with fade
+    else:
+        scene chapter5_2 movie
+        with fade
+    
+    play music "sounds/pills_chp_5_ost.wav" fadein 2.0
 
     j "I've been thinking..."
     j "Every day I take the same exact steps to work."
@@ -1027,9 +1099,16 @@ label chapter5:
     j "waiting to tell me I'm out of line,"
     j "I wonder,"
     j "where are we now?"
-
-    #scene chapter5_stoplight_%r movie % stress_count
-    scene chapter5_stoplight movie
+    
+    if stress_count == 0:
+        scene stoplight_0 movie
+        with fade
+    elif stress_count == 1:
+        scene stoplight_1 movie
+        with fade
+    else:
+        scene stoplight_2 movie
+        with fade
 
     j "Hunter-gatherers worked in teams to survive."
     j "They'd take down giant wooly mammoths by overwhelming them."
@@ -1127,9 +1206,17 @@ label chapter5:
          
 label coffeeshop:
     
-    #scene coffeeshop_%r movie % stress_count
-    scene coffeeshop_0 movie
-    with fade
+    if stress_count == 0:
+        scene coffeeshop_0 movie
+        with fade
+    elif stress_count == 1:
+        scene coffeeshop_1 movie
+        with fade
+    else:
+        scene coffeeshop_2 movie
+        with fade
+    
+    play music "sounds/pills_coffee_shop_ost.wav" fadein 2.0
     
     j "Always a line."
     j "I don't know why I ever think this is going to save time."
@@ -1269,9 +1356,17 @@ label chapter6:
 
     $ scene_count += 1
     
-    #scene chapter6_%r movie % stress_count
-    scene chapter6_0 movie
-    with fade
+    if stress_count == 0:
+        scene chapter6_0 movie
+        with fade
+    elif stress_count == 1:
+        scene chapter6_1 movie
+        with fade
+    else:
+        scene chapter6_2 movie
+        with fade
+    
+    play music "sounds/pills_chp_6_ost.wav" fadein 2.0
     
     if bag_check > 0:
         j "Alright."
@@ -1540,9 +1635,6 @@ label phonecall:
 ##############################################################
          
 label nocall:
-
-    #scene chapter6_%r movie % stress_count
-    scene chapter6_0 movie
     
     j "Great."
     j "The phone stopped."
@@ -1565,9 +1657,17 @@ label nocall:
 
 label mgmtmeeting:
     
-    #scene mgmt_%r movie % stress_count
-    scene mgmt_0 movie
-    with fade
+    if stress_count == 0:
+        scene mgmt_0 movie
+        with fade
+    elif stress_count == 1:
+        scene mgmt_1 movie
+        with fade
+    else:
+        scene mgmt_2 movie
+        with fade
+    
+    play music "sounds/pills_mgmt_mtg_ost.wav" fadein 2.0
     
     o "Hey Joe how's it hanging?"
     
@@ -1594,7 +1694,6 @@ label mgmtmeeting:
                  o "With that kind of confidence, I know you're fine."
                  o "I'll get out of here."
                  o "See you in the conference room at 10."
-                 o "Later!"
                  
                  j "..."
                  j "Sounds good?"
@@ -1639,6 +1738,16 @@ label mgmtmeeting:
                           o "See you at 10."
                           o "Godspeed."
                           
+                          if stress_count == 0:
+                              scene chapter6_0 movie
+                              with fade
+                          elif stress_count == 1:
+                              scene chapter6_1 movie
+                              with fade
+                          else:
+                              scene chapter6_2 movie
+                              with fade
+                          
                           j "..."
                           j "What did I just get myself into?"
                           j "I am so screwed."
@@ -1671,9 +1780,19 @@ label mgmtmeeting:
                           o "Some mixup, eh?"
                           o "Well have a good one!"
                           
+                          if stress_count == 0:
+                              scene chapter6_0 movie
+                              with fade
+                          elif stress_count == 1:
+                              scene chapter6_1 movie
+                              with fade
+                          else:
+                              scene chapter6_2 movie
+                              with fade
+                          
                           j "..."
-                          j "Holy moly."
-                          j "That was a load of baloney."
+                          j "Holy crap."
+                          j "That was horrible."
                           j "I'm going to need a second to calm the hell down."
                           j "..."
                           j "Actually."
@@ -1691,10 +1810,9 @@ label mgmtmeeting:
                  o "With that kind of confidence, I know you're fine."
                  o "No need to micromanage."
                  o "I'll see you in the conference room at 10."
-                 o "Later!"
                  
                  j "..."
-                 j "What the hell just happened?"
+                 j "Sounds good?"
              
                  jump clientmeeting
              
@@ -1713,7 +1831,7 @@ label mgmtmeeting:
                  o "See you at 10."
                  
                  j "..."
-                 j "What the hell just happened?"
+                 j "You sure will?"
                  
                  jump clientmeeting
     
@@ -1724,10 +1842,18 @@ label mgmtmeeting:
 ##############################################################
          
 label clientmeeting:
-
-    #scene clientmtg_%r movie % stress_count
-    scene clientmtg_0 movie
-    with fade
+    
+    if stress_count == 0:
+        scene clientmtg_0 movie
+        with fade
+    elif stress_count == 1:
+        scene clientmtg_1 movie
+        with fade
+    else:
+        scene clientmtg_2 movie
+        with fade
+    
+    play music "sounds/pills_client_mtg_ost.wav" fadein 2.0
     
     j "Oh my god."
     j "How is this happening?"
@@ -1758,10 +1884,18 @@ label clientmeeting:
          
 label chapter7:
     $ scene_count += 1
-
-    #scene chapter7_%r movie % stress_count
-    scene chapter7_0 movie
-    with fade
+    
+    if stress_count == 0:
+        scene chapter7_0 movie
+        with fade
+    elif stress_count == 1:
+        scene chapter7_1 movie
+        with fade
+    else:
+        scene chapter7_2 movie
+        with fade
+    
+    play music "sounds/pills_chp_7_ost.wav" fadein 2.0
 
     j "How does this happen every day?"
     j "Here I am, taking my lunchtime escape from the madness,"
@@ -1835,10 +1969,7 @@ label chapter7:
              else:
                  jump end_of_lunch
     
-label end_of_lunch:    
-
-    #scene chapter7_%r movie % stress_count
-    scene chapter7_0 movie
+label end_of_lunch:
 
     j "Then again..."
     j "I am the one sitting in a park on his lunch break,"
@@ -1877,10 +2008,16 @@ label chapter8:
     $ scene_count += 1
     #if pills_count > 2:
     #    play movie "chapter8_sad.webm"
+    #    play music "sounds/pills_chp_8_ost_sad.wav" fadein 2.0
     #elif pills_count > 0:
     #    play movie "chapter8_meh.webm"
+    #    play music "sounds/pills_chp_8_ost_sad.wav" fadein 2.0
     #else:
     #    play movie "chapter8_spiffy.webm"
+    #    play music "sounds/pills_chp_8_ost_happy.wav" fadein 2.0
+    
+    stop music fadeout 1.0
+    
     jump chapter9
     
     
@@ -1898,6 +2035,18 @@ label chapter9:
     #scene chapter9_%r movie % stress_count
     scene chapter9_0 movie
     with fade
+    
+    if stress_count == 0:
+        scene chapter9_0 movie
+        with fade
+    elif stress_count == 1:
+        scene chapter9_1 movie
+        with fade
+    else:
+        scene chapter9_2 movie
+        with fade
+    
+    play music "sounds/pills_chp_9_ost.wav" fadein 2.0
 
     j "What a day."
     j "I feel like I survived a hurricane or something."
@@ -2046,10 +2195,18 @@ label tv_shows:
 ##############################################################
     
 label chapter10:
-
-    #scene chapter10_%r movie % stress_count
-    scene chapter10 movie
-    with fade
+    
+    if stress_count == 0:
+        scene chapter10_0 movie
+        with fade
+    elif stress_count == 1:
+        scene chapter10_1 movie
+        with fade
+    else:
+        scene chapter10_2 movie
+        with fade
+    
+    play music "sounds/pills_chp_10_ost_p1.wav" fadein 2.0
 
     j "Finally."
     j "I made it."
@@ -2079,6 +2236,11 @@ label chapter10:
     j "Nothingness."
     j "..."
     j "......."
+    
+    scene black
+    with dissolve
+    
+    play music "sounds/pills_chp_10_ost_p2.wav"
     
     o "Joseph"
     o "This is the voice inside your head"
@@ -2125,8 +2287,13 @@ label chapter10:
         o "I mean..."
         o "You deserve it..."
         o "But still..."
+        
+    stop music fadeout 1.0
     
-    # play music "<loop 300>car_alarm.wav"
+    #scene chapter10_%r movie % stress_count
+    scene chapter10 movie
+    
+    # play sound "<loop 300>car_alarm.wav"
     
     j "..."
     j "Are you serious?"
