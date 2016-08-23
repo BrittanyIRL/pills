@@ -25,7 +25,8 @@ $ renpy.register_sfont('new_sfont', 22, spacewidth=6)
 # Alter Character text
 # Weird-looking.
 # add in an arrow to continue text : ctc=anim.Blink("#")
-define j = Character(_(''), color="#c8ffc8", window_left_margin=0, window_yminimum=100, what_text_align=0.5, what_xalign=0.5, window_xalign = 0.5, window_text_align = 0.5)
+define j = Character(_(''), color="#c8ffc8", window_left_margin=0, window_yminimum=100, what_text_align=0.5, what_xalign=0.5, window_xalign = 0.5)
+# make o italics
 define o = Character(_(''), color="#c8ffc8", window_left_margin=0, window_yminimum=100)
 
 
