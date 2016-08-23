@@ -25,7 +25,7 @@ $ renpy.register_sfont('new_sfont', 22, spacewidth=6)
 # Alter Character text
 # Weird-looking.
 # add in an arrow to continue text : ctc=anim.Blink("#")
-define j = Character(_(''), color="#c8ffc8", window_left_margin=400, window_yminimum=100)
+define j = Character(_(''), color="#c8ffc8", window_left_margin=0, window_yminimum=100, what_text_align=0.5, what_xalign=0.5, window_xalign = 0.5, window_text_align = 0.5)
 define o = Character(_(''), color="#c8ffc8", window_left_margin=0, window_yminimum=100)
 
 
@@ -50,6 +50,10 @@ image chapter3_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="
 # image bg chapter3_1 = "chapter3_1.webm"
 # image bg chapter3_2 = "chapter3_2.webm"
 
+image chapter4_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter4_0", play="chapter4_0.webm")
+image busppl_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="busppl_0", play="busppl_0.webm")
+image rafters_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="rafters_0", play="rafters_0.webm")
+image window1_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="window1_0", play="window1_0.webm")
 # image bg chapter4_0 = "chapter4_0.webm"
 # image bg chapter4_1 = "chapter4_1.webm"
 # image bg chapter4_2 = "chapter4_2.webm"
@@ -57,7 +61,7 @@ image chapter3_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="
 image chapter5_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter5_0", play="chapter5_0.webm")
 # image bg chapter5_1 = "chapter5_1.webm"
 # image bg chapter5_2 = "chapter5_2.webm"
-image chapter5_stoplight movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter5_stoplight", play="chapter5_stoplight.webm")
+image chapter5_stoplight movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="stoplight_0", play="stoplight_0.webm")
 # image bg chapter5_1 = "chapter5_1.webm"
 image chapter6_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter6_0", play="chapter6_0.webm")
 # image bg chapter6_1 = "chapter6_1.webm"
@@ -797,7 +801,7 @@ label chapter4_w_map:
     $ result = _return
     
     if result == "window":
-        scene chapter4_window movie
+        scene window1_0 movie
         j "I look out the window."
         j "I see a city unhappy with itself."
         j "Constantly changing."
@@ -812,7 +816,7 @@ label chapter4_w_map:
         jump chapter4_w_map
     elif result == "ads":
         $ bus_check = 2
-        scene chapter4_ads movie
+        scene rafters_0 movie
         j "Look at this bus."
         j "Look at these ads lining the perimeter."
         j "Have you recently gone through a divorce?"
@@ -826,7 +830,7 @@ label chapter4_w_map:
         jump chapter4_w_choice
     elif result == "people":
         $ bus_check = 1
-        scene chapter4_ppl movie
+        scene busppl_0 movie
         j "Look at these poor suckers."
         j "Just like me."
         j "Sucked into some false dream of stability."
