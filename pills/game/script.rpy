@@ -3326,44 +3326,103 @@ label credits:
     # scene credit_playback
     # with fade
     # image splash = Text("{size=90}Company Name", text_align=0.5, ypos=0.5) #Placeholder code if you don't have anything to use as a splash image or are just pure lazy.
-    image cred = Text(credits_s, text_align=0.5) #use this if you want to use special fonts
-    image cred = Text(credits_s, text_align=0.5)
-    image theend = Text("{size=80}The End", text_align=0.5)
-    image thanks = Text("{size=80}Thanks for Playing!", text_align=0.5)
-    $ credits_speed = 25 #scrolling speed in seconds
+    # image cred = Text(credits_s, text_align=0.5) #use this if you want to use special fonts
+    # image cred = Text(credits_s, text_align=0.5)
+    image title = Text("{size=20}Pills", text_align=0.5)
+    image writing = Text("{size=20}Story and Logic by \nGerrit Feenstra")
+    image music = Text("{size=20}Score and Sound by \nGerrit Feenstra")
+    image video = Text("{size=20}Video by \nBrittany Feenstra")
+    image gui = Text("{size=20}GUI by \nBrittany Feenstra")
+    image programming = Text("{size=20}Developed in Python by \nGerrit and Brittany")
+    image renpy = Text("{size=20}Built on Ren'Py v. 6.9910.1227", text_align=0.5)
+    image location = Text("{size=20}Filmed in Seattle, WA August 2016", text_align=0.5)
+    image copyright = Text("{size=20}A Creative Endeavor \n Copyright 2016", text_align=0.5)
+    image thanks = Text("{size=20}Thanks for Playing.", text_align=0.5)
+    # $ credits_speed = 5 #scrolling speed in seconds
     
     scene black #replace this with a fancy background
-    show cred at Move((0.5, 5.0), (0.5, 0.0), credits_speed, repeat=False, bounce=False, xanchor="center", yanchor="bottom")
-    show theend:
+    # show cred at Move((0.5, 5.0), (0.5, 0.0), credits_speed, repeat=False, bounce=False, xanchor="center", yanchor="bottom")
+    show title:
         yanchor 0.5 ypos 0.5
         xanchor 0.5 xpos 0.5
     with dissolve
-    with Pause(5)
-    hide theend
+    with Pause(2)
+    hide title
     with dissolve
-    with Pause(credits_speed - 5)
-    show splash
+    with Pause(2)
+    show writing:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
     with dissolve
-    with Pause(3)
-    hide splash
+    with Pause(2)
+    hide writing
     with dissolve
-    with Pause(1)
+    with Pause(2)
+    show music:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(2)
+    hide music
+    with dissolve
+    with Pause(2)
+    show video:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(2)
+    hide video
+    with dissolve
+    with Pause(2)
+    show gui:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(2)
+    hide gui
+    with dissolve
+    with Pause(2)
+    show programming:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(2)
+    hide programming
+    with dissolve
+    with Pause(2)
+    show renpy:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(2)
+    hide renpy
+    with dissolve
+    with Pause(2)
+    show location:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(2)
+    hide location
+    with dissolve
+    with Pause(2)
+
+    show copyright:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(2)
+    hide copyright
+    with dissolve
+    with Pause(2)
     show thanks:
         yanchor 0.5 ypos 0.5
         xanchor 0.5 xpos 0.5
     with dissolve
-    with Pause(4)
+    with Pause(2)
     hide thanks
     with dissolve
-    return
+    with Pause(2)
 
-init python:
-    credits = ('Backgrounds', 'Airgoof'), ('Backgrounds', 'Dorktwerp'), ('Sprites and CG', 'Ballclown'), ('GUI', 'Cuddlywad'), ('Writing', 'Dorktwerp'), ('Writing', 'Fingerpookie'), ('Programming', 'Dorktwerp'), ('Music', 'Grumblemuck'), ('Music', 'Headwookum')
-    credits_s = "DONKEYROLL\n\n"
-    c1 = ''
-    for c in credits:
-        if not c1==c[0]:
-            credits_s += "\n{size=60}" + c[0] + "\n"
-        credits_s += "{size=40}" + c[1] + "\n"
-        c1=c[0]
-    credits_s += "\n{size=60}Engine\n{size=40}" + renpy.version()
+    
+    return
