@@ -118,7 +118,7 @@ image chapter7_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="
 # image chapter10_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter10_0", play="chapter10_0.webm")
 
 # then we have the credits which we want to treat as not clickable videos, but still want to keep the car alarm
-
+# image credit_playback movie = Movie(size=(1200,600), channel='credits', play="credits.webm")
 ##############################################################
 ## Chapter 1 begins here                                    ##
 ## All counted dependents begin here                        ##
@@ -3320,5 +3320,50 @@ label chapter10:
     
     # make sure that car alarm is still going
     # play movie "Credits.webm"
+    jump credits 
 
+label credits:
+    # scene credit_playback
+    # with fade
+    # image splash = Text("{size=90}Company Name", text_align=0.5, ypos=0.5) #Placeholder code if you don't have anything to use as a splash image or are just pure lazy.
+    image cred = Text(credits_s, text_align=0.5) #use this if you want to use special fonts
+    image cred = Text(credits_s, text_align=0.5)
+    image theend = Text("{size=80}The End", text_align=0.5)
+    image thanks = Text("{size=80}Thanks for Playing!", text_align=0.5)
+    $ credits_speed = 25 #scrolling speed in seconds
+    
+    scene black #replace this with a fancy background
+    show cred at Move((0.5, 5.0), (0.5, 0.0), credits_speed, repeat=False, bounce=False, xanchor="center", yanchor="bottom")
+    show theend:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(5)
+    hide theend
+    with dissolve
+    with Pause(credits_speed - 5)
+    show splash
+    with dissolve
+    with Pause(3)
+    hide splash
+    with dissolve
+    with Pause(1)
+    show thanks:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(4)
+    hide thanks
+    with dissolve
     return
+
+init python:
+    credits = ('Backgrounds', 'Airgoof'), ('Backgrounds', 'Dorktwerp'), ('Sprites and CG', 'Ballclown'), ('GUI', 'Cuddlywad'), ('Writing', 'Dorktwerp'), ('Writing', 'Fingerpookie'), ('Programming', 'Dorktwerp'), ('Music', 'Grumblemuck'), ('Music', 'Headwookum')
+    credits_s = "DONKEYROLL\n\n"
+    c1 = ''
+    for c in credits:
+        if not c1==c[0]:
+            credits_s += "\n{size=60}" + c[0] + "\n"
+        credits_s += "{size=40}" + c[1] + "\n"
+        c1=c[0]
+    credits_s += "\n{size=60}Engine\n{size=40}" + renpy.version()
