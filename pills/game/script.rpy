@@ -3336,7 +3336,7 @@ label credits:
     image programming = Text("{size=20}Developed in Python by \nGerrit and Brittany")
     image renpy = Text("{size=20}Built on Ren'Py v. 6.9910.1227", text_align=0.5)
     image location = Text("{size=20}Filmed in Seattle, WA August 2016", text_align=0.5)
-    image copyright = Text("{size=20}A Creative Endeavor \n Copyright 2016", text_align=0.5)
+    image copyright = Text("{size=20}Made For Fun \n Copyright 2016", text_align=0.5)
     image thanks = Text("{size=20}Thanks for Playing.", text_align=0.5)
     # $ credits_speed = 5 #scrolling speed in seconds
     
