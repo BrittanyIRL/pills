@@ -619,7 +619,7 @@ screen chapter2_map:
         hotspot (22, 300, 314, 106) clicked Return("book")        #library book for bus/email
         hotspot (0, 93, 168, 80) clicked Return("bag")        #bag for bus pass
         hotspot (436, 406, 186, 92) clicked Return("calendar")   #calendar for meeting 
-        hotspot (575, 133, 122, 167) clicked Return("door")      #door is leave
+        hotspot (593, 138, 93, 192) clicked Return("door")      #door is leave
         
 label chapter2:
 
