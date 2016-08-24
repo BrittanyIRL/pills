@@ -1,11 +1,32 @@
 /*Universals */
 body {
 	font-size: 16px;
-	color: black;
+	color: #3B5863;
 	font-family: 'Playfair Display', serif;
 }
 h1, h2 {
 	font-family: 'Muli', sans-serif;
+}
+h2 {
+	/*color: #0CCE6B;*/
+	font-weight: bold;
+}
+
+a {
+	text-decoration: none;
+	color: #F96A3E;
+}
+a:hover {
+	text-decoration: none;
+	color: #D95C36;
+}
+
+p {
+	line-height: 2.4rem;
+}
+
+.textFlair {
+	color: #0CCE6B;
 }
 
 /* fixes for bootstrap */
@@ -17,13 +38,18 @@ footer {
 	margin-top: -20px;
 }*/
 
+.page-container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
 
 
 /* intro */
 .intro {
 	width: 100%;
 	height: 400px;
-	background-color: green;
+	background-image: url(../images/pills.gif);
+	background-size: cover;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -34,8 +60,49 @@ footer {
 	vertical-align: center;
 	font-size: 9rem;
 	font-weight: 800;
-	color: white;  /* Fallback: assume this color ON TOP of image */
-   	background: url(../images/static.jpg);
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
+	mix-blend-mode: saturation; /*overlay is cool too */
+	color: #DCED31;  /* Fallback: assume this color ON TOP of image */
 }
+
+button.btn {
+	border-radius: 0;
+	font-family: 'Muli', sans-serif;
+	margin-bottom: 2rem;
+	width: 300px;
+}
+button.available {
+	background-color: #3B5863;
+	color: white;
+	
+}
+
+button.available:hover {
+	background-color: #3B5863;
+	color: white;
+}
+
+button.comingsoon {
+	background-color: #D5E2FC;
+}
+
+.releaseDate {
+	font-size: 1rem;
+	font-style: italic;
+}
+@media (max-width: 991px){
+	.gameSites {
+		text-align: center;
+	}
+}
+@media (max-width: 600px){
+	button.btn {
+		width: 200px;
+	}
+}
+@media (max-width: 500px){
+	.intro {
+		max-height: 200px;
+	}
+}
+
+
