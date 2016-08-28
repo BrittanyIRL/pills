@@ -25,12 +25,13 @@ $ renpy.register_sfont('new_sfont', 22, spacewidth=6)
 # Alter Character text
 # Weird-looking.
 # add in an arrow to continue text : ctc=anim.Blink("#")
-define j = Character(_(''), color="#c8ffc8", window_left_margin=0, window_yminimum=100, what_text_align=0.5, what_xalign=0.5, window_xalign = 0.5)
+define j = Character(_(''), color="#c8ffc8", window_left_margin=400, window_yminimum=100)
 # make o italics
 define o = Character(_(''), color="#c8ffc8", window_left_margin=0, window_yminimum=100)
 
+#image to use as a bottom border so that text doesn't pop in and out
+image background solid = "black.png" 
 
-# Declare images used by this game.
 # Put all the videos here - one for each stress level.
 # For now, while we only have 1 video for each, set all webm videos to _0 version
 
@@ -121,7 +122,7 @@ image end_of_lunch_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, chann
 # image chapter10_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter10_0.webm")
 
 # then we have the credits which we want to treat as not clickable videos, but still want to keep the car alarm
-
+# image credit_playback movie = Movie(size=(1200,600), channel='credits', play="credits.webm")
 ##############################################################
 ## Chapter 1 begins here                                    ##
 ## All counted dependents begin here                        ##
@@ -155,6 +156,7 @@ label start:
     $ randlng = renpy.random.randint(1,2)
 
     scene black
+    show background solid at left
 
     $ renpy.pause(1)
     
@@ -178,6 +180,9 @@ label start:
 
     scene chapter1_0 movie
     with fade
+    show background solid at left
+    show background solid at left
+
     
     play sound "sounds/alarm_clock.wav"
 
@@ -207,14 +212,24 @@ label getup:
     if stress_count == 0:
         scene getup_0 movie
         with fade
+        show background solid at left
+
     elif stress_count == 1:
         scene getup_1 movie
         with fade
+        show background solid at left
+
     else:
         scene getup_2 movie
         with fade
+<<<<<<< HEAD
     
     play music "sounds/pills_getting_ready_ost.wav"
+=======
+        show background solid at left
+
+    play music "sounds/pills_getting_ready_ost.wav" fadein 2.0
+>>>>>>> 427e6783f02025576435469ec37409e2342c27d5
 
     j "Another day." # "Here we go again." "Alright, alright, I'm up."
     
@@ -308,6 +323,8 @@ label snooze_1:
 
     scene chapter1_0 movie
     with fade
+    show background solid at left
+    show background solid at left
     
     play sound "sounds/alarm_clock.wav"
 
@@ -330,6 +347,7 @@ label snooze_2:
 
     scene chapter1_0 movie
     with fade
+    show background solid at left
     
     play sound "sounds/alarm_clock.wav"
 
@@ -352,6 +370,7 @@ label snooze_3:
     
     scene chapter1_0 movie
     with fade
+    show background solid at left
     
     play sound "sounds/alarm_clock.wav"
 
@@ -374,6 +393,7 @@ label snooze_4:
     
     scene chapter1_1 movie
     with fade
+    show background solid at left
     
     play sound "sounds/alarm_clock.wav"
     
@@ -398,6 +418,7 @@ label snooze_5:
     
     scene chapter1_1 movie
     with fade
+    show background solid at left
     
     play sound "sounds/alarm_clock.wav"
 
@@ -420,6 +441,8 @@ label snooze_6:
     
     scene chapter1_1 movie
     with fade
+    show background solid at left
+    show background solid at left
     
     play sound "sounds/alarm_clock.wav"
     
@@ -443,6 +466,7 @@ label snooze_7:
     
     scene chapter1_2 movie
     with fade
+    show background solid at left
     
     play sound "sounds/alarm_clock.wav"
     
@@ -467,6 +491,7 @@ label snooze_8:
     
     scene chapter1_2 movie
     with fade
+    show background solid at left
     
     play sound "sounds/alarm_clock.wav"
 
@@ -489,6 +514,7 @@ label snooze_9:
     
     scene chapter1_2 movie
     with fade
+    show background solid at left
     
     play sound "sounds/alarm_clock.wav"
 
@@ -511,6 +537,7 @@ label snooze_10:
     
     scene chapter1_2 movie
     with fade
+    show background solid at left
     
     play sound "sounds/alarm_clock.wav"
 
@@ -616,12 +643,20 @@ screen chapter2_map:
         # Do I need to specify the base image?
         #hover "Hover.jpg" I don't want a hover change thing
 
+<<<<<<< HEAD
         hotspot (22, 275, 314, 150) clicked Return("book")        #library book for bus/email
         hotspot (0, 93, 168, 120) clicked Return("bag")        #bag for bus pass
         hotspot (400, 406, 210, 92) clicked Return("calendar")   #calendar for meeting 
         hotspot (350, 50, 300, 267) clicked Return("door")      #door is leave
+=======
+        hotspot (22, 300, 314, 106) clicked Return("book")        #library book for bus/email
+        hotspot (0, 93, 168, 80) clicked Return("bag")        #bag for bus pass
+        hotspot (436, 406, 186, 92) clicked Return("calendar")   #calendar for meeting 
+        hotspot (593, 138, 93, 192) clicked Return("door")      #door is leave
+>>>>>>> 427e6783f02025576435469ec37409e2342c27d5
         
 label chapter2:
+
     #getting out the door
 
     scene black
@@ -634,12 +669,18 @@ label chapter2:
     if stress_count == 0:
         scene chapter2_0 movie
         with fade
+        show background solid at left
+
     elif stress_count == 1:
         scene chapter2_1 movie
         with fade
+        show background solid at left
+
     else:
         scene chapter2_2 movie
         with fade
+        show background solid at left
+
     
     play music "sounds/pills_chp_2_ost.wav"
     
@@ -699,12 +740,18 @@ label chapter3:
     if stress_count == 0:
         scene chapter3_0 movie
         with fade
+        show background solid at left
+
     elif stress_count == 1:
         scene chapter3_1 movie
         with fade
+        show background solid at left
+
     else:
         scene chapter3_2 movie
         with fade
+        show background solid at left
+
     
     play music "sounds/pills_chp_3_ost.wav"
 
@@ -812,12 +859,15 @@ label chapter4:
     if stress_count == 0:
         scene chapter4_0 movie
         with fade
+        show background solid at left
     elif stress_count == 1:
         scene chapter4_1 movie
         with fade
+        show background solid at left
     else:
         scene chapter4_2 movie
         with fade
+        show background solid at left
     
     play music "sounds/pills_chp_4_ost.wav"
 
@@ -868,12 +918,15 @@ label chapter4_w_map:
         if stress_count == 0:
             scene window_0 movie
             with fade
+            show background solid at left
         elif stress_count == 1:
             scene window_1 movie
             with fade
+            show background solid at left
         else:
             scene window_2 movie
             with fade
+            show background solid at left
         j "I look out the window."
         j "I see a city unhappy with itself."
         j "Constantly changing."
@@ -915,12 +968,15 @@ label chapter4_w_map:
         if stress_count == 0:
             scene rafters_0 movie
             with fade
+            show background solid at left
         elif stress_count == 1:
             scene rafters_1 movie
             with fade
+            show background solid at left
         else:
             scene rafters_2 movie
             with fade
+            show background solid at left
         j "Look at these ads."
         j "They line every page."
         j "Hell, they even line the rafters of the bus."
@@ -938,12 +994,15 @@ label chapter4_w_map:
         if stress_count == 0:
             scene busppl_0 movie
             with fade
+            show background solid at left
         elif stress_count == 1:
             scene busppl_1 movie
             with fade
+            show background solid at left
         else:
             scene busppl_2 movie
             with fade
+            show background solid at left
         j "Look at these poor suckers."
         j "Just like me."
         j "Sucked into some false dream of stability."
@@ -962,12 +1021,15 @@ label chapter4_w_choice:
     if stress_count == 0:
         scene chapter4_0 movie
         with fade
+        show background solid at left
     elif stress_count == 1:
         scene chapter4_1 movie
         with fade
+        show background solid at left
     else:
         scene chapter4_2 movie
         with fade
+        show background solid at left
     
     if bus_check > 1:
         j "You can't really help but look away though can you?"
@@ -1143,12 +1205,15 @@ label chapter5:
     if stress_count == 0:
         scene chapter5_0 movie
         with fade
+        show background solid at left
     elif stress_count == 1:
         scene chapter5_1 movie
         with fade
+        show background solid at left
     else:
         scene chapter5_2 movie
         with fade
+        show background solid at left
     
     play music "sounds/pills_chp_5_ost.wav"
 
@@ -1178,12 +1243,15 @@ label chapter5:
     if stress_count == 0:
         scene stoplight_0 movie
         with fade
+        show background solid at left
     elif stress_count == 1:
         scene stoplight_1 movie
         with fade
+        show background solid at left
     else:
         scene stoplight_2 movie
         with fade
+        show background solid at left
 
     j "Hunter-gatherers worked in teams to survive."
     j "They'd take down giant wooly mammoths by overwhelming them."
@@ -1289,12 +1357,15 @@ label coffeeshop:
     if stress_count == 0:
         scene coffeeshop_0 movie
         with fade
+        show background solid at left
     elif stress_count == 1:
         scene coffeeshop_1 movie
         with fade
+        show background solid at left
     else:
         scene coffeeshop_2 movie
         with fade
+        show background solid at left
     
     play music "sounds/pills_coffee_shop_ost.wav"
     
@@ -1459,12 +1530,15 @@ label chapter6:
     if stress_count == 0:
         scene chapter6_0 movie
         with fade
+        show background solid at left
     elif stress_count == 1:
         scene chapter6_1 movie
         with fade
+        show background solid at left
     else:
         scene chapter6_2 movie
         with fade
+        show background solid at left
     
     play music "sounds/pills_chp6_begin_ost.wav"
     
@@ -1812,12 +1886,15 @@ label mgmtmeeting:
     if stress_count == 0:
         scene mgmt_0 movie
         with fade
+        show background solid at left
     elif stress_count == 1:
         scene mgmt_1 movie
         with fade
+        show background solid at left
     else:
         scene mgmt_2 movie
         with fade
+        show background solid at left
     
     play music "sounds/pills_client_mtg_only_seq_ost.wav"
     
@@ -1897,12 +1974,15 @@ label mgmtmeeting:
                           if stress_count == 0:
                               scene chapter6_0 movie
                               with fade
+                              show background solid at left
                           elif stress_count == 1:
                               scene chapter6_1 movie
                               with fade
+                              show background solid at left
                           else:
                               scene chapter6_2 movie
                               with fade
+                              show background solid at left
                           
                           j "..."
                           j "What did I just get myself into?"
@@ -1941,12 +2021,15 @@ label mgmtmeeting:
                           if stress_count == 0:
                               scene chapter6_0 movie
                               with fade
+                              show background solid at left
                           elif stress_count == 1:
                               scene chapter6_1 movie
                               with fade
+                              show background solid at left
                           else:
                               scene chapter6_2 movie
                               with fade
+                              show background solid at left
                           
                           j "..."
                           j "Holy crap."
@@ -2014,12 +2097,15 @@ label clientmeeting:
     if stress_count == 0:
         scene clientmtg_0 movie
         with fade
+        show background solid at left
     elif stress_count == 1:
         scene clientmtg_1 movie
         with fade
+        show background solid at left
     else:
         scene clientmtg_2 movie
         with fade
+        show background solid at left
     
     play music "sounds/pills_client_mtg_p1_ost.wav"
     
@@ -2514,12 +2600,15 @@ label meeting_w_map:
                         if stress_count == 0:
                             scene clientmtg_0 movie
                             with fade
+                            show background solid at left
                         elif stress_count == 1:
                             scene clientmtg_1 movie
                             with fade
+                            show background solid at left
                         else:
                             scene clientmtg_2 movie
                             with fade
+                            show background solid at left
                             
                         o "Alright, now that that colossal waste of time is over."
                         o "Let's see this presentation you have for me."
@@ -2913,12 +3002,15 @@ label chapter7:
     if stress_count == 0:
         scene chapter7_0 movie
         with fade
+        show background solid at left
     elif stress_count == 1:
         scene chapter7_1 movie
         with fade
+        show background solid at left
     else:
         scene chapter7_2 movie
         with fade
+        show background solid at left
     
     play music "sounds/pills_chp7_begin_ost.wav"
 
@@ -3147,16 +3239,20 @@ label chapter9:
     #scene chapter9_%r movie % stress_count
     scene chapter9_0 movie
     with fade
+    show background solid at left
     
     if stress_count == 0:
         scene chapter9_0 movie
         with fade
+        show background solid at left
     elif stress_count == 1:
         scene chapter9_1 movie
         with fade
+        show background solid at left
     else:
         scene chapter9_2 movie
         with fade
+        show background solid at left
     
     play music "sounds/pills_chp9_p1_ost.wav"
 
@@ -3317,12 +3413,15 @@ label chapter10:
     if stress_count == 0:
         scene chapter10_0 movie
         with fade
+        show background solid at left
     elif stress_count == 1:
         scene chapter10_1 movie
         with fade
+        show background solid at left
     else:
         scene chapter10_2 movie
         with fade
+        show background solid at left
     
     play music "sounds/pills_chp9_p1_wdrums_ost.wav"
 
@@ -3437,5 +3536,109 @@ label chapter10:
     # play movie "Credits.webm"
     
     play music "sounds/pills_credits_ost.wav"
+    
+    jump credits 
 
+label credits:
+    # scene credit_playback
+    # with fade
+    # image splash = Text("{size=90}Company Name", text_align=0.5, ypos=0.5) #Placeholder code if you don't have anything to use as a splash image or are just pure lazy.
+    # image cred = Text(credits_s, text_align=0.5) #use this if you want to use special fonts
+    # image cred = Text(credits_s, text_align=0.5)
+    image title = Text("{size=20}Pills", text_align=0.5)
+    image writing = Text("{size=20}Story and Logic by \nGerrit Feenstra")
+    image music = Text("{size=20}Score and Sound by \nGerrit Feenstra")
+    image video = Text("{size=20}Video by \nBrittany Feenstra")
+    image gui = Text("{size=20}GUI by \nBrittany Feenstra")
+    image programming = Text("{size=20}Developed in Python by \nGerrit and Brittany")
+    image renpy = Text("{size=20}Built on Ren'Py v. 6.9910.1227", text_align=0.5)
+    image location = Text("{size=20}Filmed in Seattle, WA August 2016", text_align=0.5)
+    image copyright = Text("{size=20}Made For Fun \n Copyright 2016", text_align=0.5)
+    image thanks = Text("{size=20}Thanks for Playing.", text_align=0.5)
+    # $ credits_speed = 5 #scrolling speed in seconds
+    
+    scene black #replace this with a fancy background
+    # show cred at Move((0.5, 5.0), (0.5, 0.0), credits_speed, repeat=False, bounce=False, xanchor="center", yanchor="bottom")
+    show title:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(2)
+    hide title
+    with dissolve
+    with Pause(2)
+    show writing:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(2)
+    hide writing
+    with dissolve
+    with Pause(2)
+    show music:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(2)
+    hide music
+    with dissolve
+    with Pause(2)
+    show video:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(2)
+    hide video
+    with dissolve
+    with Pause(2)
+    show gui:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(2)
+    hide gui
+    with dissolve
+    with Pause(2)
+    show programming:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(2)
+    hide programming
+    with dissolve
+    with Pause(2)
+    show renpy:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(2)
+    hide renpy
+    with dissolve
+    with Pause(2)
+    show location:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(2)
+    hide location
+    with dissolve
+    with Pause(2)
+
+    show copyright:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(2)
+    hide copyright
+    with dissolve
+    with Pause(2)
+    show thanks:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(2)
+    hide thanks
+    with dissolve
+    with Pause(2)
+    
     return

@@ -105,7 +105,7 @@ init -1 python hide:
     # style.window.left_margin = 6
     # style.window.right_margin = 6
     # style.window.top_margin = 6
-    # style.window.bottom_margin = 6
+    style.window.bottom_margin = -4
 
     ## Padding is space inside the window, where the background is
     ## drawn.
@@ -113,7 +113,7 @@ init -1 python hide:
     # style.window.left_padding = 6
     # style.window.right_padding = 6
     # style.window.top_padding = 6
-    # style.window.bottom_padding = 6
+    style.window.bottom_padding = 0
 
     ## This is the minimum height of the window, including the margins
     ## and padding.
@@ -280,7 +280,7 @@ init -1 python hide:
 
     ## The default text speed in characters per second. 0 is infinite.
 
-    config.default_text_cps = 0
+    config.default_text_cps = 2
 
     ## The default auto-forward time setting.
 

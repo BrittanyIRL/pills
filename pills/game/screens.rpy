@@ -210,18 +210,11 @@ screen main_menu():
 
         alpha False
 
-        hotspot (268, 262, 107, 80) action Start()
-        # hotspot (#, #, #, #) action ShowMenu("load")
-        # hotspot (#, #, #, #) action ShowMenu("preferences")
-        # hotspot (#, #, #, #) action ShowMenu("MENU NAME")
-        # hotspot (#, #, #, #) action Help()
+        hotspot (268, 262, 107, 80) action Start() #Start
+        hotspot (111, 361, 80, 55) action Start("credits")
+     
         hotspot (581, 244, 107, 80) action Quit(confirm=False)
-        
-        # textbutton _("Start") action Start()
-        # textbutton _("Load Game") action ShowMenu("load")
-        # textbutton _("Preferences") action ShowMenu("preferences")
-        # textbutton _("Help") action Help()
-        # textbutton _("Quit") action Quit(confirm=False)
+
 
 init -2:
 
