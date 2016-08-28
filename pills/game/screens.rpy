@@ -355,9 +355,9 @@ screen save():
         #     use load_save_slot(number=1)
        
         # change this if this menu is showing up at all to have a back option show up in image
-        hotspot (588, 256, 193, 61) action Return()
-        hotspot (588, 332, 193, 65) action MainMenu()
-        hotspot (588, 409, 193, 57) action Quit()
+        hotspot (422, 265, 165, 67) action Return()
+        hotspot (213, 265, 175, 67) action MainMenu()
+        # hotspot (213, 265, 175, 67) action Quit()
 
 screen load():
     # We aren't using the load functions, so this is irrelevant, but leaving so it doesn't break
@@ -546,8 +546,8 @@ screen yesno_prompt(message, yes_action, no_action):
         idle 'images/verify.png' 
         hover 'images/verify-hover.png'
         
-        hotspot (222, 176, 114, 66)  action yes_action
-        hotspot (448, 176, 114, 66) action no_action
+        hotspot (213, 265, 175, 67)  action yes_action
+        hotspot (422, 265, 165, 67) action no_action
     
     if message == layout.ARE_YOU_SURE:
         add 'images/verify.png'
