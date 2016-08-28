@@ -181,7 +181,6 @@ label start:
     scene chapter1_0 movie
     with fade
     show background solid at left
-    show background solid at left
 
     
     play sound "sounds/alarm_clock.wav"
@@ -222,14 +221,9 @@ label getup:
     else:
         scene getup_2 movie
         with fade
-<<<<<<< HEAD
-    
-    play music "sounds/pills_getting_ready_ost.wav"
-=======
         show background solid at left
 
     play music "sounds/pills_getting_ready_ost.wav" fadein 2.0
->>>>>>> 427e6783f02025576435469ec37409e2342c27d5
 
     j "Another day." # "Here we go again." "Alright, alright, I'm up."
     
@@ -643,17 +637,11 @@ screen chapter2_map:
         # Do I need to specify the base image?
         #hover "Hover.jpg" I don't want a hover change thing
 
-<<<<<<< HEAD
-        hotspot (22, 275, 314, 150) clicked Return("book")        #library book for bus/email
-        hotspot (0, 93, 168, 120) clicked Return("bag")        #bag for bus pass
-        hotspot (400, 406, 210, 92) clicked Return("calendar")   #calendar for meeting 
-        hotspot (350, 50, 300, 267) clicked Return("door")      #door is leave
-=======
         hotspot (22, 300, 314, 106) clicked Return("book")        #library book for bus/email
         hotspot (0, 93, 168, 80) clicked Return("bag")        #bag for bus pass
         hotspot (436, 406, 186, 92) clicked Return("calendar")   #calendar for meeting 
         hotspot (593, 138, 93, 192) clicked Return("door")      #door is leave
->>>>>>> 427e6783f02025576435469ec37409e2342c27d5
+
         
 label chapter2:
 
@@ -851,6 +839,7 @@ label chapter4:
     
     scene black
     with dissolve
+    show background solid at left
     
     stop music fadeout 2.0
     
@@ -2993,6 +2982,7 @@ label chapter7:
     
     scene black
     with dissolve
+    show background solid at left
     
     stop music fadeout 2.0
     $ renpy.pause(1)
@@ -3201,7 +3191,9 @@ label chapter8:
     $ scene_count += 1
     
     play movie "chapter8_lp.webm"
-    play music "sounds/pills_chp8_montage_faith_ost.wav"    
+    $ renpy.pause(71.0, hard=True)
+
+    # play music "sounds/pills_chp8_montage_faith_ost.wav"    
     
     #if pills_count > 2:
     #    play movie "chapter8_sad.webm"
@@ -3231,15 +3223,15 @@ label chapter9:
     
     stop music fadeout 2.0
     
-    play music "sounds/pills_chp9_intro_ost.wav"
-    $ renpy.pause(3)
+    play sound "sounds/pills_chp9_intro_ost.wav"
+    $ renpy.pause(4.2)
     
     $ scene_count += 1
 
     #scene chapter9_%r movie % stress_count
-    scene chapter9_0 movie
-    with fade
-    show background solid at left
+    # scene chapter9_0 movie
+    # with fade
+    # show background solid at left
     
     if stress_count == 0:
         scene chapter9_0 movie
