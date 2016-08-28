@@ -34,87 +34,91 @@ define o = Character(_(''), color="#c8ffc8", window_left_margin=0, window_yminim
 # Put all the videos here - one for each stress level.
 # For now, while we only have 1 video for each, set all webm videos to _0 version
 
-image chapter1_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter1_0", play="chapter1_0.webm")
-image chapter1_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter1_0", play="chapter1_0.webm")
-image chapter1_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter1_0", play="chapter1_0.webm")
+image chapter1_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter1_0.webm")
+image chapter1_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter1_0.webm")
+image chapter1_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter1_0.webm")
 
-image getup_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="getup_0", play="getup_0.webm")
-image getup_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="getup_0", play="getup_0.webm")
-image getup_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="getup_0", play="getup_0.webm")
+image getup_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="getup_0.webm")
+image getup_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="getup_0.webm")
+image getup_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="getup_0.webm")
 
-image chapter2_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter2_0", play="chapter2_0.webm")
-image chapter2_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter2_0", play="chapter2_0.webm")
-image chapter2_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter2_0", play="chapter2_0.webm")
+image chapter2_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter2_0.webm")
+image chapter2_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter2_0.webm")
+image chapter2_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter2_0.webm")
 
-image chapter3_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter3_0", play="chapter3_0.webm")
-image chapter3_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter3_0", play="chapter3_0.webm")
-image chapter3_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter3_0", play="chapter3_0.webm")
+image chapter3_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter3_0.webm")
+image chapter3_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter3_0.webm")
+image chapter3_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter3_0.webm")
 
-image chapter4_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter4_0", play="chapter4_0.webm")
-image chapter4_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter4_0", play="chapter4_0.webm")
-image chapter4_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter4_0", play="chapter4_0.webm")
+image chapter4_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter4_0.webm")
+image chapter4_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter4_0.webm")
+image chapter4_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter4_0.webm")
 
-image bag_0_0_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_0_1", play="bag_0_0_1.webm")
-image bag_1_0_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_0_1", play="bag_0_0_1.webm")
-image bag_2_0_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_0_1", play="bag_0_0_1.webm")
+image bag_0_0_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="bag_0_0_1.webm")
+image bag_1_0_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="bag_0_0_1.webm")
+image bag_2_0_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="bag_0_0_1.webm")
 
-image bag_0_1_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_1_1", play="bag_0_1_1.webm")
-image bag_1_1_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_1_1", play="bag_0_1_1.webm")
-image bag_2_1_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_1_1", play="bag_0_1_1.webm")
+image bag_0_1_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="bag_0_1_1.webm")
+image bag_1_1_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="bag_0_1_1.webm")
+image bag_2_1_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="bag_0_1_1.webm")
 
-image bag_0_1_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_1_0", play="bag_0_1_0.webm")
-image bag_1_1_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_1_0", play="bag_0_1_0.webm")
-image bag_2_1_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_1_0", play="bag_0_1_0.webm")
+image bag_0_1_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="bag_0_1_0.webm")
+image bag_1_1_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="bag_0_1_0.webm")
+image bag_2_1_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="bag_0_1_0.webm")
 
-image bag_0_0_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_1_0", play="bag_0_0_0.webm")
-image bag_1_0_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_1_0", play="bag_0_0_0.webm")
-image bag_2_0_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="bag_0_1_0", play="bag_0_0_0.webm")
+image bag_0_0_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="bag_0_0_0.webm")
+image bag_1_0_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="bag_0_0_0.webm")
+image bag_2_0_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="bag_0_0_0.webm")
 
-image window_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="window_0", play="window_0.webm")
-image window_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="window_0", play="window_0.webm")
-image window_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="window_0", play="window_0.webm")
+image window_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="window_0.webm")
+image window_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="window_0.webm")
+image window_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="window_0.webm")
 
-image rafters_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="rafters_0", play="rafters_0.webm")
-image rafters_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="rafters_0", play="rafters_0.webm")
-image rafters_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="rafters_0", play="rafters_0.webm")
+image rafters_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="rafters_0.webm")
+image rafters_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="rafters_0.webm")
+image rafters_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="rafters_0.webm")
 
-image busppl_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="busppl_0", play="busppl_0.webm")
-image busppl_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="busppl_0", play="busppl_0.webm")
-image busppl_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="busppl_0", play="busppl_0.webm")
+image busppl_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="busppl_0.webm")
+image busppl_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="busppl_0.webm")
+image busppl_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="busppl_0.webm")
 
-image chapter5_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter5_0", play="chapter5_0.webm")
-image chapter5_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter5_0", play="chapter5_0.webm")
-image chapter5_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter5_0", play="chapter5_0.webm")
+image chapter5_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter5_0.webm")
+image chapter5_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter5_0.webm")
+image chapter5_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter5_0.webm")
 
-image stoplight_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="stoplight_0", play="stoplight_0.webm")
-image stoplight_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="stoplight_0", play="stoplight_0.webm")
-image stoplight_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="stoplight_0", play="stoplight_0.webm")
+image stoplight_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="stoplight_0.webm")
+image stoplight_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="stoplight_0.webm")
+image stoplight_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="stoplight_0.webm")
 
-image chapter6_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter6_0", play="chapter6_0.webm")
-image chapter6_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter6_0", play="chapter6_0.webm")
-image chapter6_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter6_0", play="chapter6_0.webm")
+image chapter6_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter6_0.webm")
+image chapter6_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter6_0.webm")
+image chapter6_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter6_0.webm")
 
-image mgmt_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="mgmt_0", play="mgmt_0.webm")
-image mgmt_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="mgmt_0", play="mgmt_0.webm")
-image mgmt_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="mgmt_0", play="mgmt_0.webm")
+image mgmt_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="mgmt_0.webm")
+image mgmt_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="mgmt_0.webm")
+image mgmt_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="mgmt_0.webm")
 
-image clientmtg_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="clientmtg_0", play="clientmtg_0.webm")
-image clientmtg_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="clientmtg_0", play="clientmtg_0.webm")
-image clientmtg_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="clientmtg_0", play="clientmtg_0.webm")
+image clientmtg_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="clientmtg_0.webm")
+image clientmtg_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="clientmtg_0.webm")
+image clientmtg_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="clientmtg_0.webm")
 
-image chapter7_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter7_0", play="chapter7_0.webm")
-image chapter7_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter7_0", play="chapter7_0.webm")
-image chapter7_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter7_0", play="chapter7_0.webm")
+image chapter7_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter7_0.webm")
+image chapter7_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter7_0.webm")
+image chapter7_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter7_0.webm")
+
+image end_of_lunch_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter7_0.webm")
+image end_of_lunch_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter7_0.webm")
+image end_of_lunch_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter7_0.webm")
 
 # then we have the three montage videos, for chapter 8, which we want to treat as not clickable videos
 
-# image chapter9_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter9_0", play="chapter9_0.webm")
-# image chapter9_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter9_0", play="chapter9_0.webm")
-# image chapter9_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter9_0", play="chapter9_0.webm")
+# image chapter9_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter9_0.webm")
+# image chapter9_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter9_0.webm")
+# image chapter9_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter9_0.webm")
 
-# image chapter10_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter10_0", play="chapter10_0.webm")
-# image chapter10_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter10_0", play="chapter10_0.webm")
-# image chapter10_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="chapter10_0", play="chapter10_0.webm")
+# image chapter10_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter10_0.webm")
+# image chapter10_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter10_0.webm")
+# image chapter10_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter10_0.webm")
 
 # then we have the credits which we want to treat as not clickable videos, but still want to keep the car alarm
 
@@ -145,12 +149,15 @@ label start:
     $ phone_talk = 0
     $ go_to_meeting = 0
     $ check_email = 0
+    $ meeting_panic = 0
     
-    $ randmtg = renpy.random.choice(["plan", "projection", "marketing", "benefits"])
-    $ randlng = renpy.random.choice(["french", "latin"])
+    $ randmtg = renpy.random.randint(1,4)
+    $ randlng = renpy.random.randint(1,2)
 
     scene black
 
+    $ renpy.pause(1)
+    
     j "There's this feeling..."
     j "right before I fall asleep,"
     j "right before I fade into oblivion,"
@@ -166,6 +173,8 @@ label start:
     j "That moment..."
     j "that feeling..."
     j "that's what I wait for every single day."
+    
+    $ renpy.pause(1)
 
     scene chapter1_0 movie
     with fade
@@ -189,7 +198,12 @@ label start:
 
 
 label getup:
+ 
+    scene black
+    with dissolve
     
+    stop music fadeout 2.0
+
     if stress_count == 0:
         scene getup_0 movie
         with fade
@@ -199,8 +213,8 @@ label getup:
     else:
         scene getup_2 movie
         with fade
-
-    play music "sounds/pills_getting_ready_ost.wav" fadein 2.0
+    
+    play music "sounds/pills_getting_ready_ost.wav"
 
     j "Another day." # "Here we go again." "Alright, alright, I'm up."
     
@@ -244,6 +258,9 @@ label cook:
          j "But I won’t have much time. Might be late."
          $ stress_count += 1
          if stress_count > 2:
+              j "That would be the third time this month."
+              j "Wouldn't people start to talk?"
+              j "I can't even think about that."
               jump pills_scene
          else:
               jump chapter2
@@ -255,6 +272,8 @@ label cook:
          $ Stress_count += 1
          $ coffee_choice = 1
          if stress_count > 2:
+              "Already stressing myself out this much..."
+              "And it's just the beginning of the day..."
               jump pills_scene
          else:
               jump chapter2
@@ -516,7 +535,7 @@ label pills_scene:
     scene black
     with dissolve
     
-    stop music fadeout 1.0
+    # stop music fadeout 1.0
 
     if pills_count == 0:
         j "I don't need this right now."
@@ -545,7 +564,8 @@ label pills_scene:
         j "Now."
     
     play sound "sounds/pill_bottle.wav"
-    # play sound "exhale.wav"
+    $ renpy.pause(2)
+    play sound "sounds/exhale.wav"
     
     j "That's better."
     
@@ -566,12 +586,14 @@ label pills_scene:
         jump coffeeshop
     elif scene_count == 5 and coffee_choice < 1:
         jump chapter6
-    elif scene_count == 6 and go_to_meeting > 0:
+    elif scene_count == 6 and go_to_meeting > 0 and meeting_panic < 1:
         jump clientmeeting
+    elif scene_count == 6 and go_to_meeting > 0 and meeting_panic > 0:
+        jump chapter7
     elif scene_count == 6 and go_to_meeting < 1:
         jump chapter7
     elif scene_count == 7:
-        jump chapter8
+        jump end_of_lunch
     elif scene_count == 8:
         jump chapter9
     elif scene_count == 9:
@@ -594,14 +616,19 @@ screen chapter2_map:
         # Do I need to specify the base image?
         #hover "Hover.jpg" I don't want a hover change thing
 
-        hotspot (22, 300, 314, 106) clicked Return("book")        #library book for bus/email
-        hotspot (0, 93, 168, 80) clicked Return("bag")        #bag for bus pass
-        hotspot (436, 406, 186, 92) clicked Return("calendar")   #calendar for meeting 
-        hotspot (575, 133, 122, 167) clicked Return("door")      #door is leave
+        hotspot (22, 275, 314, 150) clicked Return("book")        #library book for bus/email
+        hotspot (0, 93, 168, 120) clicked Return("bag")        #bag for bus pass
+        hotspot (400, 406, 210, 92) clicked Return("calendar")   #calendar for meeting 
+        hotspot (350, 50, 300, 267) clicked Return("door")      #door is leave
         
 label chapter2:
     #getting out the door
 
+    scene black
+    with dissolve
+    
+    stop music fadeout 2.0
+    
     $ scene_count += 1
     
     if stress_count == 0:
@@ -614,7 +641,7 @@ label chapter2:
         scene chapter2_2 movie
         with fade
     
-    play music "sounds/pills_chp_2_ost.wav" fadein 2.0
+    play music "sounds/pills_chp_2_ost.wav"
     
     j "What am I forgetting?"
     j "I always forget something."
@@ -661,6 +688,12 @@ label chapter2_w_map:
 label chapter3:
     # bus stop
 
+    scene black
+    with dissolve
+    
+    stop music fadeout 2.0
+    $ renpy.pause(1)
+    
     $ scene_count += 1
     
     if stress_count == 0:
@@ -673,7 +706,7 @@ label chapter3:
         scene chapter3_2 movie
         with fade
     
-    play music "sounds/pills_chp_3_ost.wav" fadein 2.0
+    play music "sounds/pills_chp_3_ost.wav"
 
     j "Bus arrives in... zero minutes?"
     j "It's not even down the hill yet."
@@ -701,6 +734,9 @@ label chapter3:
              j "Nobody."
              $ stress_count += 1
              if stress_count > 2:
+                 "And in the meantime..."
+                 "It's just going to stress me out."
+                 "So, so much..."
                  jump pills_scene
              else:
                  jump bus_time
@@ -731,7 +767,7 @@ label chapter3:
     
 label bus_time:
 
-    # play sound "busarrival.wav"
+    play sound "sounds/busarrival.wav"
     j "There's the bus, finally."
     
     if bag_check > 0:
@@ -766,6 +802,11 @@ label bus_time:
 label chapter4:
     # on the bus
     
+    scene black
+    with dissolve
+    
+    stop music fadeout 2.0
+    
     $ scene_count += 1
     
     if stress_count == 0:
@@ -778,7 +819,7 @@ label chapter4:
         scene chapter4_2 movie
         with fade
     
-    play music "sounds/pills_chp_4_ost.wav" fadein 2.0
+    play music "sounds/pills_chp_4_ost.wav"
 
     if bag_check > 0:
         j "Only three minutes late today."
@@ -804,16 +845,21 @@ label chapter4:
 screen chapter4_map:
     imagemap:
         ground "blank.png"
-        #we need to change these
 
         hotspot (163, 75, 332, 86) clicked Return("window")        #look out window
         hotspot (525, 132, 222, 204) clicked Return("openbag")        #look in yr bag
         hotspot (228, 268, 130, 84) clicked Return("ads")            #ads on bus 
         hotspot (0, 300, 163, 225) clicked Return("people")      #people on bus
-        # hotspot (1, 1, 1, 1) clicked Return("nothingbus")          #NOTHINGNESS 
     
 label chapter4_w_map:
 
+    if stress_count == 0:
+        scene chapter4_0 movie
+    elif stress_count == 1:
+        scene chapter4_1 movie
+    else:
+        scene chapter4_2 movie
+    
     call screen chapter4_map
     
     $ result = _return
@@ -863,7 +909,6 @@ label chapter4_w_map:
             scene bag_2_0_0 movie
         # really hard to notice the ellipsis, adding second one
         j "..."
-        j "..."
         jump chapter4_w_map
     elif result == "ads":
         $ bus_check = 2
@@ -911,8 +956,6 @@ label chapter4_w_map:
         j "Or I don't know..."
         j "maybe they do."
         jump chapter4_w_choice
-#    elif result == "nothingbus":
-#        jump chapter4_w_choice
         
 label chapter4_w_choice:
     
@@ -1000,6 +1043,8 @@ label onwards:
         j "No way at all."
     $ stress_count += 2
     if stress_count > 2:
+        "How am I going to do all of that?"
+        "I can't even think about it."
         jump pills_scene
     else:
         jump chapter5
@@ -1035,6 +1080,8 @@ label turn_and_burn:
         j "No way at all."
     $ stress_count += 1
     if stress_count > 2:
+        "How am I going to do all of that?"
+        "I can't even think about it."
         jump pills_scene
     else:
         jump chapter5
@@ -1074,6 +1121,23 @@ label book_instead:
          
 label chapter5:
 
+    scene black
+    with dissolve
+    
+    stop music fadeout 2.0
+    $ renpy.pause(1)
+    
+    j "Once I leave the bus, the mood of the day changes."
+    j "I a weight lift, though I'm not sure why."
+    j "I no longer feel responsible for my own anxiety."
+    j "Now, out in the wilds of a city in flux,"
+    j "everything is a shared venture."
+    j "And even though that in itself can be stressful,"
+    j "somehow, there's something reassuring about that."
+    j "When the unexpected strikes, we are all in it together."
+    j "We all share the outcome."
+    j "And we all get to find the humor in it, somehow."
+    
     $ scene_count += 1
     
     if stress_count == 0:
@@ -1086,7 +1150,7 @@ label chapter5:
         scene chapter5_2 movie
         with fade
     
-    play music "sounds/pills_chp_5_ost.wav" fadein 2.0
+    play music "sounds/pills_chp_5_ost.wav"
 
     j "I've been thinking..."
     j "Every day I take the same exact steps to work."
@@ -1217,6 +1281,11 @@ label chapter5:
          
 label coffeeshop:
     
+    scene black
+    with dissolve
+    
+    stop music fadeout 2.0
+    
     if stress_count == 0:
         scene coffeeshop_0 movie
         with fade
@@ -1227,7 +1296,7 @@ label coffeeshop:
         scene coffeeshop_2 movie
         with fade
     
-    play music "sounds/pills_coffee_shop_ost.wav" fadein 2.0
+    play music "sounds/pills_coffee_shop_ost.wav"
     
     j "Always a line."
     j "I don't know why I ever think this is going to save time."
@@ -1292,7 +1361,12 @@ label quiet_coffee:
              j "It's all ridiculous enough as it is."
              j "That guy will get what's coming to him."
              j "Still horrible to listen to."
-             jump chapter6
+             
+             $ stress_count += 1
+             if stress_count > 2:
+                 jump pills_scene
+             else:
+                 jump chapter6
 
          "Get involved.":
         
@@ -1365,7 +1439,22 @@ label nada_coffee:
          
 label chapter6:
 
+    scene black
+    with dissolve
+    
+    stop music fadeout 2.0
+    $ renpy.pause(1)
+    
     $ scene_count += 1
+    
+    j "Once I exit the streets..."
+    j "That semblance of control fades completely."
+    j "I am no longer the harbinger of my own doom."
+    j "Now, roaming the halls, strolling by the coffee maker..."
+    j "I have plenty of volunteers."
+    j "There's humor in that, right?"
+    j "At least a little bit..."
+    j "Maybe?"
     
     if stress_count == 0:
         scene chapter6_0 movie
@@ -1377,7 +1466,7 @@ label chapter6:
         scene chapter6_2 movie
         with fade
     
-    play music "sounds/pills_chp_6_ost.wav" fadein 2.0
+    play music "sounds/pills_chp6_begin_ost.wav"
     
     if bag_check > 0:
         j "Alright."
@@ -1403,23 +1492,23 @@ label chapter6:
              j "Wait..."
              j "What is this email about a meeting?"
              
-             if randmtg = "plan":
+             if randmtg == 1:
                  j "Something about a renewed business plan?"
                  j "Focus on big picture."
                  j "Moving the wheels of history..."
                  j "Wait, where have I heard that before?"
-             elif randmtg = "projection":
+             elif randmtg == 2:
                  j "Something about bad quarterly earnings?"
                  j "Yada yada yada..."
                  j "Trying to turn things around in the future..."
                  j "Well, yeah. Aren't we all?"
-             elif randmtg = "marketing":
+             elif randmtg == 3:
                  j "Something about globalized marketing outreach?"
                  j "Globally unified..."
                  j "Traditionally untraditional..."
                  j "Could there be any more hot words in here?"
                  j "This is bonkers."
-             elif randmtg = "benefits":
+             elif randmtg == 4:
                  j "Something about an updated benefits package?"
                  j "Wow, I wonder if I get acupuncture now..."
                  j "Oh wait, it's not for me. It's for someone else..."
@@ -1464,8 +1553,11 @@ label chapter6:
                  j "Ah crap."
                  j "This just reminds me I forgot those damn library books again."
                  j "I hate books."
-         
-             jump phonering
+                 $ stress_count += 1
+                 if stress_count > 2:
+                     jump pills_scene
+                 else:
+                     jump phonering
          
          "Get hyped by watching Glengarry Glen Ross on Youtube.":
              j "I know what it is."
@@ -1499,7 +1591,7 @@ label chapter6:
 
 label phonering:
   
-    # play sound "ringer.wav"
+    play sound "sounds/ringer.wav"
     
     j "Oh crap."
     j "Who is that?"
@@ -1526,6 +1618,10 @@ label phonering:
          
 label phonecall:
 
+    stop music fadeout 2.0
+    
+    play music "sounds/pills_client_mtg_only_seq_ost.wav"
+    
     j "Hello?"
     
     o "Joe."
@@ -1708,6 +1804,11 @@ label nocall:
 
 label mgmtmeeting:
     
+    scene black
+    with dissolve
+    
+    stop music fadeout 2.0
+    
     if stress_count == 0:
         scene mgmt_0 movie
         with fade
@@ -1718,7 +1819,7 @@ label mgmtmeeting:
         scene mgmt_2 movie
         with fade
     
-    play music "sounds/pills_mgmt_mtg_ost.wav" fadein 2.0
+    play music "sounds/pills_client_mtg_only_seq_ost.wav"
     
     o "Hey Joe how's it hanging?"
     
@@ -1904,6 +2005,12 @@ label mgmtmeeting:
          
 label clientmeeting:
     
+    scene black
+    with dissolve
+    
+    stop music fadeout 2.0
+    $ renpy.pause(1)
+    
     if stress_count == 0:
         scene clientmtg_0 movie
         with fade
@@ -1914,7 +2021,7 @@ label clientmeeting:
         scene clientmtg_2 movie
         with fade
     
-    play music "sounds/pills_client_mtg_ost.wav" fadein 2.0
+    play music "sounds/pills_client_mtg_p1_ost.wav"
     
     j "Oh my god."
     j "How is this happening?"
@@ -1936,6 +2043,8 @@ label clientmeeting:
     o "Mr. Mills is there with you in the conference room now."
     
     j "Of course he picks the chair furthest from me..."
+    
+    play music "sounds/pills_client_mtg_p2_ost.wav"
     
     if coffee_choice > 0:
         j "Wait a second..."
@@ -2024,11 +2133,11 @@ label clientmeeting:
         jump meeting_prompt            
 
 label meeting_prompt:
-
+    
     menu:
         
         "So about your business plan...":
-            if randmtg = "plan":
+            if randmtg == 1:
                 o "I know full well about our business plan."
                 o "What I want to hear about is how you are going to fix it."
                 o "You are a consultant, aren't you?"
@@ -2071,7 +2180,7 @@ label meeting_prompt:
 
              
         "So about your quarterly projections...":
-            if randmtg = "projection":
+            if randmtg == 2:
                 o "Not the best opening line I've ever heard..."
                 o "But I'll take it."
                 o "Let's see what you plan on doing about them."
@@ -2108,7 +2217,7 @@ label meeting_prompt:
                     jump meeting_w_map
              
         "So about your marketing campaign...":
-            if randmtg = "marketing":
+            if randmtg == 3:
                 o "I know."
                 o "Currently, it sucks."
                 o "Which is why we are paying you people way more than you deserve."
@@ -2154,7 +2263,7 @@ label meeting_prompt:
                     jump meeting_w_map
         
         "So about your employee benefits policy...":
-            if randmtg = "benefits":
+            if randmtg == 4:
                 o "It's absolutely..."
                 o "Wait..."
                 o "You're not one of my employees, are you?"
@@ -2207,14 +2316,16 @@ screen meeting_map:
         ground "blank.png"
         #we need to change these
 
-        hotspot (8, 200, 100, 100) clicked Return("phone")        #use the phone
-        hotspot (204, 50, 78, 78) clicked Return("easel")         #use the easel
-        hotspot (452, 79, 78, 78) clicked Return("tv")            #use the tv 
-        hotspot (602, 316, 300, 300) clicked Return("papers")     #use the papers
-        hotspot (1, 1, 1, 1) clicked Return("desk")               #use the desk 
+        hotspot (0, 188, 91, 80) clicked Return("phone")         #use the phone
+        hotspot (400, 120, 126, 148) clicked Return("easel")     #use the easel
+        hotspot (696, 75, 104, 178) clicked Return("tv")         #use the tv 
+        hotspot (449, 318, 101, 45) clicked Return("papers")     #use the papers
+        hotspot (56, 300, 328, 169) clicked Return("desk")       #use the desk 
     
 label meeting_w_map:
 
+    play music "sounds/pills_chp7_nobass_ost.wav"
+    
     call screen meeting_map
     
     $ result = _return
@@ -2530,7 +2641,7 @@ label meeting_w_map:
                 menu:
                 
                     "Lassez-faire, Tom.":
-                        if randlng = "french":
+                        if randlng == 1:
                             o "Wow, French?"
                             o "You run a sophisticated crowd around here, Tom."
                             o "Forget the presentation."
@@ -2573,7 +2684,7 @@ label meeting_w_map:
                                 jump meeting_w_map
                     
                     "C'est la vie, Tom.":
-                        if randlng = "french":
+                        if randlng == 1:
                             o "Wow, French?"
                             o "You run a sophisticated crowd around here, Tom."
                             o "Forget the presentation."
@@ -2616,7 +2727,7 @@ label meeting_w_map:
                                 jump meeting_w_map
                     
                     "Carpe diem, Tom.":
-                        if randlng = "latin":
+                        if randlng == 2:
                             o "Wow, Latin?"
                             o "You run a sophisticated crowd around here, Tom."
                             o "Forget the presentation."
@@ -2660,7 +2771,7 @@ label meeting_w_map:
 
                     
                     "Quid pro quo, Tom.":
-                        if randlng = "latin":
+                        if randlng == 2:
                             o "Wow, Latin?"
                             o "You run a sophisticated crowd around here, Tom."
                             o "Forget the presentation."
@@ -2790,6 +2901,13 @@ label meeting_w_map:
 ##############################################################
          
 label chapter7:
+    
+    scene black
+    with dissolve
+    
+    stop music fadeout 2.0
+    $ renpy.pause(1)
+    
     $ scene_count += 1
     
     if stress_count == 0:
@@ -2802,7 +2920,7 @@ label chapter7:
         scene chapter7_2 movie
         with fade
     
-    play music "sounds/pills_chp_7_ost.wav" fadein 2.0
+    play music "sounds/pills_chp7_begin_ost.wav"
 
     if go_to_meeting > 0 and meeting_panic > 0:
         j "That sure was good of Tom to take over that meeting for me."
@@ -2819,6 +2937,9 @@ label chapter7:
     j "How does this happen every day?"
     j "Here I am, taking my lunchtime escape from the madness,"
     j "And already, just this morning, I've been through the ringer."
+    
+    play music "sounds/pills_client_mtg_p3_ost.wav"
+    
     j "I find myself in these inescapable, ridiculous situations."
     j "And no matter how ridiculous they are,"
     j "they still manage to be impossibly stressful."
@@ -2829,6 +2950,8 @@ label chapter7:
     j "Maybe I perpetuate the stress where there's no need to."
     j "Maybe I just work myself up to the anxiety."
     j "It has to be one or the other, right?"
+    
+    play music "sounds/pills_client_mtg_wpiano_ost.wav"
 
     menu:
          "Everybody goes through it.":
@@ -2889,28 +3012,81 @@ label chapter7:
                  jump end_of_lunch
     
 label end_of_lunch:
-
+    
+    stop music fadeout 2.0
+    
+    if stress_count == 0:
+        scene end_of_lunch_0 movie
+        with fade
+    elif stress_count == 1:
+        scene end_of_lunch_1 movie
+        with fade
+    else:
+        scene end_of_lunch_2 movie
+        with fade
+    
+    play music "sounds/pills_chp7_wguitar_ost.wav"
+    
     j "Then again..."
     j "I am the one sitting in a park on his lunch break,"
     j "quietly weighing the decisions of every moment of my waking life."
-    j "Maybe I shouldn't take everything so seriously."
-    j "Won't I become one of those people that just stumbles through their life?"
-    j "Those people that I hate,"
-    j "who somehow thrive off their own flippancy,"
-    j "who make every decision with about as much focused thought as a labrador."
-    j "I have no desire to become one of those people."
-    j "But there has to be some middle ground, right?"
-    j "Somewhere between riding the wave without a care in the world,"
-    j "and letting it crash over me every time I'm determined to swim out further."
-    j "I don't know."
-    j "I don't want my life to be a never ending set of choices, good and bad,"
-    j "where I get a score at the end that I don't even know how to interpret."
-    j "I don't want to stress about the score."
-    j "I want the reward to be something more tangible."
-    j "Maybe I'm asking for too much..."
-    j "..."
-    j "Or,"
-    j "maybe I'm asking for just enough to get by."
+    
+    j "And how many pills have I already taken today?"
+    if pills_count == 0:
+        j "Wait..."
+        j "None? ...Really?"
+        j "Wow."
+        j "Maybe everything isn't so bad after all."
+        j "I just get so caught up in keeping track of it all."
+        j "Marking strikes every time the pressure gets too intense."
+        j "Like there's some kind of score board at the end."
+        j "I don't want my life to be a never ending set of choices, good and bad."
+        j "I don't want to stress about the score, whatever it might be."
+        j "No..."
+        j "I want the reward to be something more tangible."
+        j "Is that asking too much?"
+        j "..."
+        j "No..."
+        j "I'm not asking for all that."
+        j "Just enough to get by."        
+    
+    elif pills_count == 1:
+        j "Only 1?"
+        j "That's not too bad."
+        j "Still, I don't know how I do it..."
+        j "But I find a way to make everything into some kind of an ultimatum."
+        j "Like every little thing could be the big one..."
+        j "The one thing that pushes me over the edge into some kind of nuthouse."
+        j "I can't treat every experience like that."
+        j "I don't want my life to be a never ending set of choices, good and bad,"
+        j "where I get a score at the end that I don't even know how to interpret."
+        j "I don't want to stress about the score."
+        j "I want the reward to be something more tangible."
+        j "Maybe I'm asking for too much..."        
+        j "..."
+        j "Or,"
+        j "maybe I'm asking for just enough to get by."
+    
+    else:
+        j "[pills_count] pills?"
+        j "Maybe I shouldn't take everything so seriously."
+        j "Won't I become one of those people that just stumbles through their life?"
+        j "Those people that I hate,"
+        j "who somehow thrive off their own flippancy,"
+        j "who make every decision with about as much focused thought as a labrador."
+        j "I have no desire to become one of those people."
+        j "But there has to be some middle ground, right?"
+        j "Somewhere between riding the wave without a care in the world,"
+        j "and letting it crash over me every time I'm determined to swim out further."
+        j "I don't know."
+        j "I don't want my life to be a never ending set of choices, good and bad,"
+        j "where I get a score at the end that I don't even know how to interpret."
+        j "I don't want to stress about the score."
+        j "I want the reward to be something more tangible."
+        j "Maybe I'm asking for too much..."
+        j "..."
+        j "Or,"
+        j "maybe I'm asking for just enough to get by."
 
     jump chapter8
     
@@ -2924,18 +3100,26 @@ label end_of_lunch:
 ##############################################################
          
 label chapter8:
+    scene black
+    with dissolve
+    
+    stop music fadeout 2.0
+    $ renpy.pause(1)
+    
     $ scene_count += 1
+    
+    play movie "chapter8_lp.webm"
+    play music "sounds/pills_chp8_montage_faith_ost.wav"    
+    
     #if pills_count > 2:
     #    play movie "chapter8_sad.webm"
-    #    play music "sounds/pills_chp_8_ost_sad.wav" fadein 2.0
+    #    play music "sounds/pills_chp_8_ost_sad.wav"
     #elif pills_count > 0:
     #    play movie "chapter8_meh.webm"
-    #    play music "sounds/pills_chp_8_ost_sad.wav" fadein 2.0
+    #    play music "sounds/pills_chp_8_ost_sad.wav"
     #else:
     #    play movie "chapter8_spiffy.webm"
-    #    play music "sounds/pills_chp_8_ost_happy.wav" fadein 2.0
-    
-    stop music fadeout 1.0
+    #    play music "sounds/pills_chp_8_ost_happy.wav"
     
     jump chapter9
     
@@ -2949,6 +3133,15 @@ label chapter8:
 ##############################################################
          
 label chapter9:
+    
+    scene black
+    with dissolve
+    
+    stop music fadeout 2.0
+    
+    play music "sounds/pills_chp9_intro_ost.wav"
+    $ renpy.pause(3)
+    
     $ scene_count += 1
 
     #scene chapter9_%r movie % stress_count
@@ -2965,7 +3158,7 @@ label chapter9:
         scene chapter9_2 movie
         with fade
     
-    play music "sounds/pills_chp_9_ost.wav" fadein 2.0
+    play music "sounds/pills_chp9_p1_ost.wav"
 
     j "What a day."
     j "I feel like I survived a hurricane or something."
@@ -3115,6 +3308,12 @@ label tv_shows:
     
 label chapter10:
     
+    scene black
+    with dissolve
+    
+    stop music fadeout 2.0
+    $ renpy.pause(1)
+    
     if stress_count == 0:
         scene chapter10_0 movie
         with fade
@@ -3125,7 +3324,7 @@ label chapter10:
         scene chapter10_2 movie
         with fade
     
-    play music "sounds/pills_chp_10_ost_p1.wav" fadein 2.0
+    play music "sounds/pills_chp9_p1_wdrums_ost.wav"
 
     j "Finally."
     j "I made it."
@@ -3159,7 +3358,7 @@ label chapter10:
     scene black
     with dissolve
     
-    play music "sounds/pills_chp_10_ost_p2.wav"
+    play music "sounds/pills_chp9_p2_bld_ost.wav"
     
     o "Joseph"
     o "This is the voice inside your head"
@@ -3207,12 +3406,15 @@ label chapter10:
         o "You deserve it..."
         o "But still..."
         
+    play music "sounds/pills_chp9_p2_loop_ost.wav"
+    $ renpy.pause(4)
+        
     stop music fadeout 1.0
     
     #scene chapter10_%r movie % stress_count
     scene chapter10 movie
     
-    # play sound "<loop 300>car_alarm.wav"
+    play sound "<loop 300>sounds/car_alarm.wav"
     
     j "..."
     j "Are you serious?"
@@ -3233,5 +3435,7 @@ label chapter10:
     
     # make sure that car alarm is still going
     # play movie "Credits.webm"
+    
+    play music "sounds/pills_credits_ost.wav"
 
     return
