@@ -147,7 +147,7 @@ init -1 python hide:
 
     ## The file containing the default font.
 
-    style.default.font = "DejaVuSans.ttf"
+    style.default.font = "Calibri.ttf"
 
     ## The default size of text.
 
@@ -202,7 +202,7 @@ init -1 python hide:
     ## - A file name relative to the base directory, which is opened in a
     ##   web browser.
     ## - None, to disable help.
-    config.help = "README.html"
+    config.help = None
 
 
     #########################################
