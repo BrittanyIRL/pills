@@ -28,10 +28,22 @@ p {
 	line-height: 2.4rem;
 }
 
+.justify {
+	text-align: justify;
+}
+
 .textFlair {
 	color: #0CCE6B;
 }
 
+.nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin-left: .5rem;
+	margin-top: .5rem;
+	z-index: 99;
+}
 /* fixes for bootstrap */
 footer {
 	margin-top: 4rem;
@@ -67,6 +79,10 @@ footer {
 	color: #DCED31;  /* Fallback: assume this color ON TOP of image */
 }
 
+.aboutContainer, 
+.downloadsContainer{
+	padding: auto 5rem;
+}
 button.btn {
 	border-radius: 0;
 	font-family: 'Muli', sans-serif;
