@@ -1,43 +1,44 @@
-Wed Jul 20 22:13:19 2016
-Darwin-15.5.0-x86_64-i386-64bit
+Mon Aug 29 23:04:52 2016
+Darwin-15.4.0-x86_64-i386-64bit
 Ren'Py 6.99.10.1227
  
 
-Bootstrap to the start of init.init took 0.08s
-Early init took 0.03s
-Loader init took 0.00s
-Loading error handling took 0.02s
-Loading script took 0.04s
-Loading persistent took 0.00s
+Bootstrap to the start of init.init took 0.14s
+Early init took 0.42s
+Loader init took 0.11s
+Loading error handling took 0.10s
+Loading script took 1.79s
+Loading persistent took 0.08s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.05s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
+Running init code took 0.24s
+Loading analysis data took 0.11s
+Analyze and compile ATL took 0.01s
 Index archives took 0.00s
-Dump and make backups. took 0.05s
+Backing up script files to '/Users/gerritfeenstra/Library/RenPy/backups/pills':
+Dump and make backups. took 0.14s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 DPI scale factor: 1.000000
-Creating interface object took 0.13s
+Creating interface object took 0.93s
 Cleaning stores took 0.00s
 Init translation took 0.01s
 Build styles took 0.00s
-Load screen analysis took 0.01s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.01s
+Save screen analysis took 0.06s
 Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
+Save pyanalysis. took 0.14s
+Save bytecode. took 0.04s
 Running _start took 0.00s
 Performance test:
 Interface start took 0.01s
 
 primary display bounds: (0, 0, 1280, 800)
-Windowed mode.
-Screen sizes: virtual=(800, 600) physical=(896, 672) drawable=(1792, 1344)
-Vendor: 'Intel Inc.'
-Renderer: 'Intel Iris OpenGL Engine'
-Version: '2.1 INTEL-10.14.66'
+Fullscreen mode.
+Screen sizes: virtual=(800, 600) physical=(1280, 800) drawable=(1280, 800)
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce 9400M OpenGL Engine'
+Version: '2.1 NVIDIA-10.0.40 310.90.10.05b12'
 Display Info: <Info({'blit_sw_CC': False, 'bitsize': 32, 'wm': True, 'losses': (0, 0, 0, 0), 'hw': False, 'masks': (16711680, 65280, 255, 4278190080), 'current_h': 800, 'current_w': 1280, 'shifts': (16, 8, 0, 24), 'blit_sw_A': False, 'blit_hw': False, 'blit_sw': False, 'bytesize': 4, 'blit_hw_CC': False, 'blit_hw_A': False, 'video_mem': 268435456})>
 Extensions:
     
@@ -75,6 +76,7 @@ Extensions:
     GL_ARB_framebuffer_sRGB
     GL_ARB_half_float_pixel
     GL_ARB_half_float_vertex
+    GL_ARB_imaging
     GL_ARB_instanced_arrays
     GL_ARB_multisample
     GL_ARB_multitexture
@@ -115,6 +117,7 @@ Extensions:
     GL_ATI_texture_mirror_once
     GL_EXT_abgr
     GL_EXT_bgra
+    GL_EXT_bindable_uniform
     GL_EXT_blend_color
     GL_EXT_blend_equation_separate
     GL_EXT_blend_func_separate
@@ -123,6 +126,7 @@ Extensions:
     GL_EXT_clip_volume_hint
     GL_EXT_debug_label
     GL_EXT_debug_marker
+    GL_EXT_depth_bounds_test
     GL_EXT_draw_buffers2
     GL_EXT_draw_range_elements
     GL_EXT_fog_coord
@@ -151,6 +155,7 @@ Extensions:
     GL_EXT_texture_filter_anisotropic
     GL_EXT_texture_integer
     GL_EXT_texture_lod_bias
+    GL_EXT_texture_mirror_clamp
     GL_EXT_texture_rectangle
     GL_EXT_texture_sRGB
     GL_EXT_texture_sRGB_decode
@@ -163,9 +168,15 @@ Extensions:
     GL_NV_conditional_render
     GL_NV_depth_clamp
     GL_NV_fog_distance
+    GL_NV_fragment_program2
+    GL_NV_fragment_program_option
     GL_NV_light_max_exponent
+    GL_NV_multisample_filter_hint
+    GL_NV_point_sprite
     GL_NV_texgen_reflection
     GL_NV_texture_barrier
+    GL_NV_vertex_program2_option
+    GL_NV_vertex_program3
     GL_SGIS_generate_mipmap
     GL_SGIS_texture_edge_clamp
     GL_SGIS_texture_lod
@@ -174,18 +185,18 @@ Using shader environment.
 Using copy RTT.
 Using gl renderer.
 Texture testing:
-- Hardware max texture size: 16384
+- Hardware max texture size: 8192
 - 64px textures work.
 - 128px textures work.
 - 256px textures work.
 - 512px textures work.
 - 1024px textures work.
 - 2048px textures work.
-Total time until interface ready: 0.709510803223s
+Total time until interface ready: 6.36090612411s
 - Target is 5 frames in 0.333333333333 seconds.
 - Frame drawn at 0.000000 seconds.
-- Frame drawn at 0.022188 seconds.
-- Frame drawn at 0.048678 seconds.
-- Frame drawn at 0.057196 seconds.
-- Frame drawn at 0.067529 seconds.
-- 0.067529 seconds to render 5 frames.
+- Frame drawn at 0.004085 seconds.
+- Frame drawn at 0.007769 seconds.
+- Frame drawn at 0.016136 seconds.
+- Frame drawn at 0.033022 seconds.
+- 0.033022 seconds to render 5 frames.
