@@ -7,12 +7,16 @@ body {
 	color: #3B5863;
 	font-family: 'Playfair Display', serif;
 }
-h1, h2 {
+h1, h2, h3 {
 	font-family: 'Muli', sans-serif;
 }
 h2 {
 	/*color: #0CCE6B;*/
 	font-weight: bold;
+}
+
+h3 {
+	font-size: 1.5rem;
 }
 
 a {
@@ -44,13 +48,10 @@ p {
 	margin-top: .5rem;
 	z-index: 99;
 }
-/* fixes for bootstrap */
-footer {
+/* fixes for materialize */
+/*footer {
 	margin-top: 4rem;
 	padding-top: 2rem;
-}
-/*header {
-	margin-top: -20px;
 }*/
 
 .page-container {
@@ -79,11 +80,14 @@ footer {
 	color: #DCED31;  /* Fallback: assume this color ON TOP of image */
 }
 
-.aboutContainer, 
+/*.aboutContainer, 
 .downloadsContainer{
 	padding: auto 5rem;
-}
-button.btn {
+	background-color: pink;
+}*/
+
+
+button {
 	border-radius: 0;
 	font-family: 'Muli', sans-serif;
 	margin-bottom: 2rem;
@@ -108,15 +112,36 @@ button.comingsoon {
 	font-size: 1rem;
 	font-style: italic;
 }
-@media (max-width: 991px){
-	.gameSites {
-		text-align: center;
+@media (min-width: 993px){
+	.downloadsContainer .col{
+		border-left: .06rem solid #D5E2FC;
+		padding-left: 1.5rem;
+	}
+	.downloadsContainer h2 {
+		padding-left: .5rem;
+	}
+	.downloadsContainer p:first-of-type {
+		margin-top: 0;
+	}
+
+	.container {
+		width: 80%;
+	}
+
+	.aboutContainer .col{
+		padding-right: 1.5rem;
 	}
 }
+
+@media (max-width: 991px){
+	./*gameSites {
+		text-align: center;
+	}*/
+}
 @media (max-width: 600px){
-	button.btn {
+	/*button.btn {
 		width: 200px;
-	}
+	}*/
 }
 @media (max-width: 500px){
 	.intro {
