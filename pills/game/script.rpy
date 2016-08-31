@@ -827,11 +827,11 @@ label bus_time:
         j "Last night, when I was rushing to catch the bus back from downtown."
         j "Dammit."
         j "I hate everything."
-    $ stress_count += 2
-    if stress_count > 2:
-        jump pills_scene
-    else:
-        jump chapter4
+        $ stress_count += 2
+        if stress_count > 2:
+            jump pills_scene
+        else:
+            jump chapter4
 
 
 ##############################################################
@@ -1568,31 +1568,57 @@ label chapter6:
                  j "Focus on big picture."
                  j "Moving the wheels of history..."
                  j "Wait, where have I heard that before?"
+                 if calendar_check > 0:
+                     "I don't have anything today - I checked my calendar."
+                     "This can't be for me."
+                 else:
+                     "Still..."
+                     "Am I supposed to go to this?"
+                     "Is this on my calendar?"
+                     "I have no idea."
+                     
              elif randmtg == 2:
                  j "Something about bad quarterly earnings?"
                  j "Yada yada yada..."
                  j "Trying to turn things around in the future..."
                  j "Well, yeah. Aren't we all?"
+                 if calendar_check > 0:
+                     "I don't have anything today - I checked my calendar."
+                     "This can't be for me."
+                 else:
+                     "Still..."
+                     "Am I supposed to go to this?"
+                     "Is this on my calendar?"
+                     "I have no idea."
+
              elif randmtg == 3:
                  j "Something about globalized marketing outreach?"
                  j "Globally unified..."
                  j "Traditionally untraditional..."
                  j "Could there be any more hot words in here?"
                  j "This is bonkers."
+                 if calendar_check > 0:
+                     "I don't have anything today - I checked my calendar."
+                     "This can't be for me."
+                 else:
+                     "Still..."
+                     "Am I supposed to go to this?"
+                     "Is this on my calendar?"
+                     "I have no idea."
+
              elif randmtg == 4:
                  j "Something about an updated benefits package?"
                  j "Wow, I wonder if I get acupuncture now..."
                  j "Oh wait, it's not for me. It's for someone else..."
                  j "Whatever."
-             
-             if calendar_check > 0:
-                 "I don't have anything today - I checked my calendar."
-                 "This can't be for me."
-             else:
-                 "Stil..."
-                 "Am I supposed to go to this?"
-                 "Is this on my calendar?"
-                 "I have no idea."
+                 if calendar_check > 0:
+                     "I don't have anything today - I checked my calendar."
+                     "This can't be for me."
+                 else:
+                     "Still..."
+                     "Am I supposed to go to this?"
+                     "Is this on my calendar?"
+                     "I have no idea."
 
              jump phonering
 
@@ -1869,17 +1895,23 @@ label more_deliberating:
         
         "I'm right behind you, Tom.":
             if randjoke == 2:
-                o "Joe, that's just the kind of dedication this team really needs."
-                o "And you are an inspiration to us all."
-                o "Forget the meeting."
+                o "Holy smokes."
+                o "Joe, you scared me there."
                 
-                j "Wait... what?"
+                j "Sorry about that."
                 
-                o "That's right."
-                o "I'll handle it all."
-                o "You just keep walking that extra mile around the office today."
-                o "I'm proud of you, son."
-                o "Talk to you later."
+                o "No, don't apologize."
+                o "I get it. It's figurative, or something like that."
+                o "This kind of job takes initiative,"
+                o "and you are right behind me, every step of the way."
+                o "I appreciate the daylights out of that, son."
+                
+                j "Thank you?"
+                
+                o "Don't worry about the meeting."
+                o "I'm pretty sure I can handle it."
+                o "But I know who's right behind me if I get into trouble."
+                o "I'll talk to you later, Joe."
                 
                 j "..."
                 j "Alright."
@@ -1891,11 +1923,12 @@ label more_deliberating:
 
                 jump chapter7
             else:
-                o "Joe, while I admire your sincere dedication to the company..."
-                o "I won't pretend that doesn't come off a bit creepy."
+                o "Holy smokes."
+                o "Joe, don't scare me like that."
+                o "I know all about your work as a magician on nights and weekends."
+                o "But here in the office, let's try and keep it civil."
                 o "I'll see you in the meeting at 10."
-                o "But let's try to keep it professional in there."
-                o "Talk to you then."
+                o "Later."
                 
                 j "This is not good."
                 
@@ -1903,16 +1936,20 @@ label more_deliberating:
         
         "In my same old cubicle, watching the years fly by.":
             if randjoke == 3:
-                o "Joe, that's just the kind of dedication this team really needs."
-                o "And you are an inspiration to us all."
-                o "Forget the meeting."
+                o "I have to hand it to you, Joe."
+                o "You're right."
+                o "How many years have we all been here?"
+                o "In these tiny prisons, like lambs to the slaughter?"
                 
-                j "Wait... what?"
+                j "I have no idea, Tom."
                 
-                o "That's right."
-                o "I'll handle it all."
-                o "You just keep walking that extra mile around the office today."
-                o "I'm proud of you, son."
+                o "You know what?"
+                o "You've inspired me."
+                o "Change needs to start happening around here."
+                o "And it needs to start right now."
+                o "I'm putting off this meeting until we get things moving."
+                o "There's no time to wait!"
+                o "We need to seize the day!"
                 o "Talk to you later."
                 
                 j "..."
@@ -1925,10 +1962,12 @@ label more_deliberating:
 
                 jump chapter7
             else:
-                o "Joe, while I admire your sincere dedication to the company..."
-                o "I won't pretend that doesn't come off a bit creepy."
-                o "I'll see you in the meeting at 10."
-                o "But let's try to keep it professional in there."
+                o "Well apparently they moved you sometime recently."
+                o "Because I don't see you anywhere."
+                o "Better get to that meeting at 10, though."
+                o "It's in the conference room."
+                o "Which is still in the same place it's been for years."
+                o "Just for the record."
                 o "Talk to you then."
                 
                 j "This is not good."
@@ -1937,16 +1976,18 @@ label more_deliberating:
         
         "Far, far away, Tom.":
             if randjoke == 4:
-                o "Joe, that's just the kind of dedication this team really needs."
-                o "And you are an inspiration to us all."
-                o "Forget the meeting."
+                o "Wait... really?"
+                o "That's..."
+                o "Actually, that's quite respectable, son."
                 
                 j "Wait... what?"
                 
                 o "That's right."
-                o "I'll handle it all."
-                o "You just keep walking that extra mile around the office today."
-                o "I'm proud of you, son."
+                o "I respect that kind of ability to remove yourself from your job."
+                o "What kind of automated wind up toys are we if we never escape the rat race?"
+                o "I like your style, Joe."
+                o "Don't worry about the meeting."
+                o "I'll handle it with newfound inspiration."
                 o "Talk to you later."
                 
                 j "..."
@@ -1959,10 +2000,10 @@ label more_deliberating:
 
                 jump chapter7
             else:
-                o "Joe, while I admire your sincere dedication to the company..."
-                o "I won't pretend that doesn't come off a bit creepy."
-                o "I'll see you in the meeting at 10."
-                o "But let's try to keep it professional in there."
+                o "Well wherever that is Joe..."
+                o "I highly suggest you geographically relocate."
+                o "So that you end up in the conference room at 10."
+                o "No problem with traveling as long as you are punctual."
                 o "Talk to you then."
                 
                 j "This is not good."
@@ -1971,16 +2012,16 @@ label more_deliberating:
         
         "I'm all the way up, Tom.":
             if randjoke == 5:
-                o "Joe, that's just the kind of dedication this team really needs."
-                o "And you are an inspiration to us all."
-                o "Forget the meeting."
+                o "Like hell you are, Joe."
+                o "And you know what?"
+                o "Nothing can stop you."
                 
-                j "Wait... what?"
+                j "That's absolutely right, Tom."
                 
-                o "That's right."
+                o "Forget the presentation."
                 o "I'll handle it all."
-                o "You just keep walking that extra mile around the office today."
-                o "I'm proud of you, son."
+                o "You just keep doing you today, son."
+                o "I'm proud of you."
                 o "Talk to you later."
                 
                 j "..."
@@ -1993,11 +2034,16 @@ label more_deliberating:
 
                 jump chapter7
             else:
-                o "Joe, while I admire your sincere dedication to the company..."
-                o "I won't pretend that doesn't come off a bit creepy."
-                o "I'll see you in the meeting at 10."
-                o "But let's try to keep it professional in there."
-                o "Talk to you then."
+                o "Like hell you are, Joe."
+                o "And you know what?"
+                o "Nothing can stop you."
+                
+                j "That's absolutely right, Tom."
+                
+                o "Specifically..."
+                o "Nothing can stop you from being in the conference room at 10."
+                o "For your presentation."
+                o "I'll talk to you then."
                 
                 j "This is not good."
                 
@@ -2005,20 +2051,25 @@ label more_deliberating:
         
         "I'm your worst nightmare, Tom.":
             if randjoke == 6:
-                o "Joe, that's just the kind of dedication this team really needs."
-                o "And you are an inspiration to us all."
-                o "Forget the meeting."
+                o "Hold on a hot minute, Joe."
+                o "Nobody ever said anything like that."
+                o "Wherever you are, sit down and second and hear me out."
                 
                 j "Wait... what?"
                 
-                o "That's right."
-                o "I'll handle it all."
-                o "You just keep walking that extra mile around the office today."
-                o "I'm proud of you, son."
-                o "Talk to you later."
+                o "I may be a bit stressed by this presentation."
+                o "But in no way does this make you a nightmare to work with."
+                o "We all have our up days and down days."
+                o "You just have to take the rose with the thorns."
+                o "I had my fair share of parental disagreements as well."
+                o "But you can't let it get to your self esteem."
+                o "You are nobody's worst nightmare."
+                o "No need to worry about the presentation."
+                o "Just take the morning to get that self esteem back up where it should be."
+                o "I'll check in later."
                 
                 j "..."
-                j "Alright."
+                j "Well that was surprisingly heartwarming."
                 j "If anybody else has any curveballs to throw,"
                 j "now's your chance."
                 j "..."
@@ -2027,11 +2078,13 @@ label more_deliberating:
 
                 jump chapter7
             else:
-                o "Joe, while I admire your sincere dedication to the company..."
-                o "I won't pretend that doesn't come off a bit creepy."
-                o "I'll see you in the meeting at 10."
-                o "But let's try to keep it professional in there."
-                o "Talk to you then."
+                o "Joe, in all honesty."
+                o "My worst fear is surviving the Armageddon."
+                o "And finding myself utterly alone in the aftermath."
+                o "But that's not really relevant right now."
+                o "My second biggest fear is that you screw up this presentation."
+                o "I'll see you in the conference room at 10."
+                o "Bring your A-game."
                 
                 j "This is not good."
                 
@@ -2039,17 +2092,24 @@ label more_deliberating:
         
         "I don't have money, Tom, but what I do have is a very particular set of skills.":
             if randjoke == 7:
-                o "Joe, that's just the kind of dedication this team really needs."
-                o "And you are an inspiration to us all."
-                o "Forget the meeting."
+                o "Joe, why do you think we hired you in the first place?"
+                o "We know you have... some type of skills."
+                o "And stay here long enough, you won't have to worry about the money."
+                o "If you are really concerned about it in the meantime..."
+                o "Maybe you should cut down on your coffee budget or something."
                 
                 j "Wait... what?"
                 
-                o "That's right."
-                o "I'll handle it all."
-                o "You just keep walking that extra mile around the office today."
-                o "I'm proud of you, son."
-                o "Talk to you later."
+                o "I get it."
+                o "This presentation is stressing you out, isn't it?"
+                o "You know what?"
+                o "Forget it."
+                o "I know the client."
+                o "I can handle the whole thing."
+                o "Take the rest of the morning and chill out."
+                o "Remember the skills that got you here, and visualize the money."
+                o "None of it's taken for granted here."
+                o "I'll talk to you later."
                 
                 j "..."
                 j "Alright."
@@ -2061,10 +2121,11 @@ label more_deliberating:
 
                 jump chapter7
             else:
-                o "Joe, while I admire your sincere dedication to the company..."
-                o "I won't pretend that doesn't come off a bit creepy."
-                o "I'll see you in the meeting at 10."
-                o "But let's try to keep it professional in there."
+                o "Alright, jokester."
+                o "I'll let you go and dial in on that presentation."
+                o "Before I've TAKEN any more of your time."
+                o "...Get it?"
+                o "Good one, right?"
                 o "Talk to you then."
                 
                 j "This is not good."
@@ -2158,7 +2219,7 @@ label mgmtmeeting:
     
     play music "sounds/pills_client_mtg_only_seq_ost.wav"
     
-    o "Hey Joe how's it hanging?"
+    o "Hey Joe, how's it hanging?"
     
     j "Hi Tom..."
     j "It's Joseph, not Joe."
@@ -2307,12 +2368,6 @@ label more_deliberating_mgmt:
     o "All I really need to know from you is this."
     o "Where are you going to be at 10 today?"
 
-    o "Joe, I'm in my office right now."
-    o "I'm standing at my window, looking out at the world."
-    o "And I'm not seeing you."
-    o "Where are you, son?"
-    o "This meeting is serious business."
-
     menu:
     
         "Wherever you want me to be, Tom.":
@@ -2329,27 +2384,27 @@ label more_deliberating_mgmt:
                 o "I'm proud of you, son."
                 o "Talk to you later."
                 
-				if stress_count == 0:
-				  scene chapter6_0 movie
-				  with fade
-				  show background solid at left
-				elif stress_count == 1:
-				  scene chapter6_1 movie
-				  with fade
-				  show background solid at left
-				else:
-				  scene chapter6_2 movie
-				  with fade
-				  show background solid at left
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
 
-				j "..."
-				j "Holy crap."
-				j "That was horrible."
-				j "I'm going to need a second to calm the hell down."
-				j "..."
-				j "Actually."
-				j "Nah."
-				j "I'm just going to go to lunch."
+                j "..."
+                j "Holy crap."
+                j "That was horrible."
+                j "I'm going to need a second to calm the hell down."
+                j "..."
+                j "Actually."
+                j "Nah."
+                j "I'm just going to go to lunch."
 
                 jump chapter7
             else:
@@ -2358,54 +2413,89 @@ label more_deliberating_mgmt:
                 o "I'll see you in the meeting at 10."
                 o "But let's try to keep it professional in there."
                 o "Talk to you then."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
                 
                 j "This is not good."
                 
                 jump clientmeeting
         
-        "I'm right behind you, Tom.":
+        "Right behind you, Tom.":
             if randjoke == 2:
-                o "Joe, that's just the kind of dedication this team really needs."
-                o "And you are an inspiration to us all."
-                o "Forget the meeting."
+                o "Wait, what's behind me?!"
+                o "Holy smokes."
+                o "Joe, you scared me there."
                 
-                j "Wait... what?"
+                j "Sorry about that."
                 
-                o "That's right."
-                o "I'll handle it all."
-                o "You just keep walking that extra mile around the office today."
-                o "I'm proud of you, son."
-                o "Talk to you later."
+                o "No, don't apologize."
+                o "I get it. It's figurative, or something like that."
+                o "This kind of job takes initiative,"
+                o "and you are right behind me, every step of the way."
+                o "I appreciate the daylights out of that, son."
                 
-				if stress_count == 0:
-				  scene chapter6_0 movie
-				  with fade
-				  show background solid at left
-				elif stress_count == 1:
-				  scene chapter6_1 movie
-				  with fade
-				  show background solid at left
-				else:
-				  scene chapter6_2 movie
-				  with fade
-				  show background solid at left
+                j "Thank you?"
+                
+                o "Don't worry about the meeting."
+                o "I'm pretty sure I can handle it."
+                o "But I know who's right behind me if I get into trouble."
+                o "I'll talk to you later, Joe."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
 
-				j "..."
-				j "Holy crap."
-				j "That was horrible."
-				j "I'm going to need a second to calm the hell down."
-				j "..."
-				j "Actually."
-				j "Nah."
-				j "I'm just going to go to lunch."
+                j "..."
+                j "Holy crap."
+                j "That was horrible."
+                j "I'm going to need a second to calm the hell down."
+                j "..."
+                j "Actually."
+                j "Nah."
+                j "I'm just going to go to lunch."
 
                 jump chapter7
             else:
-                o "Joe, while I admire your sincere dedication to the company..."
-                o "I won't pretend that doesn't come off a bit creepy."
+                o "Wait, what's behind me?!"
+                o "Holy smokes."
+                o "Joe, don't scare me like that."
+                o "I know all about your work as a magician on nights and weekends."
+                o "But here in the office, let's try and keep it civil."
                 o "I'll see you in the meeting at 10."
-                o "But let's try to keep it professional in there."
-                o "Talk to you then."
+                o "Later."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
                 
                 j "This is not good."
                 
@@ -2413,47 +2503,62 @@ label more_deliberating_mgmt:
         
         "In my same old cubicle, watching the years fly by.":
             if randjoke == 3:
-                o "Joe, that's just the kind of dedication this team really needs."
-                o "And you are an inspiration to us all."
-                o "Forget the meeting."
+                o "I have to hand it to you, Joe."
+                o "You're right."
+                o "How many years have we all been here?"
+                o "In these tiny prisons, like lambs to the slaughter?"
                 
-                j "Wait... what?"
+                j "I have no idea, Tom."
                 
-                o "That's right."
-                o "I'll handle it all."
-                o "You just keep walking that extra mile around the office today."
-                o "I'm proud of you, son."
+                o "You know what?"
+                o "You've inspired me."
+                o "Change needs to start happening around here."
+                o "And it needs to start right now."
+                o "I'm putting off this meeting until we get things moving."
+                o "There's no time to wait!"
+                o "We need to seize the day!"
                 o "Talk to you later."
                 
-				if stress_count == 0:
-				  scene chapter6_0 movie
-				  with fade
-				  show background solid at left
-				elif stress_count == 1:
-				  scene chapter6_1 movie
-				  with fade
-				  show background solid at left
-				else:
-				  scene chapter6_2 movie
-				  with fade
-				  show background solid at left
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
 
-				j "..."
-				j "Holy crap."
-				j "That was horrible."
-				j "I'm going to need a second to calm the hell down."
-				j "..."
-				j "Actually."
-				j "Nah."
-				j "I'm just going to go to lunch."
+                j "..."
+                j "Holy crap."
+                j "That was horrible."
+                j "I'm going to need a second to calm the hell down."
+                j "..."
+                j "Actually."
+                j "Nah."
+                j "I'm just going to go to lunch."
 
                 jump chapter7
             else:
-                o "Joe, while I admire your sincere dedication to the company..."
-                o "I won't pretend that doesn't come off a bit creepy."
-                o "I'll see you in the meeting at 10."
-                o "But let's try to keep it professional in there."
+                o "Well how about you put those years on hold for a couple hours."
+                o "I need you in the conference room at 10."
                 o "Talk to you then."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
                 
                 j "This is not good."
                 
@@ -2461,143 +2566,193 @@ label more_deliberating_mgmt:
         
         "Far, far away, Tom.":
             if randjoke == 4:
-                o "Joe, that's just the kind of dedication this team really needs."
-                o "And you are an inspiration to us all."
-                o "Forget the meeting."
+                o "Wait... really?"
+                o "That's..."
+                o "Actually, that's quite respectable, son."
                 
                 j "Wait... what?"
                 
                 o "That's right."
-                o "I'll handle it all."
-                o "You just keep walking that extra mile around the office today."
-                o "I'm proud of you, son."
+                o "I respect that kind of ability to remove yourself from your job."
+                o "What kind of automated wind up toys are we if we never escape the rat race?"
+                o "I like your style, Joe."
+                o "Don't worry about the meeting."
+                o "I'll handle it with newfound inspiration."
                 o "Talk to you later."
                 
-				if stress_count == 0:
-				  scene chapter6_0 movie
-				  with fade
-				  show background solid at left
-				elif stress_count == 1:
-				  scene chapter6_1 movie
-				  with fade
-				  show background solid at left
-				else:
-				  scene chapter6_2 movie
-				  with fade
-				  show background solid at left
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
 
-				j "..."
-				j "Holy crap."
-				j "That was horrible."
-				j "I'm going to need a second to calm the hell down."
-				j "..."
-				j "Actually."
-				j "Nah."
-				j "I'm just going to go to lunch."
+                j "..."
+                j "Holy crap."
+                j "That was horrible."
+                j "I'm going to need a second to calm the hell down."
+                j "..."
+                j "Actually."
+                j "Nah."
+                j "I'm just going to go to lunch."
 
                 jump chapter7
             else:
-                o "Joe, while I admire your sincere dedication to the company..."
-                o "I won't pretend that doesn't come off a bit creepy."
-                o "I'll see you in the meeting at 10."
-                o "But let's try to keep it professional in there."
+                o "Well wherever that is Joe..."
+                o "I highly suggest you find your way back quickly."
+                o "So that you end up in the conference room at 10."
+                o "No problem with traveling as long as you are punctual."
                 o "Talk to you then."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
                 
                 j "This is not good."
                 
                 jump clientmeeting
         
-        "I'm all the way up, Tom.":
+        "All the way up, Tom.":
             if randjoke == 5:
-                o "Joe, that's just the kind of dedication this team really needs."
-                o "And you are an inspiration to us all."
-                o "Forget the meeting."
+                o "Like hell you will be, Joe."
+                o "And you know what?"
+                o "Nothing can stop you."
                 
-                j "Wait... what?"
+                j "That's absolutely right, Tom."
                 
-                o "That's right."
+                o "Forget the presentation."
                 o "I'll handle it all."
-                o "You just keep walking that extra mile around the office today."
-                o "I'm proud of you, son."
+                o "You just keep doing you today, son."
+                o "I'm proud of you."
                 o "Talk to you later."
                 
-				if stress_count == 0:
-				  scene chapter6_0 movie
-				  with fade
-				  show background solid at left
-				elif stress_count == 1:
-				  scene chapter6_1 movie
-				  with fade
-				  show background solid at left
-				else:
-				  scene chapter6_2 movie
-				  with fade
-				  show background solid at left
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
 
-				j "..."
-				j "Holy crap."
-				j "That was horrible."
-				j "I'm going to need a second to calm the hell down."
-				j "..."
-				j "Actually."
-				j "Nah."
-				j "I'm just going to go to lunch."
+                j "..."
+                j "Holy crap."
+                j "That was horrible."
+                j "I'm going to need a second to calm the hell down."
+                j "..."
+                j "Actually."
+                j "Nah."
+                j "I'm just going to go to lunch."
 
                 jump chapter7
             else:
-                o "Joe, while I admire your sincere dedication to the company..."
-                o "I won't pretend that doesn't come off a bit creepy."
-                o "I'll see you in the meeting at 10."
-                o "But let's try to keep it professional in there."
-                o "Talk to you then."
+                o "Like hell you will be, Joe."
+                o "And you know what?"
+                o "Nothing can stop you."
+                
+                j "That's absolutely right, Tom."
+                
+                o "Specifically..."
+                o "Nothing can stop you from being in the conference room at 10."
+                o "For your presentation."
+                o "I'll talk to you then."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
                 
                 j "This is not good."
                 
                 jump clientmeeting
         
-        "I'm your worst nightmare, Tom.":
+        "In your worst nightmare, Tom.":
             if randjoke == 6:
-                o "Joe, that's just the kind of dedication this team really needs."
-                o "And you are an inspiration to us all."
-                o "Forget the meeting."
+                o "Hold on a hot minute, Joe."
+                o "Nobody ever said anything like that."
+                o "Wherever you are, sit down and second and hear me out."
                 
                 j "Wait... what?"
                 
-                o "That's right."
-                o "I'll handle it all."
-                o "You just keep walking that extra mile around the office today."
-                o "I'm proud of you, son."
-                o "Talk to you later."
+                o "I may be a bit stressed by this presentation."
+                o "But in no way does this make you a nightmare to work with."
+                o "We all have our up days and down days."
+                o "You just have to take the rose with the thorns."
+                o "I had my fair share of parental disagreements as well."
+                o "But you can't let it get to your self esteem."
+                o "You are nobody's worst nightmare."
+                o "No need to worry about the presentation."
+                o "Just take the morning to get that self esteem back up where it should be."
+                o "I'll check in later."
                 
-				if stress_count == 0:
-				  scene chapter6_0 movie
-				  with fade
-				  show background solid at left
-				elif stress_count == 1:
-				  scene chapter6_1 movie
-				  with fade
-				  show background solid at left
-				else:
-				  scene chapter6_2 movie
-				  with fade
-				  show background solid at left
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
 
-				j "..."
-				j "Holy crap."
-				j "That was horrible."
-				j "I'm going to need a second to calm the hell down."
-				j "..."
-				j "Actually."
-				j "Nah."
-				j "I'm just going to go to lunch."
+                j "..."
+                j "Well that was unexpectedly sentimental."
+                j "..."
+                j "On that note."
+                j "I'm just going to go to lunch."
 
                 jump chapter7
             else:
-                o "Joe, while I admire your sincere dedication to the company..."
-                o "I won't pretend that doesn't come off a bit creepy."
-                o "I'll see you in the meeting at 10."
-                o "But let's try to keep it professional in there."
-                o "Talk to you then."
+                o "Joe, in all honesty."
+                o "My worst fear is surviving the Armageddon."
+                o "And finding myself utterly alone in the aftermath."
+                o "But that's not really relevant right now."
+                o "My second biggest fear is that you screw up this presentation."
+                o "I'll see you in the conference room at 10."
+                o "Bring your A-game."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
                 
                 j "This is not good."
                 
@@ -2605,47 +2760,68 @@ label more_deliberating_mgmt:
         
         "I don't have money, Tom, but what I do have is a very particular set of skills.":
             if randjoke == 7:
-                o "Joe, that's just the kind of dedication this team really needs."
-                o "And you are an inspiration to us all."
-                o "Forget the meeting."
+                o "Joe, why do you think we hired you in the first place?"
+                o "We know you have... some type of skills."
+                o "And stay here long enough, you won't have to worry about the money."
+                o "If you are really concerned about it in the meantime..."
+                o "Maybe you should cut down on your coffee budget or something."
                 
                 j "Wait... what?"
                 
-                o "That's right."
-                o "I'll handle it all."
-                o "You just keep walking that extra mile around the office today."
-                o "I'm proud of you, son."
-                o "Talk to you later."
+                o "I get it."
+                o "This presentation is stressing you out, isn't it?"
+                o "You know what?"
+                o "Forget it."
+                o "I know the client."
+                o "I can handle the whole thing."
+                o "Take the rest of the morning and chill out."
+                o "Remember the skills that got you here, and visualize the money."
+                o "None of it's taken for granted here."
+                o "I'll talk to you later."
                 
-				if stress_count == 0:
-				  scene chapter6_0 movie
-				  with fade
-				  show background solid at left
-				elif stress_count == 1:
-				  scene chapter6_1 movie
-				  with fade
-				  show background solid at left
-				else:
-				  scene chapter6_2 movie
-				  with fade
-				  show background solid at left
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
 
-				j "..."
-				j "Holy crap."
-				j "That was horrible."
-				j "I'm going to need a second to calm the hell down."
-				j "..."
-				j "Actually."
-				j "Nah."
-				j "I'm just going to go to lunch."
+                j "..."
+                j "Holy crap."
+                j "That was horrible."
+                j "I'm going to need a second to calm the hell down."
+                j "..."
+                j "Actually."
+                j "Nah."
+                j "I'm just going to go to lunch."
 
                 jump chapter7
             else:
-                o "Joe, while I admire your sincere dedication to the company..."
-                o "I won't pretend that doesn't come off a bit creepy."
-                o "I'll see you in the meeting at 10."
-                o "But let's try to keep it professional in there."
+                o "Alright, jokester."
+                o "I'll let you go and dial in on that presentation."
+                o "Before I've TAKEN any more of your time."
+                o "...Get it?"
+                o "Good one, right?"
                 o "Talk to you then."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
                 
                 j "This is not good."
                 
