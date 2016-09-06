@@ -154,6 +154,7 @@ label start:
     
     $ randmtg = renpy.random.randint(1,4)
     $ randlng = renpy.random.randint(1,2)
+    $ randjoke = renpy.random.randint(1,7)
 
     scene black
     show background solid at left
@@ -555,8 +556,6 @@ label pills_scene:
 
     scene black
     with dissolve
-    
-    # stop music fadeout 1.0
 
     if pills_count == 0:
         j "I don't need this right now."
@@ -579,7 +578,7 @@ label pills_scene:
         j "I'm not letting this get the best of me."
         j "I can't."
     else:
-        j "That's it" # "What the hell is happening to me?", "I'm going to freak out."
+        j "What the hell is happening to me?"
         j "I can't handle this."
         j "I need escape."
         j "Now."
@@ -637,10 +636,10 @@ screen chapter2_map:
         # Do I need to specify the base image?
         #hover "Hover.jpg" I don't want a hover change thing
 
-        hotspot (22, 300, 314, 106) clicked Return("book")        #library book for bus/email
+        hotspot (22, 300, 314, 150) clicked Return("book")        #library book for bus/email
         hotspot (0, 93, 168, 80) clicked Return("bag")        #bag for bus pass
         hotspot (436, 406, 186, 92) clicked Return("calendar")   #calendar for meeting 
-        hotspot (593, 138, 93, 192) clicked Return("door")      #door is leave
+        hotspot (400, 50, 250, 300) clicked Return("door")      #door is leave
 
         
 label chapter2:
@@ -746,6 +745,15 @@ label chapter3:
     j "Bus arrives in... zero minutes?"
     j "It's not even down the hill yet."
     j "I can see the damn hill - it's not there."
+    j "At least that gives me time to check email."
+    j "Clear out another inbox full of spam alerts,"
+    j "apologies for misdirected sensitive information,"
+    j "countless newsletters I don't remember signing up for,"
+    j "half of them for products that don't even apply to me."
+    j "How berated with useless information are we, really?"
+    j "Meanwhile, when you do try and use technology for good..."
+    j "You look up the hill and question yourself because there is no bus."
+    j "What does that make us?"
     j "I don't understand why they even make apps for bus times."
     j "Pure masochism is what it is."
     j "..."
@@ -819,11 +827,11 @@ label bus_time:
         j "Last night, when I was rushing to catch the bus back from downtown."
         j "Dammit."
         j "I hate everything."
-    $ stress_count += 2
-    if stress_count > 2:
-        jump pills_scene
-    else:
-        jump chapter4
+        $ stress_count += 2
+        if stress_count > 2:
+            jump pills_scene
+        else:
+            jump chapter4
 
 
 ##############################################################
@@ -1560,31 +1568,57 @@ label chapter6:
                  j "Focus on big picture."
                  j "Moving the wheels of history..."
                  j "Wait, where have I heard that before?"
+                 if calendar_check > 0:
+                     "I don't have anything today - I checked my calendar."
+                     "This can't be for me."
+                 else:
+                     "Still..."
+                     "Am I supposed to go to this?"
+                     "Is this on my calendar?"
+                     "I have no idea."
+                     
              elif randmtg == 2:
                  j "Something about bad quarterly earnings?"
                  j "Yada yada yada..."
                  j "Trying to turn things around in the future..."
                  j "Well, yeah. Aren't we all?"
+                 if calendar_check > 0:
+                     "I don't have anything today - I checked my calendar."
+                     "This can't be for me."
+                 else:
+                     "Still..."
+                     "Am I supposed to go to this?"
+                     "Is this on my calendar?"
+                     "I have no idea."
+
              elif randmtg == 3:
                  j "Something about globalized marketing outreach?"
                  j "Globally unified..."
                  j "Traditionally untraditional..."
                  j "Could there be any more hot words in here?"
                  j "This is bonkers."
+                 if calendar_check > 0:
+                     "I don't have anything today - I checked my calendar."
+                     "This can't be for me."
+                 else:
+                     "Still..."
+                     "Am I supposed to go to this?"
+                     "Is this on my calendar?"
+                     "I have no idea."
+
              elif randmtg == 4:
                  j "Something about an updated benefits package?"
                  j "Wow, I wonder if I get acupuncture now..."
                  j "Oh wait, it's not for me. It's for someone else..."
                  j "Whatever."
-             
-             if calendar_check > 0:
-                 "I don't have anything today - I checked my calendar."
-                 "This can't be for me."
-             else:
-                 "Stil..."
-                 "Am I supposed to go to this?"
-                 "Is this on my calendar?"
-                 "I have no idea."
+                 if calendar_check > 0:
+                     "I don't have anything today - I checked my calendar."
+                     "This can't be for me."
+                 else:
+                     "Still..."
+                     "Am I supposed to go to this?"
+                     "Is this on my calendar?"
+                     "I have no idea."
 
              jump phonering
 
@@ -1683,8 +1717,6 @@ label phonecall:
 
     stop music fadeout 2.0
     
-    play music "sounds/pills_client_mtg_only_seq_ost.wav"
-    
     j "Hello?"
     
     o "Joe."
@@ -1704,6 +1736,8 @@ label phonecall:
     o "Making sure you are all set to go for your presentation!"
     
     j "..."
+    
+    play music "sounds/pills_client_mtg_only_seq_ost.wav"
     
     if calendar_check > 0:
     
@@ -1774,28 +1808,7 @@ label phonecall:
                       
                       "No way, José.":
                       
-                          o "..."
-                          o "Wait a minute..."
-                          o "Who is this?"
-                          
-                          j "Joseph... from sales."
-                          
-                          o "Oh."
-                          o "Sorry about that, Joseph."
-                          o "I meant to call Joe, from marketing."
-                          o "Must have gotten the two of you mixed up."
-                          o "All you kids look the same anyways."
-                          o "Well, have a good one!"
-                          
-                          j "..."
-                          j "Alright."
-                          j "If anybody else has any curveballs to throw,"
-                          j "now's your chance."
-                          j "..."
-                          j "None?"
-                          j "Alright, I'm going to lunch."
-                          
-                          jump chapter7
+                          jump more_deliberating
   
     else:
     
@@ -1836,6 +1849,289 @@ label phonecall:
                  
                  jump clientmeeting
 
+label more_deliberating:
+
+    o "Joe, I'm in my office right now."
+    o "I'm standing at my window, looking out at the world."
+    o "And I'm not seeing you."
+    o "Where are you, son?"
+    o "This meeting is serious business."
+
+    menu:
+    
+        "Wherever you want me to be, Tom.":
+            if randjoke == 1:
+                o "Joe, that's just the kind of dedication this team really needs."
+                o "And you are an inspiration to us all."
+                o "Forget the meeting."
+                
+                j "Wait... what?"
+                
+                o "That's right."
+                o "I'll handle it all."
+                o "You just keep walking that extra mile around the office today."
+                o "I'm proud of you, son."
+                o "Talk to you later."
+                
+                j "..."
+                j "Alright."
+                j "If anybody else has any curveballs to throw,"
+                j "now's your chance."
+                j "..."
+                j "None?"
+                j "Alright, I'm going to lunch."
+
+                jump chapter7
+            else:
+                o "Joe, while I admire your sincere dedication to the company..."
+                o "I won't pretend that doesn't come off a bit creepy."
+                o "I'll see you in the meeting at 10."
+                o "But let's try to keep it professional in there."
+                o "Talk to you then."
+                
+                j "This is not good."
+                
+                jump clientmeeting
+        
+        "I'm right behind you, Tom.":
+            if randjoke == 2:
+                o "Holy smokes."
+                o "Joe, you scared me there."
+                
+                j "Sorry about that."
+                
+                o "No, don't apologize."
+                o "I get it. It's figurative, or something like that."
+                o "This kind of job takes initiative,"
+                o "and you are right behind me, every step of the way."
+                o "I appreciate the daylights out of that, son."
+                
+                j "Thank you?"
+                
+                o "Don't worry about the meeting."
+                o "I'm pretty sure I can handle it."
+                o "But I know who's right behind me if I get into trouble."
+                o "I'll talk to you later, Joe."
+                
+                j "..."
+                j "Alright."
+                j "If anybody else has any curveballs to throw,"
+                j "now's your chance."
+                j "..."
+                j "None?"
+                j "Alright, I'm going to lunch."
+
+                jump chapter7
+            else:
+                o "Holy smokes."
+                o "Joe, don't scare me like that."
+                o "I know all about your work as a magician on nights and weekends."
+                o "But here in the office, let's try and keep it civil."
+                o "I'll see you in the meeting at 10."
+                o "Later."
+                
+                j "This is not good."
+                
+                jump clientmeeting
+        
+        "In my same old cubicle, watching the years fly by.":
+            if randjoke == 3:
+                o "I have to hand it to you, Joe."
+                o "You're right."
+                o "How many years have we all been here?"
+                o "In these tiny prisons, like lambs to the slaughter?"
+                
+                j "I have no idea, Tom."
+                
+                o "You know what?"
+                o "You've inspired me."
+                o "Change needs to start happening around here."
+                o "And it needs to start right now."
+                o "I'm putting off this meeting until we get things moving."
+                o "There's no time to wait!"
+                o "We need to seize the day!"
+                o "Talk to you later."
+                
+                j "..."
+                j "Alright."
+                j "If anybody else has any curveballs to throw,"
+                j "now's your chance."
+                j "..."
+                j "None?"
+                j "Alright, I'm going to lunch."
+
+                jump chapter7
+            else:
+                o "Well apparently they moved you sometime recently."
+                o "Because I don't see you anywhere."
+                o "Better get to that meeting at 10, though."
+                o "It's in the conference room."
+                o "Which is still in the same place it's been for years."
+                o "Just for the record."
+                o "Talk to you then."
+                
+                j "This is not good."
+                
+                jump clientmeeting
+        
+        "Far, far away, Tom.":
+            if randjoke == 4:
+                o "Wait... really?"
+                o "That's..."
+                o "Actually, that's quite respectable, son."
+                
+                j "Wait... what?"
+                
+                o "That's right."
+                o "I respect that kind of ability to remove yourself from your job."
+                o "What kind of automated wind up toys are we if we never escape the rat race?"
+                o "I like your style, Joe."
+                o "Don't worry about the meeting."
+                o "I'll handle it with newfound inspiration."
+                o "Talk to you later."
+                
+                j "..."
+                j "Alright."
+                j "If anybody else has any curveballs to throw,"
+                j "now's your chance."
+                j "..."
+                j "None?"
+                j "Alright, I'm going to lunch."
+
+                jump chapter7
+            else:
+                o "Well wherever that is Joe..."
+                o "I highly suggest you geographically relocate."
+                o "So that you end up in the conference room at 10."
+                o "No problem with traveling as long as you are punctual."
+                o "Talk to you then."
+                
+                j "This is not good."
+                
+                jump clientmeeting
+        
+        "I'm all the way up, Tom.":
+            if randjoke == 5:
+                o "Like hell you are, Joe."
+                o "And you know what?"
+                o "Nothing can stop you."
+                
+                j "That's absolutely right, Tom."
+                
+                o "Forget the presentation."
+                o "I'll handle it all."
+                o "You just keep doing you today, son."
+                o "I'm proud of you."
+                o "Talk to you later."
+                
+                j "..."
+                j "Alright."
+                j "If anybody else has any curveballs to throw,"
+                j "now's your chance."
+                j "..."
+                j "None?"
+                j "Alright, I'm going to lunch."
+
+                jump chapter7
+            else:
+                o "Like hell you are, Joe."
+                o "And you know what?"
+                o "Nothing can stop you."
+                
+                j "That's absolutely right, Tom."
+                
+                o "Specifically..."
+                o "Nothing can stop you from being in the conference room at 10."
+                o "For your presentation."
+                o "I'll talk to you then."
+                
+                j "This is not good."
+                
+                jump clientmeeting
+        
+        "I'm your worst nightmare, Tom.":
+            if randjoke == 6:
+                o "Hold on a hot minute, Joe."
+                o "Nobody ever said anything like that."
+                o "Wherever you are, sit down and second and hear me out."
+                
+                j "Wait... what?"
+                
+                o "I may be a bit stressed by this presentation."
+                o "But in no way does this make you a nightmare to work with."
+                o "We all have our up days and down days."
+                o "You just have to take the rose with the thorns."
+                o "I had my fair share of parental disagreements as well."
+                o "But you can't let it get to your self esteem."
+                o "You are nobody's worst nightmare."
+                o "No need to worry about the presentation."
+                o "Just take the morning to get that self esteem back up where it should be."
+                o "I'll check in later."
+                
+                j "..."
+                j "Well that was surprisingly heartwarming."
+                j "If anybody else has any curveballs to throw,"
+                j "now's your chance."
+                j "..."
+                j "None?"
+                j "Alright, I'm going to lunch."
+
+                jump chapter7
+            else:
+                o "Joe, in all honesty."
+                o "My worst fear is surviving the Armageddon."
+                o "And finding myself utterly alone in the aftermath."
+                o "But that's not really relevant right now."
+                o "My second biggest fear is that you screw up this presentation."
+                o "I'll see you in the conference room at 10."
+                o "Bring your A-game."
+                
+                j "This is not good."
+                
+                jump clientmeeting
+        
+        "I don't have money, Tom, but what I do have is a very particular set of skills.":
+            if randjoke == 7:
+                o "Joe, why do you think we hired you in the first place?"
+                o "We know you have... some type of skills."
+                o "And stay here long enough, you won't have to worry about the money."
+                o "If you are really concerned about it in the meantime..."
+                o "Maybe you should cut down on your coffee budget or something."
+                
+                j "Wait... what?"
+                
+                o "I get it."
+                o "This presentation is stressing you out, isn't it?"
+                o "You know what?"
+                o "Forget it."
+                o "I know the client."
+                o "I can handle the whole thing."
+                o "Take the rest of the morning and chill out."
+                o "Remember the skills that got you here, and visualize the money."
+                o "None of it's taken for granted here."
+                o "I'll talk to you later."
+                
+                j "..."
+                j "Alright."
+                j "If anybody else has any curveballs to throw,"
+                j "now's your chance."
+                j "..."
+                j "None?"
+                j "Alright, I'm going to lunch."
+
+                jump chapter7
+            else:
+                o "Alright, jokester."
+                o "I'll let you go and dial in on that presentation."
+                o "Before I've TAKEN any more of your time."
+                o "...Get it?"
+                o "Good one, right?"
+                o "Talk to you then."
+                
+                j "This is not good."
+                
+                jump clientmeeting
+
   
 ##############################################################
 ## Manager meeting begins here                              ##
@@ -1861,6 +2157,42 @@ label nocall:
     j "That guy is awful."
     $ stress_count += 1
     if stress_count > 2:
+        
+        scene black
+        with dissolve
+    
+        stop music fadeout 2.0
+    
+        if stress_count == 0:
+            scene mgmt_0 movie
+            with fade
+            show background solid at left
+        elif stress_count == 1:
+            scene mgmt_1 movie
+            with fade
+            show background solid at left
+        else:
+            scene mgmt_2 movie
+            with fade
+            show background solid at left
+    
+        play music "sounds/pills_client_mtg_only_seq_ost.wav"
+    
+        o "Hey Joe."
+        o "Woah, what's going on?"
+    
+        j "Hi Tom..."
+        j "I'm having an anxiety attack."
+
+        o "Bummer. That's no good, Joe."
+        o "We have a client presentation at 10."
+        o "How about you get that anxiety attack all wrapped up before then?"
+        
+        j "..."
+        j "Alright."
+        
+        $ go_to_meeting += 1
+        
         jump pills_scene
     else:
         jump mgmtmeeting  
@@ -1887,7 +2219,7 @@ label mgmtmeeting:
     
     play music "sounds/pills_client_mtg_only_seq_ost.wav"
     
-    o "Hey Joe how's it hanging?"
+    o "Hey Joe, how's it hanging?"
     
     j "Hi Tom..."
     j "It's Joseph, not Joe."
@@ -1987,49 +2319,7 @@ label mgmtmeeting:
                       
                       "Don't think so.":
                       
-                          o "..."
-                          o "Wait a minute..."
-                          o "You're not Joe."
-                          
-                          j "I'm not?"
-                          
-                          o "Like Joe from marketing."
-                          
-                          j "Oh."
-                          j "No."
-                          j "I'm Joseph... from sales."
-                          
-                          o "Damn."
-                          o "Sorry about that, Joseph."
-                          o "Must have gotten the two of you mixed up."
-                          o "All you kids look the same nowadays."
-                          o "Hard for us experience veterans to keep track."
-                          o "Some mixup, eh?"
-                          o "Well have a good one!"
-                          
-                          if stress_count == 0:
-                              scene chapter6_0 movie
-                              with fade
-                              show background solid at left
-                          elif stress_count == 1:
-                              scene chapter6_1 movie
-                              with fade
-                              show background solid at left
-                          else:
-                              scene chapter6_2 movie
-                              with fade
-                              show background solid at left
-                          
-                          j "..."
-                          j "Holy crap."
-                          j "That was horrible."
-                          j "I'm going to need a second to calm the hell down."
-                          j "..."
-                          j "Actually."
-                          j "Nah."
-                          j "I'm just going to go to lunch."
-                          
-                          jump chapter7
+                          jump more_deliberating_mgmt
   
     else:
     
@@ -2068,6 +2358,474 @@ label mgmtmeeting:
                  $ go_to_meeting += 1
                  
                  jump clientmeeting
+
+
+label more_deliberating_mgmt:
+
+    o "Joe, I really don't have time for this kind of tizzy."
+    o "We have a client coming here and I think you have a presentation."
+    o "Furthermore, I'm your boss, and I'm not putting up with any nonsense."
+    o "All I really need to know from you is this."
+    o "Where are you going to be at 10 today?"
+
+    menu:
+    
+        "Wherever you want me to be, Tom.":
+            if randjoke == 1:
+                o "Joe, that's just the kind of dedication this team really needs."
+                o "And you are an inspiration to us all."
+                o "Forget the meeting."
+                
+                j "Wait... what?"
+                
+                o "That's right."
+                o "I'll handle it all."
+                o "You just keep walking that extra mile around the office today."
+                o "I'm proud of you, son."
+                o "Talk to you later."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
+
+                j "..."
+                j "Holy crap."
+                j "That was horrible."
+                j "I'm going to need a second to calm the hell down."
+                j "..."
+                j "Actually."
+                j "Nah."
+                j "I'm just going to go to lunch."
+
+                jump chapter7
+            else:
+                o "Joe, while I admire your sincere dedication to the company..."
+                o "I won't pretend that doesn't come off a bit creepy."
+                o "I'll see you in the meeting at 10."
+                o "But let's try to keep it professional in there."
+                o "Talk to you then."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
+                
+                j "This is not good."
+                
+                jump clientmeeting
+        
+        "Right behind you, Tom.":
+            if randjoke == 2:
+                o "Wait, what's behind me?!"
+                o "Holy smokes."
+                o "Joe, you scared me there."
+                
+                j "Sorry about that."
+                
+                o "No, don't apologize."
+                o "I get it. It's figurative, or something like that."
+                o "This kind of job takes initiative,"
+                o "and you are right behind me, every step of the way."
+                o "I appreciate the daylights out of that, son."
+                
+                j "Thank you?"
+                
+                o "Don't worry about the meeting."
+                o "I'm pretty sure I can handle it."
+                o "But I know who's right behind me if I get into trouble."
+                o "I'll talk to you later, Joe."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
+
+                j "..."
+                j "Holy crap."
+                j "That was horrible."
+                j "I'm going to need a second to calm the hell down."
+                j "..."
+                j "Actually."
+                j "Nah."
+                j "I'm just going to go to lunch."
+
+                jump chapter7
+            else:
+                o "Wait, what's behind me?!"
+                o "Holy smokes."
+                o "Joe, don't scare me like that."
+                o "I know all about your work as a magician on nights and weekends."
+                o "But here in the office, let's try and keep it civil."
+                o "I'll see you in the meeting at 10."
+                o "Later."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
+                
+                j "This is not good."
+                
+                jump clientmeeting
+        
+        "In my same old cubicle, watching the years fly by.":
+            if randjoke == 3:
+                o "I have to hand it to you, Joe."
+                o "You're right."
+                o "How many years have we all been here?"
+                o "In these tiny prisons, like lambs to the slaughter?"
+                
+                j "I have no idea, Tom."
+                
+                o "You know what?"
+                o "You've inspired me."
+                o "Change needs to start happening around here."
+                o "And it needs to start right now."
+                o "I'm putting off this meeting until we get things moving."
+                o "There's no time to wait!"
+                o "We need to seize the day!"
+                o "Talk to you later."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
+
+                j "..."
+                j "Holy crap."
+                j "That was horrible."
+                j "I'm going to need a second to calm the hell down."
+                j "..."
+                j "Actually."
+                j "Nah."
+                j "I'm just going to go to lunch."
+
+                jump chapter7
+            else:
+                o "Well how about you put those years on hold for a couple hours."
+                o "I need you in the conference room at 10."
+                o "Talk to you then."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
+                
+                j "This is not good."
+                
+                jump clientmeeting
+        
+        "Far, far away, Tom.":
+            if randjoke == 4:
+                o "Wait... really?"
+                o "That's..."
+                o "Actually, that's quite respectable, son."
+                
+                j "Wait... what?"
+                
+                o "That's right."
+                o "I respect that kind of ability to remove yourself from your job."
+                o "What kind of automated wind up toys are we if we never escape the rat race?"
+                o "I like your style, Joe."
+                o "Don't worry about the meeting."
+                o "I'll handle it with newfound inspiration."
+                o "Talk to you later."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
+
+                j "..."
+                j "Holy crap."
+                j "That was horrible."
+                j "I'm going to need a second to calm the hell down."
+                j "..."
+                j "Actually."
+                j "Nah."
+                j "I'm just going to go to lunch."
+
+                jump chapter7
+            else:
+                o "Well wherever that is Joe..."
+                o "I highly suggest you find your way back quickly."
+                o "So that you end up in the conference room at 10."
+                o "No problem with traveling as long as you are punctual."
+                o "Talk to you then."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
+                
+                j "This is not good."
+                
+                jump clientmeeting
+        
+        "All the way up, Tom.":
+            if randjoke == 5:
+                o "Like hell you will be, Joe."
+                o "And you know what?"
+                o "Nothing can stop you."
+                
+                j "That's absolutely right, Tom."
+                
+                o "Forget the presentation."
+                o "I'll handle it all."
+                o "You just keep doing you today, son."
+                o "I'm proud of you."
+                o "Talk to you later."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
+
+                j "..."
+                j "Holy crap."
+                j "That was horrible."
+                j "I'm going to need a second to calm the hell down."
+                j "..."
+                j "Actually."
+                j "Nah."
+                j "I'm just going to go to lunch."
+
+                jump chapter7
+            else:
+                o "Like hell you will be, Joe."
+                o "And you know what?"
+                o "Nothing can stop you."
+                
+                j "That's absolutely right, Tom."
+                
+                o "Specifically..."
+                o "Nothing can stop you from being in the conference room at 10."
+                o "For your presentation."
+                o "I'll talk to you then."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
+                
+                j "This is not good."
+                
+                jump clientmeeting
+        
+        "In your worst nightmare, Tom.":
+            if randjoke == 6:
+                o "Hold on a hot minute, Joe."
+                o "Nobody ever said anything like that."
+                o "Wherever you are, sit down and second and hear me out."
+                
+                j "Wait... what?"
+                
+                o "I may be a bit stressed by this presentation."
+                o "But in no way does this make you a nightmare to work with."
+                o "We all have our up days and down days."
+                o "You just have to take the rose with the thorns."
+                o "I had my fair share of parental disagreements as well."
+                o "But you can't let it get to your self esteem."
+                o "You are nobody's worst nightmare."
+                o "No need to worry about the presentation."
+                o "Just take the morning to get that self esteem back up where it should be."
+                o "I'll check in later."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
+
+                j "..."
+                j "Well that was unexpectedly sentimental."
+                j "..."
+                j "On that note."
+                j "I'm just going to go to lunch."
+
+                jump chapter7
+            else:
+                o "Joe, in all honesty."
+                o "My worst fear is surviving the Armageddon."
+                o "And finding myself utterly alone in the aftermath."
+                o "But that's not really relevant right now."
+                o "My second biggest fear is that you screw up this presentation."
+                o "I'll see you in the conference room at 10."
+                o "Bring your A-game."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
+                
+                j "This is not good."
+                
+                jump clientmeeting
+        
+        "I don't have money, Tom, but what I do have is a very particular set of skills.":
+            if randjoke == 7:
+                o "Joe, why do you think we hired you in the first place?"
+                o "We know you have... some type of skills."
+                o "And stay here long enough, you won't have to worry about the money."
+                o "If you are really concerned about it in the meantime..."
+                o "Maybe you should cut down on your coffee budget or something."
+                
+                j "Wait... what?"
+                
+                o "I get it."
+                o "This presentation is stressing you out, isn't it?"
+                o "You know what?"
+                o "Forget it."
+                o "I know the client."
+                o "I can handle the whole thing."
+                o "Take the rest of the morning and chill out."
+                o "Remember the skills that got you here, and visualize the money."
+                o "None of it's taken for granted here."
+                o "I'll talk to you later."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
+
+                j "..."
+                j "Holy crap."
+                j "That was horrible."
+                j "I'm going to need a second to calm the hell down."
+                j "..."
+                j "Actually."
+                j "Nah."
+                j "I'm just going to go to lunch."
+
+                jump chapter7
+            else:
+                o "Alright, jokester."
+                o "I'll let you go and dial in on that presentation."
+                o "Before I've TAKEN any more of your time."
+                o "...Get it?"
+                o "Good one, right?"
+                o "Talk to you then."
+                
+                if stress_count == 0:
+                  scene chapter6_0 movie
+                  with fade
+                  show background solid at left
+                elif stress_count == 1:
+                  scene chapter6_1 movie
+                  with fade
+                  show background solid at left
+                else:
+                  scene chapter6_2 movie
+                  with fade
+                  show background solid at left
+                
+                j "This is not good."
+                
+                jump clientmeeting
     
 ##############################################################
 ## Client meeting begins here                               ##
@@ -2116,6 +2874,16 @@ label clientmeeting:
         o "Well, good thing you've been prepping for this for weeks!"
     
     o "Mr. Mills is there with you in the conference room now."
+    if randlng == 1:
+        o "Mr. Mills is the client's COO."
+        o "Plus, former Ivy League professor of... what was it?"
+        o "French language? Parisian art? Something fancy like that?"
+        o "Anyways, he's there with you now. Proceed as planned."
+    else:
+        o "Mr. Mills is the client's COO."
+        o "Plus, former Ivy League professor of... what was it?"
+        o "Dead languages? Latin? Ancient runes?"
+        o "Anyways, he's there with you now. Proceed as planned."
     
     j "Of course he picks the chair furthest from me..."
     
@@ -2389,7 +3157,6 @@ label meeting_prompt:
 screen meeting_map:
     imagemap:
         ground "blank.png"
-        #we need to change these
 
         hotspot (0, 188, 91, 80) clicked Return("phone")         #use the phone
         hotspot (400, 120, 126, 148) clicked Return("easel")     #use the easel
@@ -3192,18 +3959,6 @@ label chapter8:
     
     play movie "chapter8_lp.webm"
     $ renpy.pause(71.0, hard=True)
-
-    # play music "sounds/pills_chp8_montage_faith_ost.wav"    
-    
-    #if pills_count > 2:
-    #    play movie "chapter8_sad.webm"
-    #    play music "sounds/pills_chp_8_ost_sad.wav"
-    #elif pills_count > 0:
-    #    play movie "chapter8_meh.webm"
-    #    play music "sounds/pills_chp_8_ost_sad.wav"
-    #else:
-    #    play movie "chapter8_spiffy.webm"
-    #    play music "sounds/pills_chp_8_ost_happy.wav"
     
     jump chapter9
     
@@ -3442,6 +4197,9 @@ label chapter10:
     j "It's lovely."
     j "Lovely quiet."
     j "Quiet."
+    
+    stop music fadeout 4.0
+    
     j "Nothingness."
     j "..."
     j "......."
@@ -3449,7 +4207,7 @@ label chapter10:
     scene black
     with dissolve
     
-    play music "sounds/pills_chp9_p2_bld_ost.wav"
+    play music "sounds/pills_chp9_p2_loop_ost.wav"
     
     o "Joseph"
     o "This is the voice inside your head"
@@ -3497,15 +4255,14 @@ label chapter10:
         o "You deserve it..."
         o "But still..."
         
-    play music "sounds/pills_chp9_p2_loop_ost.wav"
-    $ renpy.pause(4)
+    $ renpy.pause(1)
         
     stop music fadeout 1.0
     
     #scene chapter10_%r movie % stress_count
     scene chapter10 movie
     
-    play sound "<loop 300>sounds/car_alarm.wav"
+    play music "sounds/car_alarm.wav"
     
     j "..."
     j "Are you serious?"
@@ -3521,11 +4278,13 @@ label chapter10:
     j "There it is."
     j "Night after night, but only a moment..."
     j "Nirvana."
+    
+    stop music fadeout 4.0
+    
     j "..."
     j "Just have to wait for it."
     
-    # make sure that car alarm is still going
-    # play movie "Credits.webm"
+    $ renpy.pause(2)    
     
     play music "sounds/pills_credits_ost.wav"
     
