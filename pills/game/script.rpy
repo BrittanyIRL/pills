@@ -107,17 +107,21 @@ image chapter7_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="
 image chapter7_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter7_0.webm")
 image chapter7_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter7_0.webm")
 
-image end_of_lunch_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter7_0.webm")
-image end_of_lunch_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter7_0.webm")
-image end_of_lunch_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter7_0.webm")
+image end_of_lunch_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter7_1.webm")
+image end_of_lunch_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter7_1.webm")
+image end_of_lunch_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter7_1.webm")
 
 # then we have the three montage videos, for chapter 8, which we want to treat as not clickable videos
 
-# image chapter9_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter9_0.webm")
+image chapter9_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter9_0.webm")
 # image chapter9_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter9_0.webm")
 # image chapter9_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter9_0.webm")
 
-# image chapter10_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter10_0.webm")
+image TV_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="TV_0.webm")
+
+image chapter10_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter10_0.webm")
+image chapter10_end movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter10_nosound.webm")
+
 # image chapter10_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter10_0.webm")
 # image chapter10_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter10_0.webm")
 
@@ -3907,10 +3911,18 @@ label end_of_lunch:
         scene end_of_lunch_0 movie
         with fade
         show background solid at left
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1170da51bc3f76a308cd5b53cfbbe2a894401b55
     elif stress_count == 1:
         scene end_of_lunch_1 movie
         with fade
         show background solid at left
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1170da51bc3f76a308cd5b53cfbbe2a894401b55
     else:
         scene end_of_lunch_2 movie
         with fade
@@ -4026,7 +4038,7 @@ label chapter9:
     $ scene_count += 1
 
     #scene chapter9_%r movie % stress_count
-    # scene chapter9_0 movie
+    # scene chapter9_1 movie
     # with fade
     # show background solid at left
     
@@ -4035,11 +4047,11 @@ label chapter9:
         with fade
         show background solid at left
     elif stress_count == 1:
-        scene chapter9_1 movie
+        scene chapter9_0 movie
         with fade
         show background solid at left
     else:
-        scene chapter9_2 movie
+        scene chapter9_0 movie
         with fade
         show background solid at left
     
@@ -4090,6 +4102,8 @@ label tv_options:
 
     #scene TV_%r movie % stress_count
     scene TV_0 movie
+    with fade
+    show background solid at left
 
     menu:
         "Franz Season 4":
@@ -4166,6 +4180,8 @@ label tv_shows:
 
     #scene TV_%r movie % stress_count
     scene TV_0 movie
+    with fade
+    show background solid at left
 
     j "Holy crap."
     j "How am I this many seasons behind on everything I watch?"
@@ -4206,11 +4222,11 @@ label chapter10:
         with fade
         show background solid at left
     elif stress_count == 1:
-        scene chapter10_1 movie
+        scene chapter10_0 movie
         with fade
         show background solid at left
     else:
-        scene chapter10_2 movie
+        scene chapter10_0 movie
         with fade
         show background solid at left
     
@@ -4304,7 +4320,9 @@ label chapter10:
     stop music fadeout 1.0
     
     #scene chapter10_%r movie % stress_count
-    scene chapter10 movie
+
+    scene chapter10_end movie
+    with fade
     show background solid at left
     
     play music "sounds/car_alarm.wav"
@@ -4344,10 +4362,10 @@ label credits:
     image title = Text("{size=20}Pills", text_align=0.5)
     image writing = Text("{size=20}Story and Logic by \nGerrit Feenstra")
     image music = Text("{size=20}Score and Sound by \nGerrit Feenstra")
-    image video = Text("{size=20}Video by \nBrittany Feenstra")
+    image video = Text("{size=20}Video by \nBrittany and Gerrit Feenstra")
     image gui = Text("{size=20}GUI by \nBrittany Feenstra")
     image programming = Text("{size=20}Developed in Python by \nGerrit and Brittany")
-    image renpy = Text("{size=20}Built on Ren'Py v. 6.9910.1227", text_align=0.5)
+    image renpy = Text("{size=20}Built on Ren'Py", text_align=0.5)
     image location = Text("{size=20}Filmed in Seattle, WA August 2016", text_align=0.5)
     image copyright = Text("{size=20}Made For Fun \n Copyright 2016", text_align=0.5)
     image thanks = Text("{size=20}Thanks for Playing.", text_align=0.5)
