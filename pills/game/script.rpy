@@ -1688,7 +1688,7 @@ label chapter6:
              j "Right."
              j "I gotta focus up with some genius stuff."
              j "I need indepence..."
-             j "I NEED SYNERGY"
+             j "I NEED SYNERGY."
              j "I have no idea how to get synergy, though."
              j "I barely have enough normal kind of energy, most days."
              if book_check > 0:
@@ -3888,7 +3888,7 @@ label chapter7:
 
          "What the hell do I know?":
              j "I guess if you could figure that kind of thing out,"
-             j "There would be a lot less sadness and confusion in the world."
+             j "there would be a lot less sadness and confusion in the world."
              j "I don't know."
              j "Maybe it's a little bit of both."
              j "And maybe it's a sliding scale,"
@@ -3911,18 +3911,12 @@ label end_of_lunch:
         scene end_of_lunch_0 movie
         with fade
         show background solid at left
-<<<<<<< HEAD
-=======
 
->>>>>>> 1170da51bc3f76a308cd5b53cfbbe2a894401b55
     elif stress_count == 1:
         scene end_of_lunch_1 movie
         with fade
         show background solid at left
-<<<<<<< HEAD
-=======
 
->>>>>>> 1170da51bc3f76a308cd5b53cfbbe2a894401b55
     else:
         scene end_of_lunch_2 movie
         with fade
@@ -4102,7 +4096,6 @@ label tv_options:
 
     #scene TV_%r movie % stress_count
     scene TV_0 movie
-    with fade
     show background solid at left
 
     menu:
@@ -4180,7 +4173,6 @@ label tv_shows:
 
     #scene TV_%r movie % stress_count
     scene TV_0 movie
-    with fade
     show background solid at left
 
     j "Holy crap."
@@ -4317,12 +4309,11 @@ label chapter10:
         
     $ renpy.pause(1)
         
-    stop music fadeout 1.0
+    #stop music fadeout 1.0
     
     #scene chapter10_%r movie % stress_count
 
     scene chapter10_end movie
-    with fade
     show background solid at left
     
     play music "sounds/car_alarm.wav"
@@ -4345,6 +4336,10 @@ label chapter10:
     j "Night after night, but only a moment..."
     j "Nirvana."
     j "..."
+
+    scene black
+    with dissolve
+
     j "Just have to wait for it."
     
     $ renpy.pause(3)    
