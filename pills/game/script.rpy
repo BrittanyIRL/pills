@@ -151,6 +151,7 @@ label start:
     $ go_to_meeting = 0
     $ check_email = 0
     $ meeting_panic = 0
+    $ at_coffee = 0
     
     $ randmtg = renpy.random.randint(1,4)
     $ randlng = renpy.random.randint(1,2)
@@ -224,7 +225,7 @@ label getup:
         with fade
         show background solid at left
 
-    play music "sounds/pills_getting_ready_ost.wav" fadein 2.0
+    play music "sounds/pills_getting_ready.wav" fadein 2.0
 
     j "Another day." # "Here we go again." "Alright, alright, I'm up."
     
@@ -318,7 +319,6 @@ label snooze_1:
 
     scene chapter1_0 movie
     with fade
-    show background solid at left
     show background solid at left
     
     play sound "sounds/alarm_clock.wav"
@@ -436,7 +436,6 @@ label snooze_6:
     
     scene chapter1_1 movie
     with fade
-    show background solid at left
     show background solid at left
     
     play sound "sounds/alarm_clock.wav"
@@ -566,22 +565,24 @@ label pills_scene:
         j "I have too much to do and too much left to do today."
         j "I'm cutting this off before it starts."
     elif pills_count == 2:
-        j "I'm not taking this."
-        j "Maybe I have a real problem."
-        j "Isn't this supposed to help me?"
-        j "Yeah... of course it is."
-        j "This is helping. This is the answer."
-    elif pills_count == 3:
         j "I can't believe this."
-        j "Why am I doing this?"
         j "Why can't I get a grip?"
         j "I'm not letting this get the best of me."
         j "I can't."
+    elif pills_count == 3:
+        j "What is going on today?"
+        j "This isn't like me at all."
+        j "I need to get a grip."
+        j "And get on with my life."
+    elif pills_count == 4:
+        j "What the hell is happening?"
+        j "I can't believe this."
+        j "I am really struggling today."
+        j "What are the odds these things are placebos?"
     else:
-        j "What the hell is happening to me?"
-        j "I can't handle this."
-        j "I need escape."
-        j "Now."
+        j "Alright."
+        j "For the love of all that is holy..."
+        j "Please let this be my last freakout today."
     
     play sound "sounds/pill_bottle.wav"
     $ renpy.pause(2)
@@ -602,8 +603,10 @@ label pills_scene:
         jump chapter4
     elif scene_count == 4:
         jump chapter5
-    elif scene_count == 5 and coffee_choice > 0:
+    elif scene_count == 5 and coffee_choice > 0 and at_coffee < 1:
         jump coffeeshop
+    elif scene_count == 5 and coffee_choice > 0 and at_coffee > 0:
+        jump chapter6
     elif scene_count == 5 and coffee_choice < 1:
         jump chapter6
     elif scene_count == 6 and go_to_meeting > 0 and meeting_panic < 1:
@@ -669,7 +672,7 @@ label chapter2:
         show background solid at left
 
     
-    play music "sounds/pills_chp_2_ost.wav"
+    play music "sounds/pills_chp2.wav"
     
     j "What am I forgetting?"
     j "I always forget something."
@@ -740,7 +743,7 @@ label chapter3:
         show background solid at left
 
     
-    play music "sounds/pills_chp_3_ost.wav"
+    play music "sounds/pills_chp3.wav"
 
     j "Bus arrives in... zero minutes?"
     j "It's not even down the hill yet."
@@ -760,7 +763,7 @@ label chapter3:
     j "I wonder how much those small sanctions of every day life..."
     j "the plausibility of a missed bus..."
     j "the crosswalk you see in the distance that you might not catch..."
-    j "the time you probably won't have to go to the gym..."
+    j "the time you probably won't have left to go to the gym..."
     j "How many are responsible for all the stress you feel?"
     
     menu:
@@ -866,7 +869,7 @@ label chapter4:
         with fade
         show background solid at left
     
-    play music "sounds/pills_chp_4_ost.wav"
+    play music "sounds/pills_chp4_p1.wav"
 
     if bag_check > 0:
         j "Only three minutes late today."
@@ -980,7 +983,7 @@ label chapter4_w_map:
         j "Have you recently gone through a divorce?"
         j "Are you going through a fiscal dillema?"
         j "Have you lost your sexual potency?"
-        j "Does your child have access to crystal meth?"
+        j "Are you concerned your child is a sociopath?"
         j "Call here."
         j "Call there."
         j "Talk to someone, anyone."
@@ -1000,9 +1003,9 @@ label chapter4_w_map:
             scene busppl_2 movie
             with fade
             show background solid at left
-        j "Look at these poor suckers."
+        j "Look at these sorry losers."
         j "Just like me."
-        j "Sucked into some false dream of stability."
+        j "Sucked into some false dream of semi-fulfilling stability."
         j "There's comfort in consistency, you know?"
         j "You don't have to think much about what's going on around you."
         j "But what do you really lose in the interim?"
@@ -1028,24 +1031,29 @@ label chapter4_w_choice:
         with fade
         show background solid at left
     
+    play music "sounds/pills_chp4_p2.wav"
+    
     if bus_check > 1:
         j "You can't really help but look away though can you?"
         j "Looking at all those problems,"
         j "imagining yourself in the thick of it all,"
         j "just to feel something."
-        j "Kind of like Fight Club that way, I guess."
-        j "And yet, I have a choice."
-        j "To stare onwards..."
-        j "or to turn and run."
+        j "Something that isn't nothing."
+        j "And yet, they all have a choice."
+        j "I have it, too."
+        j "To stare onwards searching for the feeling..."
+        j "or to turn and run from it."
     elif bus_check > 0:
         j "You can't really help but look away though can you?"
-        j "Looking at all their boredom,"
-        j "their utter apathy towards the problems of the world,"
-        j "just imagining yourself in the thick of it all."
+        j "Looking at all their boredom."
+        j "The utter apathy towards the problems of the world,"
+        j "maybe not so intentional so much as blissfully naive..."
+        j "Imagine being in the thick of it all..."
         j "Am I one of them?"
         j "Maybe I have to look closer."
-        j "Maybe that's my choice..."
-        j "To stare onwards,"
+        j "Maybe we all do."
+        j "That's our choice, really..."
+        j "To stare onwards, searching for reason..."
         j "or to turn and run."
     else:
         j "I just have this feeling."
@@ -1078,19 +1086,32 @@ label chapter4_w_choice:
             
 label onwards:
 
+    if stress_count == 0:
+        scene chapter4_0 movie
+        show background solid at left
+    elif stress_count == 1:
+        scene chapter4_1 movie
+        show background solid at left
+    else:
+        scene chapter4_2 movie
+        show background solid at left    
+    
     j "Right... I need to keep staring."
-    j "Keep trying to find some meaning to all of it."
+    j "Keep trying to find some sense in all of it."
     if bus_check > 1:
         j "But geez, look at all I have left to deal with."
         j "There are so many people with so many problems."
         j "Who am I to think I'm any better than them?"
+        j "There's just no way."
+        j "No way at all."
     elif bus_check > 0:
         j "But people, they keep staring."
         j "I feel like every step of the way I'm being watched."
-        j "Like they are keeping tabs,"
-        j "Making sure somehow I don't rise above the rest of them."
+        j "They are keeping tabs,"
+        j "just like I find myself keeping tabs on them."
+        j "Making sure no one rises above the rest."
         j "Look at their eyes,"
-        j "hungry for mutual suffering."
+        j "hungry for mutual regression."
         j "It's terrifying."
     else:
         j "But what's the point?"
@@ -1102,14 +1123,22 @@ label onwards:
         j "No way at all."
     $ stress_count += 2
     if stress_count > 2:
-        "How am I going to do all of that?"
-        "I can't even think about it."
         jump pills_scene
     else:
         jump chapter5
 
 label turn_and_burn:
 
+    if stress_count == 0:
+        scene chapter4_0 movie
+        show background solid at left
+    elif stress_count == 1:
+        scene chapter4_1 movie
+        show background solid at left
+    else:
+        scene chapter4_2 movie
+        show background solid at left  
+    
     j "Probably best to avoid it."
     j "That conversation is terrifying anyways."
     if bus_check > 1:
@@ -1147,6 +1176,16 @@ label turn_and_burn:
          
 label book_instead:
 
+    if stress_count == 0:
+        scene chapter4_0 movie
+        show background solid at left
+    elif stress_count == 1:
+        scene chapter4_1 movie
+        show background solid at left
+    else:
+        scene chapter4_2 movie
+        show background solid at left  
+    
     j "Wait..."
     j "Why am I doing this to myself?"
     j "I don't have to figure any of this stuff out."
@@ -1187,12 +1226,12 @@ label chapter5:
     $ renpy.pause(1)
     
     j "Once I leave the bus, the mood of the day changes."
-    j "I a weight lift, though I'm not sure why."
+    j "I feel a weight lift, though I'm not sure why."
     j "I no longer feel responsible for my own anxiety."
     j "Now, out in the wilds of a city in flux,"
     j "everything is a shared venture."
-    j "And even though that in itself can be stressful,"
-    j "somehow, there's something reassuring about that."
+    j "And even though that in and of itself can be stressful,"
+    j "somehow, there's something reassuring about it."
     j "When the unexpected strikes, we are all in it together."
     j "We all share the outcome."
     j "And we all get to find the humor in it, somehow."
@@ -1212,15 +1251,15 @@ label chapter5:
         with fade
         show background solid at left
     
-    play music "sounds/pills_chp_5_ost.wav"
+    play music "sounds/pills_chp5_p1.wav"
 
     j "I've been thinking..."
     j "Every day I take the same exact steps to work."
     j "Well, maybe not exact."
-    j "I guess there's the deviation of a stoplight or two along the way."
+    j "I guess I always deviate a stoplight or two along the way."
     j "But other than that, nothing - no variation."
-    j "And when I do try and mix it up, going this way or that,"
-    j "going down a block or two to hit the better coffee shop,"
+    j "And when I do try and mix it up, breaking this way or that,"
+    j "heading down a block or two to hit the better coffee shop,"
     j "or going to the ATM before work so I don't have to go after,"
     j "there's this tiny sting,"
     j "this simple twitch of a feeling,"
@@ -1250,6 +1289,8 @@ label chapter5:
         with fade
         show background solid at left
 
+    play music "sounds/pills_chp5_p2.wav"
+    
     j "Hunter-gatherers worked in teams to survive."
     j "They'd take down giant wooly mammoths by overwhelming them."
     j "Larger nomadic villages meant greater security for everyone."
@@ -1364,7 +1405,9 @@ label coffeeshop:
         with fade
         show background solid at left
     
-    play music "sounds/pills_coffee_shop_ost.wav"
+    play music "sounds/pills_coffee_shop.wav"
+    
+    $ at_coffee += 1
     
     j "Always a line."
     j "I don't know why I ever think this is going to save time."
@@ -1372,7 +1415,7 @@ label coffeeshop:
     j "I get exhausted so fast if I don't have anything in the morning."
     j "I'm not the only one, obviously."
     j "All these people here, like me."
-    j "All waiting on the same ringer to kick off the day."
+    j "All waiting on the same buzz to kick off the day."
     j "One credit card at a time."
     
     # play sound "guyyelling.wav"
@@ -1456,7 +1499,7 @@ label loud_coffee:
     j "How bad can it be?"
     
     o "You are a complete asshole, you know that?"
-    o "If I ever talk to me again, I swear I'll punch you in the face."
+    o "If you ever talk to me again, I swear I'll punch you in the face."
     o "And forget this stupid coffee shop."
     o "I always hated it here anyways."
     o "I'm out of here."
@@ -1558,6 +1601,7 @@ label chapter6:
     menu:
 
          "Check nonexistent email.":
+             
              $ check_email += 1
              j "Guess I should sift through my inbox..."
              j "Wait..."
@@ -1714,8 +1758,6 @@ label phonering:
 ##############################################################
          
 label phonecall:
-
-    stop music fadeout 2.0
     
     j "Hello?"
     
@@ -1732,12 +1774,14 @@ label phonecall:
     j "..."
     j "What do you need?"
     
+    stop music fadeout 4.0
+    
     o "I was just checking in before our big meeting today."
     o "Making sure you are all set to go for your presentation!"
     
     j "..."
     
-    play music "sounds/pills_client_mtg_only_seq_ost.wav"
+    play music "sounds/pills_mgmt_talk.wav"
     
     if calendar_check > 0:
     
@@ -2161,8 +2205,6 @@ label nocall:
         scene black
         with dissolve
     
-        stop music fadeout 2.0
-    
         if stress_count == 0:
             scene mgmt_0 movie
             with fade
@@ -2175,8 +2217,6 @@ label nocall:
             scene mgmt_2 movie
             with fade
             show background solid at left
-    
-        play music "sounds/pills_client_mtg_only_seq_ost.wav"
     
         o "Hey Joe."
         o "Woah, what's going on?"
@@ -2202,8 +2242,6 @@ label mgmtmeeting:
     scene black
     with dissolve
     
-    stop music fadeout 2.0
-    
     if stress_count == 0:
         scene mgmt_0 movie
         with fade
@@ -2217,8 +2255,6 @@ label mgmtmeeting:
         with fade
         show background solid at left
     
-    play music "sounds/pills_client_mtg_only_seq_ost.wav"
-    
     o "Hey Joe, how's it hanging?"
     
     j "Hi Tom..."
@@ -2230,10 +2266,14 @@ label mgmtmeeting:
     j "..."
     j "What do you need?"
     
+    stop music fadeout 4.0
+    
     o "I was just checking in before our big meeting today."
     o "Making sure you are all set to go for your presentation!"
     
     j "..."
+    
+    play music "sounds/pills_mgmt_talk.wav"
     
     if calendar_check > 0:
     
@@ -2901,8 +2941,7 @@ label clientmeeting:
             j "Um... Joseph, actually."
             
             o "Alright, Joe."
-            
-            j "Let's see what brilliant stuff you have for me."
+            o "Let's see what brilliant stuff you have for me."
             
             $ stress_count += 2
             
@@ -3867,12 +3906,15 @@ label end_of_lunch:
     if stress_count == 0:
         scene end_of_lunch_0 movie
         with fade
+        show background solid at left
     elif stress_count == 1:
         scene end_of_lunch_1 movie
         with fade
+        show background solid at left
     else:
         scene end_of_lunch_2 movie
         with fade
+        show background solid at left
     
     play music "sounds/pills_chp7_wguitar_ost.wav"
     
@@ -3952,8 +3994,8 @@ label chapter8:
     scene black
     with dissolve
     
-    stop music fadeout 2.0
-    $ renpy.pause(1)
+    stop music fadeout 4.0
+    $ renpy.pause(4)
     
     $ scene_count += 1
     
@@ -3979,7 +4021,7 @@ label chapter9:
     stop music fadeout 2.0
     
     play sound "sounds/pills_chp9_intro_ost.wav"
-    $ renpy.pause(4.2)
+    $ renpy.pause(3.15)
     
     $ scene_count += 1
 
@@ -4016,6 +4058,8 @@ label chapter9:
     
     #scene TV_%r movie % stress_count
     scene TV_0 movie
+    with fade
+    show background solid at left
     
     j "Hmmm..."
     j "There are always ten thousand things to watch on this crap."
@@ -4198,7 +4242,7 @@ label chapter10:
     j "Lovely quiet."
     j "Quiet."
     
-    stop music fadeout 4.0
+    stop music fadeout 3.0
     
     j "Nothingness."
     j "..."
@@ -4261,6 +4305,7 @@ label chapter10:
     
     #scene chapter10_%r movie % stress_count
     scene chapter10 movie
+    show background solid at left
     
     play music "sounds/car_alarm.wav"
     
@@ -4273,18 +4318,18 @@ label chapter10:
     j "It could be worse."
     j "It could always be worse."
     j "..."
+    
+    stop music fadeout 3.0
+    
     j "See?"
     j "There."
     j "There it is."
     j "Night after night, but only a moment..."
     j "Nirvana."
-    
-    stop music fadeout 4.0
-    
     j "..."
     j "Just have to wait for it."
     
-    $ renpy.pause(2)    
+    $ renpy.pause(3)    
     
     play music "sounds/pills_credits_ost.wav"
     
