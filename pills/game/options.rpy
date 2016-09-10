@@ -18,7 +18,7 @@ init -1 python hide:
     ## running in a window.
 
     config.window_title = u"pills"
-    # config.window_icon = "icon.icns", in ../game directory, 256x256
+    config.window_icon = "pillslogo.png" #in ../game directory, 256x256
 
     # These control the name and version of the game, that are reported
     # with tracebacks and other debugging logs.
