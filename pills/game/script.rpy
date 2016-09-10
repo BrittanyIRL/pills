@@ -71,11 +71,13 @@ image bag_0_0_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="b
 image bag_1_0_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="bag_0_0_0.webm")
 image bag_2_0_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="bag_0_0_0.webm")
 
-image window_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="window_0.webm")
-image window_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="window_0.webm")
-image window_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="window_0.webm")
+image window1_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="window1_0.webm")
+image window1_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="window1_0.webm")
+image window1_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="window1_0.webm")
 
-image window2_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="window1_0.webm")
+image window2_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="window2_0.webm")
+image window2_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="window2_0.webm")
+image window2_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="window2_0.webm")
 
 image rafters_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="rafters_0.webm")
 image rafters_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="rafters_0.webm")
@@ -164,6 +166,7 @@ label start:
     $ randmtg = renpy.random.randint(1,4)
     $ randlng = renpy.random.randint(1,2)
     $ randjoke = renpy.random.randint(1,7)
+    $ randwind = renpy.random.randint(1,2)
 
     scene black
     show background solid at left
@@ -171,6 +174,9 @@ label start:
     $ renpy.pause(1)
     
     j "There's this feeling..."
+    
+    jump chapter4
+    
     j "right before I fall asleep,"
     j "right before I fade into oblivion,"
     j "where I actually feel like my mind is at peace."
@@ -937,18 +943,32 @@ label chapter4_w_map:
     $ result = _return
     
     if result == "window":
-        if stress_count == 0:
-            scene window_0 movie
-            with fade
-            show background solid at left
-        elif stress_count == 1:
-            scene window_1 movie
-            with fade
-            show background solid at left
+        if randwind == 2:
+            if stress_count == 0:
+                scene window2_0 movie
+                with fade
+                show background solid at left
+            elif stress_count == 1:
+                scene window2_1 movie
+                with fade
+                show background solid at left
+            else:
+                scene window2_2 movie
+                with fade
+                show background solid at left
         else:
-            scene window_2 movie
-            with fade
-            show background solid at left
+            if stress_count == 0:
+                scene window1_0 movie
+                with fade
+                show background solid at left
+            elif stress_count == 1:
+                scene window1_1 movie
+                with fade
+                show background solid at left
+            else:
+                scene window1_2 movie
+                with fade
+                show background solid at left
         j "I look out the window."
         j "I see a city unhappy with itself."
         j "Constantly changing."
