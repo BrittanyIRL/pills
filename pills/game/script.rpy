@@ -75,6 +75,8 @@ image window_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="ba
 image window_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="window_0.webm")
 image window_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="window_0.webm")
 
+image window2_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="window1_0.webm")
+
 image rafters_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="rafters_0.webm")
 image rafters_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="rafters_0.webm")
 image rafters_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="rafters_0.webm")
