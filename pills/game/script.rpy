@@ -829,7 +829,7 @@ label chapter3:
 label bus_time:
 
     play sound "sounds/busarrival.wav"
-    j "There's the bus, finally."
+    j "Here comes the bus, finally."
     
     if bag_check > 0:
         j "Glad I remembered my pass."
@@ -1195,8 +1195,8 @@ label turn_and_burn:
         j "No way at all."
     $ stress_count += 1
     if stress_count > 2:
-        "How am I going to do all of that?"
-        "I can't even think about it."
+        j "How am I going to do all of that?"
+        j "I can't even think about it."
         jump pills_scene
     else:
         jump chapter5
@@ -1365,6 +1365,7 @@ label chapter5:
                       else:
                           jump chapter6
                   "Nice weather today.":
+                      play sound "sounds/pills_xwalk_weather.wav"
                       j "Ok, a few token nods for the world's biggest elevator cliche."
                       j "Still, that wasn't the worst thing ever."
                       j "No lifelong friends, but no disgust either."
@@ -1374,6 +1375,7 @@ label chapter5:
                       else:
                           jump chapter6
                   "How about them Hawks?":
+                      play sound "sounds/pills_xwalk_hawks.wav"
                       j "Wait, now that guy is trying to follow up."
                       j "He's talking about the game last Sunday."
                       j "I didn't watch that!"
@@ -1435,17 +1437,20 @@ label coffeeshop:
     play music "sounds/pills_coffee_shop.wav"
     
     $ at_coffee += 1
-    
-    j "Always a line."
-    j "I don't know why I ever think this is going to save time."
-    j "Still, worth it..."
-    j "I get exhausted so fast if I don't have anything in the morning."
-    j "I'm not the only one, obviously."
-    j "All these people here, like me."
+
+    j "I could do better."
+    j "Always."
+    j "I could get out of my head."
+    j "Get far away from this daily ritual."
+    j "The routine discomfort."
+    j "And yet here I am..."
+    j "In a room of people perusing and standing in lines."
     j "All waiting on the same buzz to kick off the day."
     j "One credit card at a time."
-    
-    # play sound "guyyelling.wav"
+    j "All the people here, killing time like me."
+    j "Waiting for something to happen."
+
+    play sound "sounds/pills_coffee_shout.wav"
     
     j "Damn, what is that guy up there yelling about?"
     j "He's already through the line."
@@ -1470,17 +1475,10 @@ label coffeeshop:
              jump nada_coffee
             
 label quiet_coffee:
-
-    j "No, no, forget it."
-    j "He'll be gone in a second."
-    j "It isn't my place."
-    j "The baristas here are used to it..."
-    j "She'll bounce back."
-    
-    # play sound "guyyelling2.wav"
     
     j "..."
-    j "He's not stopping."
+    j "It isn't my place..."
+    j "But he's not stopping."
     j "What a complete jerk."
     j "I don't want to intrude, but wow, this is horrible."
     j "All these other people too, just like me..."
@@ -2245,6 +2243,8 @@ label nocall:
             with fade
             show background solid at left
     
+        play sound "sounds/pills_mgmt_words.wav"
+        
         o "Hey Joe."
         o "Woah, what's going on?"
     
@@ -2281,6 +2281,8 @@ label mgmtmeeting:
         scene mgmt_2 movie
         with fade
         show background solid at left
+    
+    play sound "sounds/pills_mgmt_words.wav"
     
     o "Hey Joe, how's it hanging?"
     
@@ -2951,6 +2953,8 @@ label clientmeeting:
         o "Plus, former Ivy League professor of... what was it?"
         o "Dead languages? Latin? Ancient runes?"
         o "Anyways, he's there with you now. Proceed as planned."
+    
+    play sound "sounds/pills_client_grumble.wav"
     
     j "Of course he picks the chair furthest from me..."
     
