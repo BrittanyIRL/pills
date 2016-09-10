@@ -87,6 +87,8 @@ image chapter5_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="
 image chapter5_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter5_0.webm")
 image chapter5_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter5_0.webm")
 
+image coffeeshop_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="coffeeshop_0.webm")
+
 image stoplight_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="stoplight_0.webm")
 image stoplight_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="stoplight_0.webm")
 image stoplight_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="stoplight_0.webm")
@@ -1424,11 +1426,11 @@ label coffeeshop:
         with fade
         show background solid at left
     elif stress_count == 1:
-        scene coffeeshop_1 movie
+        scene coffeeshop_0 movie
         with fade
         show background solid at left
     else:
-        scene coffeeshop_2 movie
+        scene coffeeshop_0 movie
         with fade
         show background solid at left
     
