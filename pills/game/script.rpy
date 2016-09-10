@@ -174,9 +174,6 @@ label start:
     $ renpy.pause(1)
     
     j "There's this feeling..."
-    
-    jump chapter4
-    
     j "right before I fall asleep,"
     j "right before I fade into oblivion,"
     j "where I actually feel like my mind is at peace."
