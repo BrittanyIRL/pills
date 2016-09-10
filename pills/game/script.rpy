@@ -194,6 +194,12 @@ label start:
     $ randchp1 = renpy.random.choice(["Already? Wow.", "Please tell me it\'s Sunday.", "... How is it morning?"])
 
     j "[randchp1]"
+    j "That is the worst noise."
+    j "Every single day."
+    j "I should get a new alarm clock."
+    j "Honestly, who needs that kind of heart attack every morning?"
+    j "..."
+    j "Ugh..."
     j "I should probably get up."
 
     menu:
@@ -328,6 +334,7 @@ label snooze_1:
     play sound "sounds/alarm_clock.wav"
 
     j "Was that already 10 minutes?"
+    j "Probably just a misunderstanding."
 
     menu:
 
@@ -351,6 +358,7 @@ label snooze_2:
     play sound "sounds/alarm_clock.wav"
 
     j "Damn."
+    j "Fooled again."
 
     menu:
 
@@ -373,7 +381,10 @@ label snooze_3:
     
     play sound "sounds/alarm_clock.wav"
 
-    j "I hate that car."
+    j "Now I really don't know."
+    j "Which do I hate more?"
+    j "The alarm clock?"
+    j "Or that car outside?"
 
     menu:
 
@@ -942,28 +953,40 @@ label chapter4_w_map:
     elif result == "openbag":
         if stress_count == 0 and calendar_check > 0 and book_check > 0:
             scene bag_0_1_1 movie
+            show background solid at left
         elif stress_count == 1 and calendar_check > 0 and book_check > 0:
             scene bag_1_1_1 movie
+            show background solid at left
         elif stress_count == 2 and calendar_check > 0 and book_check > 0:
             scene bag_2_1_1 movie
+            show background solid at left
         elif stress_count == 0 and calendar_check < 1 and book_check > 0:
             scene bag_0_0_1 movie
+            show background solid at left
         elif stress_count == 1 and calendar_check < 1 and book_check > 0:
             scene bag_1_0_1 movie
+            show background solid at left
         elif stress_count == 2 and calendar_check < 1 and book_check > 0:
             scene bag_2_0_1 movie
+            show background solid at left
         elif stress_count == 0 and calendar_check > 0 and book_check < 1:
             scene bag_0_1_0 movie
+            show background solid at left
         elif stress_count == 1 and calendar_check > 0 and book_check < 1:
             scene bag_1_1_0 movie
+            show background solid at left
         elif stress_count == 2 and calendar_check > 0 and book_check < 1:
             scene bag_2_1_0 movie
+            show background solid at left
         elif stress_count == 0 and calendar_check < 1 and book_check < 1:
             scene bag_0_0_0 movie
+            show background solid at left
         elif stress_count == 1 and calendar_check < 1 and book_check < 1:
             scene bag_1_0_0 movie
+            show background solid at left
         elif stress_count == 2 and calendar_check < 1 and book_check < 1:
             scene bag_2_0_0 movie
+            show background solid at left
         # really hard to notice the ellipsis, adding second one
         j "..."
         jump chapter4_w_map
@@ -1270,8 +1293,8 @@ label chapter5:
     j "that tells me something is wrong."
     j "All our studies on evolution and anthropology,"
     j "they tell us that humans have succeeded due to natural selection."
-    j "The greater comprehension of survival within the hunter-gatherer,"
-    j "that's what allowed him to persevere."
+    j "The greater comprehension of survival and understanding of self,"
+    j "that's what allowed humans to persevere."
     j "I mean, sure, that was hundreds of thousands of years ago."
     j "But when I take the longer path to work and feel that twitch,"
     j "when I feel the hair standing up on the back of my neck"
@@ -1617,13 +1640,13 @@ label chapter6:
                  j "Moving the wheels of history..."
                  j "Wait, where have I heard that before?"
                  if calendar_check > 0:
-                     "I don't have anything today - I checked my calendar."
-                     "This can't be for me."
+                     j "I don't have anything today - I checked my calendar."
+                     j "This can't be for me."
                  else:
-                     "Still..."
-                     "Am I supposed to go to this?"
-                     "Is this on my calendar?"
-                     "I have no idea."
+                     j "Still..."
+                     j "Am I supposed to go to this?"
+                     j "Is this on my calendar?"
+                     j "I have no idea."
                      
              elif randmtg == 2:
                  j "Something about bad quarterly earnings?"
@@ -1631,13 +1654,13 @@ label chapter6:
                  j "Trying to turn things around in the future..."
                  j "Well, yeah. Aren't we all?"
                  if calendar_check > 0:
-                     "I don't have anything today - I checked my calendar."
-                     "This can't be for me."
+                     j "I don't have anything today - I checked my calendar."
+                     j "This can't be for me."
                  else:
-                     "Still..."
-                     "Am I supposed to go to this?"
-                     "Is this on my calendar?"
-                     "I have no idea."
+                     j "Still..."
+                     j "Am I supposed to go to this?"
+                     j "Is this on my calendar?"
+                     j "I have no idea."
 
              elif randmtg == 3:
                  j "Something about globalized marketing outreach?"
@@ -1646,13 +1669,13 @@ label chapter6:
                  j "Could there be any more hot words in here?"
                  j "This is bonkers."
                  if calendar_check > 0:
-                     "I don't have anything today - I checked my calendar."
-                     "This can't be for me."
+                     j "I don't have anything today - I checked my calendar."
+                     j "This can't be for me."
                  else:
-                     "Still..."
-                     "Am I supposed to go to this?"
-                     "Is this on my calendar?"
-                     "I have no idea."
+                     j "Still..."
+                     j "Am I supposed to go to this?"
+                     j "Is this on my calendar?"
+                     j "I have no idea."
 
              elif randmtg == 4:
                  j "Something about an updated benefits package?"
@@ -1660,13 +1683,13 @@ label chapter6:
                  j "Oh wait, it's not for me. It's for someone else..."
                  j "Whatever."
                  if calendar_check > 0:
-                     "I don't have anything today - I checked my calendar."
-                     "This can't be for me."
+                     j "I don't have anything today - I checked my calendar."
+                     j "This can't be for me."
                  else:
-                     "Still..."
-                     "Am I supposed to go to this?"
-                     "Is this on my calendar?"
-                     "I have no idea."
+                     j "Still..."
+                     j "Am I supposed to go to this?"
+                     j "Is this on my calendar?"
+                     j "I have no idea."
 
              jump phonering
 
@@ -3386,13 +3409,13 @@ label meeting_w_map:
                     "At my desk, actually.":
                     
                         o "Is it on a..."
-                        o "Flash drive or something?"
+                        o "Laptop or something?"
                         
                         j "That's exactly where it is."
-                        j "I forgot to grab it."
+                        j "I forgot to email it to myself."
                         j "Sorry about that."
                         
-                        o "Well go and grab it, Joe."
+                        o "Well just go and grab your laptop, Joe."
                         o "Don't want to waste Mr. Mills' time."
                         o "Any more than necessary that is..."
                         
@@ -3413,7 +3436,7 @@ label meeting_w_map:
                         o "Let's see this presentation you have for me."
                         
                         j "Right."
-                        j "Let me just get it up and running..."
+                        j "Let me just get this up and running..."
                         j "Oh wait..."
                         j "Looks like it's not here anymore."
                         
