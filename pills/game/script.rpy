@@ -915,7 +915,7 @@ screen chapter4_map:
         hotspot (163, 75, 332, 86) clicked Return("window")        #look out window
         hotspot (525, 132, 222, 204) clicked Return("openbag")        #look in yr bag
         hotspot (228, 268, 130, 84) clicked Return("ads")            #ads on bus 
-        hotspot (0, 300, 163, 225) clicked Return("people")      #people on bus
+        hotspot (0, 100, 163, 425) clicked Return("people")      #people on bus
         hotspot (429, 419, 297, 106) clicked Return("nothing")
     
 label chapter4_w_map:
@@ -1344,7 +1344,7 @@ label chapter5:
     j "I could try and make smalltalk to alleviate the boredom,"
     j "but half the time I'm afraid I'll inadvertently offend someone."
     j "Like my greeting will be seen as a narcissistic cry for attention."
-    j "Just another heterosexual cisgender white male"
+    j "Just another heterosexual cisgender white male,"
     j "waltzing down the street, pretending the world is his."
     j "But I don't know..."
     j "How else am I supposed to engage with other people?"
