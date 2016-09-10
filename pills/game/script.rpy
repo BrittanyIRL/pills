@@ -657,8 +657,8 @@ screen chapter2_map:
         #hover "Hover.jpg" I don't want a hover change thing
 
         hotspot (22, 300, 314, 150) clicked Return("book")        #library book for bus/email
-        hotspot (0, 93, 168, 80) clicked Return("bag")        #bag for bus pass
-        hotspot (436, 406, 186, 92) clicked Return("calendar")   #calendar for meeting 
+        hotspot (0, 0, 170, 205) clicked Return("bag")        #bag for bus pass
+        hotspot (436, 406, 186, 194) clicked Return("calendar")   #calendar for meeting 
         hotspot (400, 50, 250, 300) clicked Return("door")      #door is leave
 
         
@@ -772,8 +772,7 @@ label chapter3:
     j "half of them for products that don't even apply to me."
     j "How berated with useless information are we, really?"
     j "Meanwhile, when you do try and use technology for good..."
-    j "You look up the hill and question yourself because there is no bus."
-    j "What does that make us?"
+    j "You look up the hill and question your sanity because there's no bus there."
     j "I don't understand why they even make apps for bus times."
     j "Pure masochism is what it is."
     j "..."
@@ -917,15 +916,19 @@ screen chapter4_map:
         hotspot (525, 132, 222, 204) clicked Return("openbag")        #look in yr bag
         hotspot (228, 268, 130, 84) clicked Return("ads")            #ads on bus 
         hotspot (0, 300, 163, 225) clicked Return("people")      #people on bus
+        hotspot (429, 419, 297, 106) clicked Return("nothing")
     
 label chapter4_w_map:
 
     if stress_count == 0:
         scene chapter4_0 movie
+        show background solid at left
     elif stress_count == 1:
         scene chapter4_1 movie
+        show background solid at left
     else:
         scene chapter4_2 movie
+        show background solid at left
     
     call screen chapter4_map
     
@@ -1043,6 +1046,17 @@ label chapter4_w_map:
         j "At least monkeys don't talk to themselves inside their heads."
         j "Or I don't know..."
         j "maybe they do."
+        jump chapter4_w_choice
+
+    elif result == "nothing":
+        j "Does that make me socially avoidant?"
+        j "I guess I don't even think about it most days."
+        j "But if I take a step back and try and see it from another perspective..."
+        j "Here I am at the back of the bus, tuning out the world."
+        j "Crumpled up in a ball, halfway in the fetal position."
+        j "Maybe nothing's wrong with the world and all of its dealings."
+        j "Maybe it's all just how I'm responding to it."
+
         jump chapter4_w_choice
         
 label chapter4_w_choice:
@@ -3002,7 +3016,8 @@ label clientmeeting:
                 
         else:
             j "That guy was a complete jerk to that barista."
-            j "What the hell is going to do to me?"
+            j "What if he finds out I don't have a presentation?"
+            j "I can only imagine what he'll do to me."
             
             o "Go ahead whenever you feel like it, Joe."
             o "I don't have all day here, you know."
@@ -4290,8 +4305,8 @@ label chapter10:
     
     play music "sounds/pills_chp9_p2_loop_ost.wav"
     
-    o "Joseph"
-    o "This is the voice inside your head"
+    o "Joseph."
+    o "This is the voice inside your head."
     o "I'm just checking in..."
     o "Because, sometimes, you know..."
     o "You can really benefit from some outside opinion..."
@@ -4337,12 +4352,9 @@ label chapter10:
         o "But still..."
         
     $ renpy.pause(1)
-        
-    #stop music fadeout 1.0
-    
-    #scene chapter10_%r movie % stress_count
 
     scene chapter10_end movie
+    with fade
     show background solid at left
     
     play music "sounds/car_alarm.wav"
@@ -4357,8 +4369,6 @@ label chapter10:
     j "It could always be worse."
     j "..."
     
-    stop music fadeout 3.0
-    
     j "See?"
     j "There."
     j "There it is."
@@ -4369,6 +4379,8 @@ label chapter10:
     scene black
     with dissolve
 
+    stop music fadeout 3.0
+    
     j "Just have to wait for it."
     
     $ renpy.pause(3)    
