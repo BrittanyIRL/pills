@@ -46,6 +46,10 @@ p {
 	color: #0CCE6B;
 }
 
+.nav .material-icons {
+	text-shadow: 1px 1px 1px rgba(150, 150, 150, 0.4);
+}
+
 /* BUTTONS */
 button {
 	border-radius: 0;
@@ -119,14 +123,13 @@ button.comingsoon {
 /******** pills specific ********/
 /* intro */
 .pills_intro {
-	width: 100%;
+	min-width: 100%;
 	height: 400px;
 	background-image: url(../images/pills.gif);
 	background-size: cover;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
 }
 .pills_intro h1 {
 	text-align: center;
@@ -135,6 +138,9 @@ button.comingsoon {
 	font-weight: 800;
 	mix-blend-mode: saturation; /*overlay is cool too */
 	color: #DCED31;  /* Fallback: assume this color ON TOP of image */
+}
+.downloadsContainer .justify:first-of-type {
+	margin-top: 0;
 }
 /*specific sizing for buttons on pills downloads */
 
@@ -165,6 +171,9 @@ button.comingsoon {
 		color: white;
 		text-align: justify;
 		padding: 1rem;
+		-webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.4);
+        -moz-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.4);
+		box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.4);
 }
 
 .team .responsive-img {
