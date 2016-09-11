@@ -184,7 +184,7 @@ label start:
     j "stop running through the endless loose ends of your day."
     j "Only after that can you let go,"
     j "let loose of that tension,"
-    j "and fall into the nirvana of the darkness."
+    j "and fall into the nirvana of that peaceful, silent darkness."
     j "That moment..."
     j "that feeling..."
     j "that's what I wait for every single day."
@@ -266,7 +266,7 @@ label getup:
     
     menu:
 
-        "Cook something.":
+        "Cook something even though it sucks.":
 
             jump cook
 
@@ -277,13 +277,18 @@ label getup:
 label cook:
 
     if snooze_count < 1:
-         j "Fine, I’ll cook something."
+         j "Fine, fine."
          j "Probably better for me anyways."
-         j "Those scones are loaded with sugar."
+         j "Those oat bars are loaded with sugar."
+         j "And one time, those savory scones put me on the toilet all morning."
+         j "Probably the safest bet just to chill here."
          jump chapter2
     elif snooze_count < 4:
          j "Fine, I’ll cook something."
-         j "But I won’t have much time. Might be late."
+         j "Probably better for me anyways."
+         j "But I won’t have much time."
+         j "Might be late to work."
+         j "Again..."
          $ stress_count += 1
          if stress_count > 2:
               j "That would be the third time this month."
@@ -295,7 +300,9 @@ label cook:
     else:
          j "I should cook something..."
          j "I'm putting on weight, I know it."
+         j "Those scones are essentially just fried butter."
          j "Who am I kidding? I don't have time for that!"
+         j "I have to get out the door and off to work."
          j "Geez, what was I thinking?"
          $ Stress_count += 1
          $ coffee_choice = 1
@@ -314,10 +321,15 @@ label grab:
          j "Screw cooking. It’s a free country."
          j "I’m gonna get one of those sugar scones."
          j "I don’t care how horrible they are for you."
+         j "Or even pound cake or something."
+         j "Go totally crazy."
+         j "I'm an adult."
+         j "Sort of..."
          jump chapter2
     elif snooze_count < 4:
          j "Whatever. I don’t have time to cook."
          j "I’ll just grab something on the way."
+         j "Just going to stress myself out otherwise."
          jump chapter2
     else :
          j "I can get something on the way."
@@ -664,7 +676,7 @@ screen chapter2_map:
         hotspot (22, 300, 314, 150) clicked Return("book")        #library book for bus/email
         hotspot (0, 0, 170, 205) clicked Return("bag")        #bag for bus pass
         hotspot (436, 406, 186, 194) clicked Return("calendar")   #calendar for meeting 
-        hotspot (400, 50, 250, 300) clicked Return("door")      #door is leave
+        hotspot (400, 50, 275, 300) clicked Return("door")      #door is leave
 
         
 label chapter2:
@@ -698,6 +710,8 @@ label chapter2:
     
     j "What am I forgetting?"
     j "I always forget something."
+    j "And then I figure it out halfway through the day and it ruins everything."
+    j "What do I need to grab before I head out the door?"
 
     jump chapter2_w_map
 
@@ -822,7 +836,7 @@ label chapter3:
 
          "Am I using that word correctly?":
              j "Ah, never mind."
-             j "I swear, I can get on these tangents with myself"
+             j "I swear, I can get on these tangents with myself,"
              j "and get lost for days at a time."
              j "This one is hardly worth it."
              j "Boring conversation with myself anyway."
@@ -924,7 +938,7 @@ screen chapter4_map:
         hotspot (429, 419, 297, 106) clicked Return("nothing")
     
 label chapter4_w_map:
-
+    
     if stress_count == 0:
         scene chapter4_0 movie
         show background solid at left
@@ -941,6 +955,8 @@ label chapter4_w_map:
     
     if result == "window":
         if randwind == 2:
+            scene black
+            with dissolve
             if stress_count == 0:
                 scene window2_0 movie
                 with fade
@@ -954,6 +970,8 @@ label chapter4_w_map:
                 with fade
                 show background solid at left
         else:
+            scene black
+            with dissolve
             if stress_count == 0:
                 scene window1_0 movie
                 with fade
@@ -973,6 +991,10 @@ label chapter4_w_map:
         j "Something to draw a crowd."
         j "Something to brag about."
         j "I wonder if it will ever find that."
+        
+        scene black
+        with dissolve
+        
         jump chapter4_w_map
     elif result == "openbag":
         if stress_count == 0 and calendar_check > 0 and book_check > 0:
@@ -1016,6 +1038,8 @@ label chapter4_w_map:
         jump chapter4_w_map
     elif result == "ads":
         $ bus_check = 2
+        scene black
+        with dissolve
         if stress_count == 0:
             scene rafters_0 movie
             with fade
@@ -1039,9 +1063,15 @@ label chapter4_w_map:
         j "Call there."
         j "Talk to someone, anyone."
         j "When has that kind of anonymous offer ever helped anyone?"
+        
+        scene black
+        with dissolve
+        
         jump chapter4_w_choice
     elif result == "people":
         $ bus_check = 1
+        scene black
+        with dissolve
         if stress_count == 0:
             scene busppl_0 movie
             with fade
@@ -1065,6 +1095,10 @@ label chapter4_w_map:
         j "At least monkeys don't talk to themselves inside their heads."
         j "Or I don't know..."
         j "maybe they do."
+        
+        scene black
+        with dissolve
+        
         jump chapter4_w_choice
 
     elif result == "nothing":
@@ -1079,7 +1113,7 @@ label chapter4_w_map:
         jump chapter4_w_choice
         
 label chapter4_w_choice:
-    
+
     if stress_count == 0:
         scene chapter4_0 movie
         with fade
@@ -1146,17 +1180,7 @@ label chapter4_w_choice:
         
              jump book_instead
             
-label onwards:
-
-    if stress_count == 0:
-        scene chapter4_0 movie
-        show background solid at left
-    elif stress_count == 1:
-        scene chapter4_1 movie
-        show background solid at left
-    else:
-        scene chapter4_2 movie
-        show background solid at left    
+label onwards:   
     
     j "Right... I need to keep staring."
     j "Keep trying to find some sense in all of it."
@@ -1190,16 +1214,6 @@ label onwards:
         jump chapter5
 
 label turn_and_burn:
-
-    if stress_count == 0:
-        scene chapter4_0 movie
-        show background solid at left
-    elif stress_count == 1:
-        scene chapter4_1 movie
-        show background solid at left
-    else:
-        scene chapter4_2 movie
-        show background solid at left  
     
     j "Probably best to avoid it."
     j "That conversation is terrifying anyways."
@@ -1236,17 +1250,7 @@ label turn_and_burn:
     else:
         jump chapter5
          
-label book_instead:
-
-    if stress_count == 0:
-        scene chapter4_0 movie
-        show background solid at left
-    elif stress_count == 1:
-        scene chapter4_1 movie
-        show background solid at left
-    else:
-        scene chapter4_2 movie
-        show background solid at left  
+label book_instead: 
     
     j "Wait..."
     j "Why am I doing this to myself?"
@@ -1332,12 +1336,15 @@ label chapter5:
     j "that's what allowed humans to persevere."
     j "I mean, sure, that was hundreds of thousands of years ago."
     j "But when I take the longer path to work and feel that twitch,"
-    j "when I feel the hair standing up on the back of my neck"
+    j "when I feel the hair standing up on the back of my neck,"
     j "like someone is watching me,"
     j "waiting to tell me I'm out of line,"
     j "I wonder,"
     j "where are we now?"
-    
+
+    scene black
+    with dissolve
+
     if stress_count == 0:
         scene stoplight_0 movie
         with fade
@@ -1401,6 +1408,7 @@ label chapter5:
                           jump chapter6
                   "Nice weather today.":
                       play sound "sounds/pills_xwalk_weather.wav"
+                      $ renpy.pause(1)
                       j "Ok, a few token nods for the world's biggest elevator cliche."
                       j "Still, that wasn't the worst thing ever."
                       j "No lifelong friends, but no disgust either."
@@ -1411,8 +1419,8 @@ label chapter5:
                           jump chapter6
                   "How about them Hawks?":
                       play sound "sounds/pills_xwalk_hawks.wav"
-                      j "Wait, now that guy is trying to follow up."
-                      j "He's talking about the game last Sunday."
+                      $ renpy.pause(2)      
+                      j "Is he talking about the game last Sunday?"
                       j "I didn't watch that!"
                       j "I have no idea what he's talking about."
                       j "I could just nod, smile, look excited."
@@ -1486,6 +1494,7 @@ label coffeeshop:
     j "Waiting for something to happen."
 
     play sound "sounds/pills_coffee_shout.wav"
+    $ renpy.pause(2)
     
     j "Damn, what is that guy up there yelling about?"
     j "He's already through the line."
@@ -1793,6 +1802,7 @@ label chapter6:
 label phonering:
   
     play sound "sounds/ringer.wav"
+    $ renpy.pause(1)
     
     j "Oh crap."
     j "Who is that?"
@@ -2318,6 +2328,7 @@ label mgmtmeeting:
         show background solid at left
     
     play sound "sounds/pills_mgmt_words.wav"
+    $ renpy.pause(2)
     
     o "Hey Joe, how's it hanging?"
     
@@ -2395,6 +2406,9 @@ label mgmtmeeting:
                           o "..."
                           o "See you at 10."
                           o "Godspeed."
+                          
+                          scene black
+                          with dissolve
                           
                           if stress_count == 0:
                               scene chapter6_0 movie
@@ -2488,6 +2502,9 @@ label more_deliberating_mgmt:
                 o "I'm proud of you, son."
                 o "Talk to you later."
                 
+                scene black
+                with dissolve
+                
                 if stress_count == 0:
                   scene chapter6_0 movie
                   with fade
@@ -2517,6 +2534,9 @@ label more_deliberating_mgmt:
                 o "I'll see you in the meeting at 10."
                 o "But let's try to keep it professional in there."
                 o "Talk to you then."
+                
+                scene black
+                with dissolve
                 
                 if stress_count == 0:
                   scene chapter6_0 movie
@@ -2556,6 +2576,9 @@ label more_deliberating_mgmt:
                 o "But I know who's right behind me if I get into trouble."
                 o "I'll talk to you later, Joe."
                 
+                scene black
+                with dissolve
+                
                 if stress_count == 0:
                   scene chapter6_0 movie
                   with fade
@@ -2587,6 +2610,9 @@ label more_deliberating_mgmt:
                 o "But here in the office, let's try and keep it civil."
                 o "I'll see you in the meeting at 10."
                 o "Later."
+                
+                scene black
+                with dissolve
                 
                 if stress_count == 0:
                   scene chapter6_0 movie
@@ -2623,6 +2649,9 @@ label more_deliberating_mgmt:
                 o "We need to seize the day!"
                 o "Talk to you later."
                 
+                scene black
+                with dissolve
+                
                 if stress_count == 0:
                   scene chapter6_0 movie
                   with fade
@@ -2650,6 +2679,9 @@ label more_deliberating_mgmt:
                 o "Well how about you put those years on hold for a couple hours."
                 o "I need you in the conference room at 10."
                 o "Talk to you then."
+                
+                scene black
+                with dissolve
                 
                 if stress_count == 0:
                   scene chapter6_0 movie
@@ -2683,7 +2715,10 @@ label more_deliberating_mgmt:
                 o "Don't worry about the meeting."
                 o "I'll handle it with newfound inspiration."
                 o "Talk to you later."
-                
+
+                scene black
+                with dissolve
+
                 if stress_count == 0:
                   scene chapter6_0 movie
                   with fade
@@ -2713,6 +2748,9 @@ label more_deliberating_mgmt:
                 o "So that you end up in the conference room at 10."
                 o "No problem with traveling as long as you are punctual."
                 o "Talk to you then."
+                
+                scene black
+                with dissolve
                 
                 if stress_count == 0:
                   scene chapter6_0 movie
@@ -2744,6 +2782,9 @@ label more_deliberating_mgmt:
                 o "You just keep doing you today, son."
                 o "I'm proud of you."
                 o "Talk to you later."
+                
+                scene black
+                with dissolve
                 
                 if stress_count == 0:
                   scene chapter6_0 movie
@@ -2779,6 +2820,9 @@ label more_deliberating_mgmt:
                 o "Nothing can stop you from being in the conference room at 10."
                 o "For your presentation."
                 o "I'll talk to you then."
+                
+                scene black
+                with dissolve
                 
                 if stress_count == 0:
                   scene chapter6_0 movie
@@ -2816,6 +2860,9 @@ label more_deliberating_mgmt:
                 o "Just take the morning to get that self esteem back up where it should be."
                 o "I'll check in later."
                 
+                scene black
+                with dissolve
+                
                 if stress_count == 0:
                   scene chapter6_0 movie
                   with fade
@@ -2844,6 +2891,9 @@ label more_deliberating_mgmt:
                 o "My second biggest fear is that you screw up this presentation."
                 o "I'll see you in the conference room at 10."
                 o "Bring your A-game."
+                
+                scene black
+                with dissolve
                 
                 if stress_count == 0:
                   scene chapter6_0 movie
@@ -2883,6 +2933,9 @@ label more_deliberating_mgmt:
                 o "None of it's taken for granted here."
                 o "I'll talk to you later."
                 
+                scene black
+                with dissolve
+                
                 if stress_count == 0:
                   scene chapter6_0 movie
                   with fade
@@ -2913,6 +2966,9 @@ label more_deliberating_mgmt:
                 o "...Get it?"
                 o "Good one, right?"
                 o "Talk to you then."
+                
+                scene black
+                with dissolve
                 
                 if stress_count == 0:
                   scene chapter6_0 movie
@@ -2990,6 +3046,7 @@ label clientmeeting:
         o "Anyways, he's there with you now. Proceed as planned."
     
     play sound "sounds/pills_client_grumble.wav"
+    $ renpy.pause(2)
     
     j "Of course he picks the chair furthest from me..."
     
@@ -3272,7 +3329,7 @@ screen meeting_map:
     
 label meeting_w_map:
 
-    play music "sounds/pills_chp7_nobass_ost.wav"
+    play music "sounds/pills_client_mtg_p3_ost.wav"
     
     call screen meeting_map
     
@@ -3458,6 +3515,9 @@ label meeting_w_map:
                         o "Well just go and grab your laptop, Joe."
                         o "Don't want to waste Mr. Mills' time."
                         o "Any more than necessary that is..."
+                        
+                        scene black
+                        with dissolve
                         
                         if stress_count == 0:
                             scene clientmtg_0 movie
@@ -3855,7 +3915,6 @@ label chapter7:
     
     scene black
     with dissolve
-    show background solid at left
     
     stop music fadeout 2.0
     $ renpy.pause(1)
@@ -3875,7 +3934,7 @@ label chapter7:
         with fade
         show background solid at left
     
-    play music "sounds/pills_chp7_begin_ost.wav"
+    play music "sounds/pills_chp7_nobass_ost.wav"
 
     if go_to_meeting > 0 and meeting_panic > 0:
         j "That sure was good of Tom to take over that meeting for me."
@@ -3893,7 +3952,7 @@ label chapter7:
     j "Here I am, taking my lunchtime escape from the madness,"
     j "And already, just this morning, I've been through the ringer."
     
-    play music "sounds/pills_client_mtg_p3_ost.wav"
+    # play music "sounds/pills_chp7_begin_ost.wav"
     
     j "I find myself in these inescapable, ridiculous situations."
     j "And no matter how ridiculous they are,"
@@ -3906,7 +3965,7 @@ label chapter7:
     j "Maybe I just work myself up to the anxiety."
     j "It has to be one or the other, right?"
     
-    play music "sounds/pills_client_mtg_wpiano_ost.wav"
+    play music "sounds/pills_chp7_wguitar_ost.wav"
 
     menu:
          "Everybody goes through it.":
@@ -3968,6 +4027,9 @@ label chapter7:
     
 label end_of_lunch:
     
+    scene black
+    with dissolve
+    
     stop music fadeout 2.0
     
     if stress_count == 0:
@@ -3985,7 +4047,7 @@ label end_of_lunch:
         with fade
         show background solid at left
     
-    play music "sounds/pills_chp7_wguitar_ost.wav"
+    play music "sounds/pills_chp7_begin_ost.wav"
     
     j "Then again..."
     j "I am the one sitting in a park on his lunch break,"
@@ -3997,6 +4059,9 @@ label end_of_lunch:
         j "None? ...Really?"
         j "Wow."
         j "Maybe everything isn't so bad after all."
+        
+        play music "sounds/pills_client_mtg_p3_ost.wav"
+        
         j "I just get so caught up in keeping track of it all."
         j "Marking strikes every time the pressure gets too intense."
         j "Like there's some kind of score board at the end."
@@ -4013,6 +4078,9 @@ label end_of_lunch:
     elif pills_count == 1:
         j "Only 1?"
         j "That's not too bad."
+        
+        play music "sounds/pills_client_mtg_p3_ost.wav"
+        
         j "Still, I don't know how I do it..."
         j "But I find a way to make everything into some kind of an ultimatum."
         j "Like every little thing could be the big one..."
@@ -4030,6 +4098,9 @@ label end_of_lunch:
     else:
         j "[pills_count] pills?"
         j "Maybe I shouldn't take everything so seriously."
+        
+        play music "sounds/pills_client_mtg_p3_ost.wav"
+        
         j "Won't I become one of those people that just stumbles through their life?"
         j "Those people that I hate,"
         j "who somehow thrive off their own flippancy,"
@@ -4063,8 +4134,8 @@ label chapter8:
     scene black
     with dissolve
     
-    stop music fadeout 4.0
-    $ renpy.pause(4)
+    stop music fadeout 3.0
+    $ renpy.pause(3)
     
     $ scene_count += 1
     
@@ -4125,17 +4196,20 @@ label chapter9:
     j "and watching some binge-worthy streaming television entertainment."
     j "I refuse to do anything to the contrary."
     
+    scene black
+    with dissolve    
+
     #scene TV_%r movie % stress_count
     scene TV_0 movie
     with fade
     show background solid at left
     
     j "Hmmm..."
-    j "There are always ten thousand things to watch on this crap."
-    j "How are you ever supposed to pick just one?"
+    j "How are there always like ten thousand shows recommended just for me?"
+    j "And they expect you to pick just one without freaking out?"
     j "I'm not gonna read all the descriptions."
-    j "Who does that?"
-    j "No, I'd rather just pick one."
+    j "Who has that kind of time?"
+    j "No, I'd rather just pick something."
     j "Feel a bit of that well earned American freedom at the end of a long day."
     j "So what'll it be..."
     
@@ -4147,7 +4221,7 @@ label chapter9:
             j "That sounds great."
             j "Another fine episode of derivative cop shows, coming right up."
             jump chapter10
-        "What's on New Releases?":
+        "What's recommended just for me?":
 
             j "I should check out some new stuff."
             j "That does involve more reading..."
@@ -4156,10 +4230,6 @@ label chapter9:
             jump tv_options
 
 label tv_options:
-
-    #scene TV_%r movie % stress_count
-    scene TV_0 movie
-    show background solid at left
 
     menu:
         "Franz Season 4":
@@ -4221,9 +4291,33 @@ label tv_options:
             j "There will never be another paranormal seamstress show like it."
             jump tv_options
         "Forget it... this is impossible.":
-            jump tv_shows
+            j "Holy crap."
+            j "How am I this many seasons behind on everything I watch?"
+            j "When did they even make these seasons between the other ones?"
+            j "I am so behind."
+            j "Look at me."
+            j "I can't even relax without stressing myself out."
+            j "I need a new hobby."
+            j "One that requires no thought, attention span, or time commitment."
+            j "But..."
+            j "Somehow isn't sleep?"
+            j "..."
+            j "There is nothing for me here."
+            j "Nothing but a void."
+            $ stress_count += 2
+            if stress_count > 2:
+                jump pills_scene
+            else:
+                jump chapter10
         "Forget it... these all look like garbage.":
             j "This isn't worth it."
+            j "I don't spend all day doing menial tasks in a holding pen,"
+            j "to come home and waste my time on endless, pandering cliches."
+            j "Does this stuff even qualify as entertainment?"
+            j "What even is entertainment anymore?"
+            j "Even video games are all starting to get so serious and somber."
+            j "And then TV is all this type of moronic hogwash."
+            j "Forget it."
             j "I'm going to bed."
             j "Maybe I'll have the patience tomorrow."
             $ stress_count += 1
@@ -4231,31 +4325,6 @@ label tv_options:
                 jump pills_scene
             else:
                 jump chapter10
-
-label tv_shows:
-
-    #scene TV_%r movie % stress_count
-    scene TV_0 movie
-    show background solid at left
-
-    j "Holy crap."
-    j "How am I this many seasons behind on everything I watch?"
-    j "When did they even make these seasons between the other ones?"
-    j "I am so behind."
-    j "Look at me."
-    j "I can't even relax without stressing myself out."
-    j "I need a new hobby."
-    j "One that requires no thought, attention span, or time commitment."
-    j "But..."
-    j "Somehow isn't sleep?"
-    j "..."
-    j "There is nothing for me here."
-    j "Nothing but a void."
-    $ stress_count += 2
-    if stress_count > 2:
-        jump pills_scene
-    else:
-        jump chapter10
 
 ##############################################################
 ## Chapter 10 starts here                                   ##
@@ -4381,12 +4450,14 @@ label chapter10:
     j "..."
     j "Are you serious?"
     j "..."
-    j "No"
-    j "Nope"
+    j "No."
+    j "Nope."
     j "Not letting this get to me."
     j "It could be worse."
     j "It could always be worse."
     j "..."
+    
+    stop music fadeout 3.0
     
     j "See?"
     j "There."
@@ -4397,12 +4468,10 @@ label chapter10:
 
     scene black
     with dissolve
-
-    stop music fadeout 3.0
     
     j "Just have to wait for it."
     
-    $ renpy.pause(3)    
+    $ renpy.pause(2)    
     
     play music "sounds/pills_credits_ost.wav"
     
