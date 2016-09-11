@@ -3912,7 +3912,7 @@ label chapter7:
          "Everybody goes through it.":
              j "It can't just be me."
              j "Maybe other people are just better at hiding it."
-             j "Or maybe not - maybe that's why it seems to hard every day."
+             j "Or maybe not - maybe that's why it seems too hard every day."
              j "All of us, trying to live into this fake well-adjusted routine."
              j "But all of us suffering equally by not saying anything about it."
              j "And sure, I mean, I guess the opposite would be worse..."
