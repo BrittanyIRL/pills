@@ -1,0 +1,505 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 187: end of line expected.
+(Perhaps you left out a " at the end of the first line.)
+    j "and fall into nirvana,
+        j "that peaceful, silent darkness."
+            ^
+        j "That moment..."
+        j "That feeling..."
+        j "That's what I wait for every single day."
+        
+        $ renpy.pause(1)
+    
+        scene chapter1_0 movie
+        with fade
+        show background solid at left
+    
+        
+        play sound "sounds/alarm_clock.wav"
+    
+        $ randchp1 = renpy.random.choice(["Already? Wow.", "Please tell me it\'s Sunday.", "... How is it morning already?"])
+    
+        j "[randchp1]"
+        j "That alarm is the worst noise."
+        j "Every single day."
+        j "I should get a new one."
+        j "Honestly, who needs that kind of heart attack every morning?"
+        j "..."
+        j "Ugh..."
+        j "I should probably get up."
+    
+        menu:
+    
+            "Get up.":
+    
+                jump getup
+    
+            "Hit snooze.":
+                
+                jump snooze_1
+    
+    
+    label getup:
+     
+        scene black
+        with dissolve
+        
+        stop music fadeout 2.0
+    
+        if stress_count == 0:
+            scene getup_0 movie
+            with fade
+            show background solid at left
+    
+        elif stress_count == 1:
+            scene getup_1 movie
+            with fade
+            show background solid at left
+    
+        else:
+            scene getup_2 movie
+            with fade
+            show background solid at left
+    
+        play music "sounds/mints_getting_ready.wav" fadein 2.0
+    
+        j "Another day." # "Here we go again." "Alright, alright, I'm up."
+        
+        if snooze_count < 1:
+             j "I should cook something."
+             j "I kind of hate it though."
+             j "I’m immediately going to have to do all the dishes."
+             j "Are the dishes even clean? I can’t remember."
+             j "At least I have coffee."
+        elif snooze_count < 4:
+             j "Do I have time to eat?"
+             j "I guess I could grab something on my way in to work."
+             j "I don’t know. Those coffees shops are getting so expensive."
+             j "Plus everybody has headphones and isn’t paying attention."
+             j "They don't look happy at all and it’s horrible."
+             j "What the hell is happening to the world?"
+        else:
+             j "I can't believe I slept so much."
+             j "There’s no way I have time to make something."
+             j "I’m going to be lucky if I get anything at all."
+        
+        menu:
+    
+            "Cook something even though it sucks.":
+    
+                jump cook
+    
+            "Grab something on the way instead.":
+            
+                jump grab
+    
+    label cook:
+    
+        if snooze_count < 1:
+             j "Fine, fine."
+             j "Probably better for me anyways."
+             j "Those oat bars are loaded with sugar."
+             j "And one time, those savory scones put me on the toilet all morning."
+             j "Probably the safest bet just to chill here."
+             jump chapter2
+        elif snooze_count < 4:
+             j "Fine, I’ll cook something."
+             j "Probably better for me anyways."
+             j "But I won’t have much time."
+             j "Might be late to work."
+             j "Again..."
+             $ stress_count += 1
+             if stress_count > 2:
+                  j "That would be the third time this month."
+                  j "Wouldn't people start to talk?"
+                  j "I can't even think about that."
+                  jump mints_scene
+             else:
+                  jump chapter2
+        else:
+             j "I should cook something..."
+             j "I'm putting on weight, I know it."
+             j "Those scones are essentially just fried butter."
+             j "Who am I kidding? I don't have time for that!"
+             j "I have to get out the door and off to work."
+             j "Geez, what was I thinking?"
+             $ Stress_count += 1
+             $ coffee_choice = 1
+             if stress_count > 2:
+                  "Already stressing myself out this much..."
+                  "And it's just the beginning of the day..."
+                  jump mints_scene
+             else:
+                  jump chapter2
+    
+    
+    label grab:
+    
+        $ coffee_choice = 1
+        if snooze_count < 1:
+             j "Screw cooking. It’s a free country."
+             j "I’m gonna get one of those sugar scones."
+             j "I don’t care how horrible they are for you."
+             j "Or even pound cake or something."
+             j "Go totally crazy."
+             j "I'm an adult."
+             j "Sort of..."
+             jump chapter2
+        elif snooze_count < 4:
+             j "Whatever. I don’t have time to cook."
+             j "I’ll just grab something on the way."
+             j "Just going to stress myself out otherwise."
+             jump chapter2
+        else :
+             j "I can get something on the way."
+             j "I have time."
+             j "No need to freak out."
+             j "Play it cool, man."
+             j "Telling myself to be cool in a mirror."
+             j "Just like in Reservoir Dogs."
+             j "Guess it's not all bad."
+             jump chapter2
+             
+    
+    label snooze_1:
+    
+        $ snooze_count += 1
+    
+        scene chapter1_0 movie
+        with fade
+        show background solid at left
+        
+        play sound "sounds/alarm_clock.wav"
+    
+        j "Was that already 10 minutes?"
+        j "Probably just a misunderstanding."
+    
+        menu:
+    
+            "Get up.":
+    
+                jump getup
+    
+            "Choose the snooze.":
+                
+                jump snooze_2
+    
+    
+    label snooze_2:
+    
+        $ snooze_count += 1 
+    
+        scene chapter1_0 movie
+        with fade
+        show background solid at left
+        
+        play sound "sounds/alarm_clock.wav"
+    
+        j "Damn."
+        j "Fooled again."
+    
+        menu:
+    
+            "Get up.":
+    
+                jump getup
+    
+            "Snooze it up.":
+                
+                jump snooze_3
+                
+    
+    label snooze_3:
+    
+        $ snooze_count += 1
+        
+        scene chapter1_0 movie
+        with fade
+        show background solid at left
+        
+        play sound "sounds/alarm_clock.wav"
+    
+        j "Now I really don't know."
+        j "Which do I hate more?"
+        j "The alarm clock?"
+        j "Or that car outside?"
+    
+        menu:
+    
+            "Get up.":
+    
+                jump getup
+    
+            "You can't lose to snooze.":
+    
+                jump snooze_4
+                
+        
+    label snooze_4:
+    
+        $ snooze_count += 1
+        
+        scene chapter1_1 movie
+        with fade
+        show background solid at left
+        
+        play sound "sounds/alarm_clock.wav"
+        
+        $ stress_count += 1
+        
+        j "It never stops."
+    
+        menu:
+    
+            "Get up.":
+    
+                jump getup
+    
+            "Snoozefest.":
+    
+                jump snooze_5
+                
+                
+    label snooze_5:
+    
+        $ snooze_count += 1
+        
+        scene chapter1_1 movie
+        with fade
+        show background solid at left
+        
+        play sound "sounds/alarm_clock.wav"
+    
+        j "My head is going to explode."
+    
+        menu:
+    
+            "Get up.":
+    
+                jump getup
+    
+            "Snoozapalooza.":
+    
+                jump snooze_6
+                
+    
+    label snooze_6:
+    
+        $ snooze_count += 1
+        
+        scene chapter1_1 movie
+        with fade
+        show background solid at left
+        
+        play sound "sounds/alarm_clock.wav"
+        
+        j "Nope."
+    
+        menu:
+    
+            "Get up.":
+    
+                jump getup
+    
+            "Snoozaroo.":
+    
+                jump snooze_7
+    
+    
+    
+    label snooze_7:
+    
+        $ snooze_count += 1
+        
+        scene chapter1_2 movie
+        with fade
+        show background solid at left
+        
+        play sound "sounds/alarm_clock.wav"
+        
+        $ stress_count += 1
+    
+        j "I'm going to murder that car."
+    
+        menu:
+    
+            "Get up.":
+    
+                jump getup
+    
+            "Snoozechella.":
+    
+                jump snooze_8
+                
+        
+    label snooze_8:
+    
+        $ snooze_count += 1
+        
+        scene chapter1_2 movie
+        with fade
+        show background solid at left
+        
+        play sound "sounds/alarm_clock.wav"
+    
+        j "Ok, this time maybe the snooze will do something else."
+    
+        menu:
+    
+            "Get up.":
+    
+                jump getup
+    
+            "Choose the snooze.":
+    
+                jump snooze_9
+                
+                
+    label snooze_9:
+    
+        $ snooze_count += 1
+        
+        scene chapter1_2 movie
+        with fade
+        show background solid at left
+        
+        play sound "sounds/alarm_clock.wav"
+    
+        j "Is today over yet?"
+    
+        menu:
+    
+            "Get up.":
+    
+                jump getup
+    
+            "Choose the snooze.":
+    
+                jump snooze_10
+                
+        
+    label snooze_10:
+    
+        $ snooze_count += 1
+        
+        scene chapter1_2 movie
+        with fade
+        show background solid at left
+        
+        play sound "sounds/alarm_clock.wav"
+    
+        j "Holy crap I hit snooze 10 times?!"
+        j "I overslept."
+        j "I don't even have time to shower."
+        j "I'm going to be so late."
+        
+        jump mints_scene
+     
+    
+    ##############################################################
+    ## mints scene begins here                                  ##
+    ## This is the scene that happens when stress count > 2     ##
+    ## Stress count is reset after this                         ##
+    ## Scene count is pushed forward 1                          ##
+    ##############################################################
+        
+    label mints_scene:
+        #scene that happens when stress count > 2
+    
+        scene black
+        with dissolve
+    
+        if mints_count == 0:
+            j "I don't need this right now."
+            j "I'm just going to handle it."
+            j "Put it out of mind, that's all."
+            j "Stay cool."   
+        elif mints_count == 1:
+            j "I'm not doing this."
+            j "I have too much to do and too much left to do today."
+            j "I'm cutting this off before it starts."
+            j "Gonna stay cool."
+        elif mints_count == 2:
+            j "I can't believe this."
+            j "Why can't I get a grip today?"
+            j "I'm not letting this get the best of me."
+            j "I can't let this break my cool."
+        elif mints_count == 3:
+            j "What is going on today?"
+            j "This isn't like me at all."
+            j "I need to get a grip."
+            j "And get on with my life."
+            j "My cool, cool life."
+        elif mints_count == 4:
+            j "What the hell is happening?"
+            j "I can't believe this."
+            j "I am really struggling today."
+            j "But nothing is going to stop me..."
+            j "Nothing's going to break my cool."
+        else:
+            j "Alright."
+            j "For the love of all that is holy..."
+            j "Please let this be my last cool break today."
+            j "How many calories are in these things anyways?"
+        
+        play sound "sounds/mint_bottle.wav"
+        $ renpy.pause(2)
+        play sound "sounds/exhale.wav"
+        
+        j "That's better."
+        $ randmint = renpy.random.choice(["Nice and fresh.", "Hella fresh.", "So fresh.", "Fresh to death."])
+        j "[randmint]"
+        
+        $ mints_count += 1
+        $ stress_count = 0
+        
+        
+        #jump scene_%r % scene_count + 1
+        if scene_count == 1:
+            jump chapter2
+        elif scene_count == 2:
+            jump chapter3
+        elif scene_count == 3:
+            jump chapter4
+        elif scene_count == 4:
+            jump chapter5
+        elif scene_count == 5 and coffee_choice > 0 and at_coffee < 1:
+            jump coffeeshop
+        elif scene_count == 5 and coffee_choice > 0 and at_coffee > 0:
+            jump chapter6
+        elif scene_count == 5 and coffee_choice < 1:
+            jump chapter6
+        elif scene_count == 6 and go_to_meeting > 0 and meeting_panic < 1:
+            jump clientmeeting
+        elif scene_count == 6 and go_to_meeting > 0 and meeting_panic > 0:
+            jump chapter7
+        elif scene_count == 6 and go_to_meeting < 1:
+            jump chapter7
+        elif scene_count == 7:
+            jump end_of_lunch
+        elif scene_count == 8:
+            jump chapter9
+        elif scene_count == 9:
+            jump chapter10
+        else:
+            return
+    
+    ##############################################################
+    ## Chapter 2 begins here                                    ##
+    ## Chapter 2 involves an imagemap                           ##
+    ## Collecting things before leaving for work                ##
+    ##############################################################
+    
+    
+    
+    # defining hotspots here, to be called later 
+    screen chapter2_map:
+        imagemap:
+            ground "blank.png"
+            # Do I need to specify the base image?
+            #hover "Hover.jpg" I don't want a hover change thing
+
+Ren'Py Version: Ren'Py 6.99.10.1227

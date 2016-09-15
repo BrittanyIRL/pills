@@ -1,0 +1,120 @@
+﻿
+Ren'Py 6.99.10.1227 lint report, generated at: Tue Aug 23 21:28:13 2016
+
+game/script.rpy:178 'sounds/alarm_clock.wav' is not loadable
+
+game/script.rpy:214 'sounds/pills_getting_ready_ost.wav' is not loadable
+
+game/script.rpy:306 'sounds/alarm_clock.wav' is not loadable
+
+game/script.rpy:329 'sounds/alarm_clock.wav' is not loadable
+
+game/script.rpy:352 'sounds/alarm_clock.wav' is not loadable
+
+game/script.rpy:375 'sounds/alarm_clock.wav' is not loadable
+
+game/script.rpy:400 'sounds/alarm_clock.wav' is not loadable
+
+game/script.rpy:424 'sounds/alarm_clock.wav' is not loadable
+
+game/script.rpy:448 'sounds/alarm_clock.wav' is not loadable
+
+game/script.rpy:473 'sounds/alarm_clock.wav' is not loadable
+
+game/script.rpy:496 'sounds/alarm_clock.wav' is not loadable
+
+game/script.rpy:519 'sounds/alarm_clock.wav' is not loadable
+
+game/script.rpy:570 'sounds/pill_bottle.wav' is not loadable
+
+game/script.rpy:647 'sounds/pills_chp_2_ost.wav' is not loadable
+
+game/script.rpy:712 'sounds/pills_chp_3_ost.wav' is not loadable
+
+game/script.rpy:820 'sounds/pills_chp_4_ost.wav' is not loadable
+
+game/script.rpy:1143 'sounds/pills_chp_5_ost.wav' is not loadable
+
+game/script.rpy:1278 The image named 'coffeeshop_0 movie' was not declared.
+
+game/script.rpy:1282 The image named 'coffeeshop_1 movie' was not declared.
+
+game/script.rpy:1286 The image named 'coffeeshop_2 movie' was not declared.
+
+game/script.rpy:1290 'sounds/pills_coffee_shop_ost.wav' is not loadable
+
+game/script.rpy:1443 'sounds/pills_chp_6_ost.wav' is not loadable
+
+game/script.rpy:1469 'randmtg = "plan"' could not be compiled as a python expression, in a condition of the if statement.
+
+game/script.rpy:1469 'randmtg = "projection"' could not be compiled as a python expression, in a condition of the if statement.
+
+game/script.rpy:1469 'randmtg = "marketing"' could not be compiled as a python expression, in a condition of the if statement.
+
+game/script.rpy:1469 'randmtg = "benefits"' could not be compiled as a python expression, in a condition of the if statement.
+
+game/script.rpy:1787 'sounds/pills_mgmt_mtg_ost.wav' is not loadable
+
+game/script.rpy:1992 'sounds/pills_client_mtg_ost.wav' is not loadable
+
+game/script.rpy:2106 'randmtg = "plan"' could not be compiled as a python expression, in a condition of the if statement.
+
+game/script.rpy:2149 'randmtg = "projection"' could not be compiled as a python expression, in a condition of the if statement.
+
+game/script.rpy:2186 'randmtg = "marketing"' could not be compiled as a python expression, in a condition of the if statement.
+
+game/script.rpy:2232 'randmtg = "benefits"' could not be compiled as a python expression, in a condition of the if statement.
+
+game/script.rpy:2611 'randlng = "french"' could not be compiled as a python expression, in a condition of the if statement.
+
+game/script.rpy:2654 'randlng = "french"' could not be compiled as a python expression, in a condition of the if statement.
+
+game/script.rpy:2697 'randlng = "latin"' could not be compiled as a python expression, in a condition of the if statement.
+
+game/script.rpy:2741 'randlng = "latin"' could not be compiled as a python expression, in a condition of the if statement.
+
+game/script.rpy:2886 'sounds/pills_chp_7_ost.wav' is not loadable
+
+game/script.rpy:3036 The image named 'chapter9_0 movie' was not declared.
+
+game/script.rpy:3041 The image named 'chapter9_0 movie' was not declared.
+
+game/script.rpy:3045 The image named 'chapter9_1 movie' was not declared.
+
+game/script.rpy:3049 The image named 'chapter9_2 movie' was not declared.
+
+game/script.rpy:3053 'sounds/pills_chp_9_ost.wav' is not loadable
+
+game/script.rpy:3067 The image named 'TV_0 movie' was not declared.
+
+game/script.rpy:3097 The image named 'TV_0 movie' was not declared.
+
+game/script.rpy:3173 The image named 'TV_0 movie' was not declared.
+
+game/script.rpy:3204 The image named 'chapter10_0 movie' was not declared.
+
+game/script.rpy:3208 The image named 'chapter10_1 movie' was not declared.
+
+game/script.rpy:3212 The image named 'chapter10_2 movie' was not declared.
+
+game/script.rpy:3216 'sounds/pills_chp_10_ost_p1.wav' is not loadable
+
+game/script.rpy:3250 'sounds/pills_chp_10_ost_p2.wav' is not loadable
+
+game/script.rpy:3301 The image named 'chapter10 movie' was not declared.
+
+game/script.rpy:3346 The image named 'splash' was not declared.
+
+
+Statistics:
+
+The game contains 1,327 dialogue blocks, containing 7,884 words and 40,301
+characters, for an average of 5.9 words and 30 characters per block.
+
+The game contains 35 menus, 59 images, and 15 screens.
+
+
+Remember to set config.developer to False before releasing.
+
+Lint is not a substitute for thorough testing. Remember to update Ren'Py
+before releasing. New releases fix bugs and improve compatibility.
