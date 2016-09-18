@@ -35,6 +35,12 @@ image background solid = "black.png"
 # Put all the videos here - one for each stress level.
 # For now, while we only have 1 video for each, set all webm videos to _0 version
 
+image intro_stranger movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="intro_stranger.webm")
+image intro_text movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="intro_text.webm")
+image intro_click movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="intro_click.webm")
+image good_click movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="good_click.webm")
+image bad_click movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="bad_click.webm")
+
 image chapter1_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter1_0.webm")
 image chapter1_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter1_0.webm")
 image chapter1_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter1_0.webm")
@@ -145,6 +151,23 @@ image chapter10_end movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channe
 
 
 # The game starts here.
+
+screen intro_clickmap:
+    imagemap:
+        ground "blank.png"
+
+        hotspot (441, 120, 126, 126) clicked Return("click")        
+        hotspot (587, 84, 114, 155) clicked Return("dontclick")
+        
+screen difficulty_map:
+    imagemap:
+        ground "coolmenu.png"
+        hover "coolmenu-hover.png"
+
+        hotspot (431,122,298,64) clicked Return("easy")        
+        hotspot (431,188,298,64) clicked Return("normal")
+        hotspot (413,254,298,64) clicked Return("hard")
+
 label start:
     
     # ADJUST THIS ONCE WE GET THE IMAGE MAP CREATED
@@ -171,11 +194,65 @@ label start:
     $ randlng = renpy.random.randint(1,2)
     $ randjoke = renpy.random.randint(1,7)
     $ randwind = renpy.random.randint(1,2)
+    
+    scene intro_stranger movie
+    show background solid at left
+    
+    $ renpy.pause(5.0, hard=True)
+    
+    scene intro_text movie
+    show background solid at left  
+    
+    $ renpy.pause(3.0, hard=True)
+    j "Click to advance to the next line."
+
+    scene intro_click movie
+    show background solid at left
+    
+    call screen intro_clickmap
+    
+    $ result = _return
+    
+    if result == "click":
+        scene good_click movie
+        show background solid at left
+        $ renpy.pause(4.0, hard=True)
+        j "Click if you get it."
+        jump diff_pick
+    elif result == "dontclick":
+        scene bad_click movie
+        show background solid at left
+        $ renpy.pause(4.0, hard=True)
+        j "Click if you get it."
+        jump diff_pick
+        
+label diff_pick:
 
     scene black
+    with dissolve
+    show background solid at left
+    
+    call screen difficulty_map
+    
+    $ result = _return
+    
+    if result == "easy":
+        $ difficulty = 0
+        jump wakeup
+    elif result == "normal":
+        $ difficulty = 1
+        jump wakeup
+    elif result == "hard":
+        $ difficulty = 2
+        jump wakeup
+
+label wakeup:
+
+    scene black
+    with dissolve
     show background solid at left
 
-    $ renpy.pause(1)
+    $ renpy.pause(2)
     
     j "There's this feeling..."
     j "right before I fall asleep,"
