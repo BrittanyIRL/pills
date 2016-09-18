@@ -147,6 +147,10 @@ image chapter10_end movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channe
 # The game starts here.
 label start:
     
+    # ADJUST THIS ONCE WE GET THE IMAGE MAP CREATED
+    # options are: "Easy 0", "Normal 1", "Hard 2"
+    $ difficulty = 1
+    
     $ scene_count = 1
     $ stress_count = 0
     $ mints_count = 0
@@ -183,11 +187,11 @@ label start:
     j "get it to stop ticking,"
     j "stop running through the endless loose ends of your day."
     j "Only after that can you let go,"
-    j "let loose of that tension and anxiety,"
+    j "let loose of that all the alternate possibilities,"
     j "and fall into nirvana,"
-    j "that peaceful, silent darkness."
+    j "that peaceful, still silence."
     j "That moment..."
-    j "That feeling..."
+    j "That feeling of completeness..."
     j "That's what I wait for every single day."
     
     $ renpy.pause(1)
@@ -227,6 +231,9 @@ label getup:
     with dissolve
     
     stop music fadeout 2.0
+    
+    if difficulty < 2:
+        $ stress_count = 0
 
     if stress_count == 0:
         scene getup_0 movie
@@ -252,18 +259,21 @@ label getup:
          j "I kind of hate it though."
          j "I’m immediately going to have to do all the dishes."
          j "Are the dishes even clean? I can’t remember."
-         j "At least I have coffee."
+         j "I could also grab something on my way in to work."
+         j "Either way, at least I have coffee."
     elif snooze_count < 4:
          j "Do I have time to eat?"
          j "I guess I could grab something on my way in to work."
          j "I don’t know. Those coffees shops are getting so expensive."
-         j "Plus everybody has headphones and isn’t paying attention."
-         j "They don't look happy at all and it’s horrible."
-         j "What the hell is happening to the world?"
+         j "But do I have time to cook?"
+         j "Making omelettes takes me like... 30 minutes."
+         j "Why doesn't anyone invent more time-sensitive delicious breakfasts?"
+         j "Because who even knows what they put in cereal nowadays?"
+         j "Ugh, I can't decide."
     else:
          j "I can't believe I slept so much."
          j "There’s no way I have time to make something."
-         j "I’m going to be lucky if I get anything at all."
+         j "I’m going to be lucky if I get anything to eat at all."
     
     menu:
 
@@ -330,16 +340,18 @@ label grab:
     elif snooze_count < 4:
          j "Whatever. I don’t have time to cook."
          j "I’ll just grab something on the way."
-         j "Just going to stress myself out otherwise."
+         j "No need to freak out."
+         j "Play it cool, man."
+         j "Telling myself to be cool in a mirror."
+         j "Just like in that one movie..."
+         j "With like the cops and the ear and the lime and the coconut..."
+         j "What was that called again?"
+         j "Anyways, guess it's not all bad."
          jump chapter2
     else :
          j "I can get something on the way."
          j "I have time."
-         j "No need to freak out."
-         j "Play it cool, man."
-         j "Telling myself to be cool in a mirror."
-         j "Just like in Reservoir Dogs."
-         j "Guess it's not all bad."
+         j "Just going to stress myself out otherwise."
          jump chapter2
          
 
@@ -590,51 +602,52 @@ label mints_scene:
 
     scene black
     with dissolve
+    
+    if difficulty > 0:
 
-    if mints_count == 0:
-        j "I don't need this right now."
-        j "I'm just going to handle it."
-        j "Put it out of mind, that's all."
-        j "Stay cool."   
-    elif mints_count == 1:
-        j "I'm not doing this."
-        j "I have too much to do and too much left to do today."
-        j "I'm cutting this off before it starts."
-        j "Gonna stay cool."
-    elif mints_count == 2:
-        j "I can't believe this."
-        j "Why can't I get a grip today?"
-        j "I'm not letting this get the best of me."
-        j "I can't let this break my cool."
-    elif mints_count == 3:
-        j "What is going on today?"
-        j "This isn't like me at all."
-        j "I need to get a grip."
-        j "And get on with my life."
-        j "My cool, cool life."
-    elif mints_count == 4:
-        j "What the hell is happening?"
-        j "I can't believe this."
-        j "I am really struggling today."
-        j "But nothing is going to stop me..."
-        j "Nothing's going to break my cool."
-    else:
-        j "Alright."
-        j "For the love of all that is holy..."
-        j "Please let this be my last cool break today."
-        j "How many calories are in these things anyways?"
+        if mints_count == 0:
+            j "I don't need this right now."
+            j "I'm just going to handle it."
+            j "Put it out of mind, that's all."
+            j "Stay cool."   
+        elif mints_count == 1:
+            j "I'm not doing this."
+            j "I have too much left to do today."
+            j "I'm calling it, right here, right now."
+            j "Gonna stay cool."
+        elif mints_count == 2:
+            j "I can't believe this."
+            j "Why can't I get a grip today?"
+            j "I'm not letting this get the best of me."
+            j "I can't let this break my cool."
+        elif mints_count == 3:
+            j "What is going on today?"
+            j "This isn't like me at all."
+            j "I need to get a grip."
+            j "And get on with my life."
+            j "My cool, cool life."
+        elif mints_count == 4:
+            j "What the hell is happening?"
+            j "I can't believe this."
+            j "I am really struggling today."
+            j "But nothing is going to stop me..."
+            j "Nothing's going to break my cool."
+        else:
+            j "Alright."
+            j "For the love of all that is holy..."
+            j "Please let this be my last cool break today."
+            j "How many calories are in these things anyways?"
     
-    play sound "sounds/mint_bottle.wav"
-    $ renpy.pause(2)
-    play sound "sounds/exhale.wav"
+        play sound "sounds/mint_bottle.wav"
+        $ renpy.pause(2)
+        play sound "sounds/exhale.wav"
     
-    j "That's better."
-    $ randmint = renpy.random.choice(["Nice and fresh.", "Hella fresh.", "So fresh.", "Fresh to death."])
-    j "[randmint]"
+        j "That's better."
+        $ randmint = renpy.random.choice(["Nice and fresh.", "Hella fresh.", "So fresh."])
+        j "[randmint]"
     
-    $ mints_count += 1
-    $ stress_count = 0
-    
+        $ mints_count += 1
+        $ stress_count = 0
     
     #jump scene_%r % scene_count + 1
     if scene_count == 1:
@@ -733,13 +746,13 @@ label chapter2_w_map:
         $ book_check = 1
         j "Oh right I need to grab that library book."
         j "I think it's due already."
-        j "I never have time to read finish anything."
+        j "And I just about to crack the secrets of the digital age..."
         j "Whatever. One more bus ride made less awkward."
         jump chapter2_w_map
     elif result == "bag":
         $ bag_check = 1
         j "Did I pack everything for today?"
-        j "Oh damn I almost forgot my bus pass."
+        j "Oh wow, I almost forgot my bus pass."
         j "That would have been annoying."
         jump chapter2_w_map
     elif result == "calendar":
@@ -747,10 +760,11 @@ label chapter2_w_map:
         j "Do I have anything at work today?"
         j "Sure doesn't look like it."
         j "Probably for the best."
+        j "If anyone says anything to the contrary, I'm in full denial."
         jump chapter2_w_map
     elif result == "door":
         j "Guess I should hit the road."
-        j "Hope whatever it was isn't important."
+        j "Hope whatever I forgot wasn't important."
         jump chapter3
         
 ##############################################################
@@ -768,6 +782,9 @@ label chapter3:
     stop music fadeout 2.0
     $ renpy.pause(1)
     
+    if difficulty < 1:
+        $ stress_count = 0
+
     $ scene_count += 1
     
     if stress_count == 0:
@@ -799,14 +816,12 @@ label chapter3:
     j "How berated with useless information are we, really?"
     j "Meanwhile, when you do try and use technology for good..."
     j "You look up the hill and question your sanity because there's no bus there."
-    j "I don't understand why they even make apps for bus times."
-    j "Pure masochism is what it is."
     j "..."
     j "I wonder how much those small sanctions of every day life..."
     j "the plausibility of a missed bus..."
     j "the crosswalk you see in the distance that you might not catch..."
     j "the time you probably won't have left to go to the gym..."
-    j "How many are responsible for all the stress you feel?"
+    j "How many of those are responsible for all the stress you feel?"
     
     menu:
          "Some sanctions.":
@@ -818,8 +833,6 @@ label chapter3:
              j "And yet somehow, we all need to learn how to deal."
              j "Well that's a hilarious gambit."
              j "Who's going to succeed at that?"
-             j "I'll tell you."
-             j "Nobody."
              $ stress_count += 1
              if stress_count > 2:
                  "And in the meantime..."
@@ -832,23 +845,22 @@ label chapter3:
          "All the sanctions.":
              j "Yeah. Probably the whole enchilada."
              j "Actually, admitting it like that kind of takes a load off."
-             j "That way, a lot less to blame on myself."
              j "I can't possibly be the only one, right?"
              j "Maybe everybody else feels the same way."
              j "Or maybe not. Who knows?"
              j "I'm no genius."
              j "I'm just a guy trying catch his bus."
-             j "On the way to another round of daily monotony."
+             j "On the way to another round of daily excitement."
              jump bus_time
 
-         "Am I using that word correctly?":
+         "Am I even using that word correctly?":
              j "Ah, never mind."
              j "I swear, I can get on these tangents with myself,"
              j "and get lost for days at a time."
              j "This one is hardly worth it."
              j "Boring conversation with myself anyway."
              j "Still... I'm deleting this app."
-             j "It's horrible and pointless."
+             j "The bus will show when it shows."
              j "There."
              j "I feel better already."
              jump bus_time
@@ -862,19 +874,22 @@ label bus_time:
         j "Glad I remembered my pass."
         j "That would have been really annoying."
         j "Let alone stressful."
-        j "I probably don't need any more stress than a normal day holds."
-        j "Let's just try and keep it at a minimum today."
+        j "I'm gonna try and keep it at a minimum today."
+        j "Stay cool."
     else:
         j "Let me just grab my pass..."
         j "Wait... where is it?"
         j "Did I take it out of my bag?"
         j "I totally took it out of my bag."
         j "Last night, when I was rushing to catch the bus back from downtown."
-        j "Dammit."
+        j "Ugh."
         j "I hate everything."
-        $ stress_count += 2
-        if stress_count > 2:
-            jump mints_scene
+        if difficulty > 0:
+            $ stress_count += 2
+            if stress_count > 2:
+                jump mints_scene
+            else:
+                jump chapter4
         else:
             jump chapter4
 
@@ -895,6 +910,9 @@ label chapter4:
     show background solid at left
     
     stop music fadeout 2.0
+    
+    if difficulty < 1:
+        $ stress_count = 0
     
     $ scene_count += 1
     
@@ -925,8 +943,8 @@ label chapter4:
         j "I'm forming a pattern."
         j "Typical millennial, last one in, first one out."
         j "Begging for mercy from the shackles of the status quo."
-    j "Look at me,"
-    j "Preferring my own company to that of others."
+    j "Look at me."
+    j "Always choosing my own company to that of others."
     j "And you wonder why people go crazy."
     j "Doing this every single day."
     
@@ -992,12 +1010,12 @@ label chapter4_w_map:
                 with fade
                 show background solid at left
         j "I look out the window."
-        j "I see a city unhappy with itself."
+        j "I see a city unsure of itself."
         j "Constantly wishing for change."
-        j "Searching for something apart from monotony."
+        j "Searching for something apart from the norm."
         j "Something to draw a crowd."
-        j "Any new thing to brag about or show off."
-        j "I wonder if it will ever stop."
+        j "Something new to be known by."
+        j "I wonder if it will ever really find that."
         
         scene black
         with dissolve
@@ -1040,7 +1058,6 @@ label chapter4_w_map:
         elif stress_count == 2 and calendar_check < 1 and book_check < 1:
             scene bag_2_0_0 movie
             show background solid at left
-        # really hard to notice the ellipsis, adding second one
         j "..."
         jump chapter4_w_map
     elif result == "ads":
@@ -1059,7 +1076,9 @@ label chapter4_w_map:
             scene rafters_2 movie
             with fade
             show background solid at left
-        j "Look at these ads."
+        j "Man alive."
+        j "All I wanted to do was read the newspaper."
+        j "But look at these ads."
         j "They line every page."
         j "Hell, they even line the rafters of the bus."
         j "Have you recently gone through a divorce?"
@@ -1069,8 +1088,6 @@ label chapter4_w_map:
         j "Call here."
         j "Call there."
         j "Talk to someone, anyone."
-        j "Has that kind of anonymous offer ever helped anyone?"
-        j "Has it ever made people feel anything more than pitied?"
         
         scene black
         with dissolve
@@ -1092,9 +1109,9 @@ label chapter4_w_map:
             scene busppl_2 movie
             with fade
             show background solid at left
-        j "Look at these sorry saps."
-        j "Every one of them just like me."
-        j "Sucked into some false dream of semi-fulfilling stability."
+        j "Is everyone else on this bus just like me?"
+        j "Aren't we all going through the motions,"
+        j "lost in some dream of semi-fulfilling stability?"
         j "There's comfort in consistency, you know?"
         j "You don't have to think much about what's going on around you."
         j "But what do you really lose in the interim?"
@@ -1111,12 +1128,12 @@ label chapter4_w_map:
 
     elif result == "nothing":
         j "Does that make me socially avoidant?"
-        j "I guess I don't even think about it most days."
-        j "But if I take a step back and try and see it from another perspective..."
+        j "I guess I don't twice about it most days."
+        j "But if I try and see it from someone else's point of view..."
         j "Here I am at the back of the bus, tuning out the world."
         j "Crumpled up in a ball, halfway in the fetal position."
         j "Maybe nothing's wrong with the world and all of its dealings."
-        j "Maybe it's all just how I'm responding to it."
+        j "Maybe it's all just how I choose to respond to it."
 
         jump chapter4_w_choice
         
@@ -1138,21 +1155,18 @@ label chapter4_w_choice:
     play music "sounds/mints_chp4_p2.wav"
     
     if bus_check > 1:
-        j "You can't really help but look away though can you?"
-        j "Looking at all those problems,"
+        j "You can't really help but think about it can you?"
+        j "Seeing all those problems,"
         j "imagining yourself in the thick of it all,"
         j "even just to feel something."
-        j "Something that isn't nothing."
-        j "And yet, they all have a choice."
+        j "And yet, everyone has a choice."
         j "I have it, too."
-        j "To stare onwards searching for the feeling..."
+        j "To stare onwards searching for feeling..."
         j "or to turn and run from it."
     elif bus_check > 0:
-        j "You can't really help but look away though can you?"
-        j "Looking at all the boredom and the repetition."
-        j "The utter apathy towards the problems of the world,"
+        j "You can't really help but think about it can you?"
+        j "Seeing all the comfort in repetition,"
         j "maybe not so intentional so much as blissfully naive..."
-        j "Imagine being in the thick of it all..."
         j "Am I one of them?"
         j "Maybe I have to look closer."
         j "Maybe we all do."
@@ -1163,12 +1177,12 @@ label chapter4_w_choice:
         j "I just have this feeling."
         j "This indescribable itch."
         j "I guess you could call it a fear of missing out,"
-        j "but I'm not really afraid of anything"
-        j "and I don't really feel like going anywhere."
+        j "but I don't know what I'm afraid of"
+        j "and I'm not sure where I want to go..."
         j "It's more of an urge, I guess."
         j "An urge to find what it is that makes the world tick."
         j "What makes everyone else get out of bed in the morning?"
-        j "God knows its hard enough finding a reason."
+        j "Some days, it's pretty rough finding a reason."
         j "But it can't all be status quo, if you stare at it long enough."
         j "I guess that's my choice..."
         j "To stare onwards,"
@@ -1193,28 +1207,20 @@ label onwards:
     j "Right... I need to keep staring."
     j "Keep trying to find some sense in all of it."
     if bus_check > 1:
-        j "But geez, look at all I have left to deal with."
-        j "There are so many people with so many problems."
+        j "But geez, look at all there is to deal with."
+        j "There are so many people in the world making ends meet..."
+        j "Like I have any of the answers..."
         j "Who am I to think I'm any better than them?"
-        j "There's just no way."
-        j "No way at all."
     elif bus_check > 0:
-        j "But people, they keep staring."
-        j "I feel like every step of the way I'm being watched."
-        j "They are keeping tabs,"
-        j "just like I find myself keeping tabs on them."
+        j "But everyone else, they keep staring too."
+        j "Every step of the way, we are all keeping tabs."
         j "Making sure no one rises above the rest."
-        j "Look at their eyes,"
-        j "hungry for mutual regression."
-        j "It's terrifying."
+        j "Who am I to think I'm any better than them?"
     else:
         j "But what's the point?"
-        j "There's so much change,"
-        j "so much that no one has told me how to plan for or avoid."
+        j "There's so much no one has told me how to plan for or avoid."
         j "Who am I to think I'm going to win the Golden Ticket,"
         j "somehow figure all of this stuff out before the rest of them?"
-        j "There's just no way."
-        j "No way at all."
     $ stress_count += 2
     if stress_count > 2:
         jump mints_scene
@@ -1227,33 +1233,25 @@ label turn_and_burn:
     j "That conversation is terrifying anyways."
     if bus_check > 1:
         j "I don't want to know about all this stuff."
-        j "The 18 things my loved ones don't know about depression."
+        j "The 18 things my loved ones don't know about erectile dysfunction."
         j "The 6 ways my pre-teen can find drugs before they reach high school."
         j "The 27 different ways I can die from an open wound on the street."
         j "I'm not interested."
         j "I'm not doing that to myself."
-        j "I'd rather internalize."
     elif bus_check > 0:
         j "I don't want to know how other people cope."
-        j "I don't want to have to dig into their messy lives to find a solution."
-        j "Mine's messy enough as it is,"
-        j "doing my best every day to try and play the wallflower,"
-        j "stay out of people's way and out of their problems."
-        j "I'm not opening up to that."
-        j "I don't think I could handle it."
-        j "I'd rather internalize."
+        j "My life is messy enough as it is."
+        j "Doing my best every day to try and play the wallflower..."
+        j "staying out of people's way."
+        j "I don't need to add to the noise."
     else:
         j "I mean, what's the point?"
-        j "There's so much change,"
-        j "so much that no one has told me how to plan for or avoid."
-        j "Who am I to think I'm going to win the Golden Ticket,"
-        j "somehow figure all of this stuff out before the rest of them?"
-        j "There's just no way."
-        j "No way at all."
+        j "I'm not doing too bad."
+        j "Sitting here in my tiny comfort zone."
+        j "Everyone else has their problems and I have mine."
+        j "I don't need to add to the noise."
     $ stress_count += 1
     if stress_count > 2:
-        j "How am I going to do all of that?"
-        j "I can't even think about it."
         jump mints_scene
     else:
         jump chapter5
@@ -1263,7 +1261,6 @@ label book_instead:
     j "Wait..."
     j "Why am I doing this to myself?"
     j "I don't have to figure any of this stuff out."
-    j "It won't get me anywhere, anyways."
     j "I don't have to read the ads."
     j "I don't have to talk to people."
     j "Hell, I don't really have to do anything at all."
@@ -1272,13 +1269,13 @@ label book_instead:
     if book_check > 0:
         j "Yep, there it is."
         j "See? Nothing to worry about at all."
-        j "Just the voice inside my head telling me everything is going to be alright."
+        j "Just the voice inside my head telling me everything is gonna be alright."
         jump chapter5
     else:
         j "Wait, did I forget those library books?"
         j "Aren't they due today?"
-        j "That's the third time this month."
-        j "I can't do anything right, not even relax."
+        j "That's the third time this month!"
+        j "I can't do anything right, not even relax!"
         $ stress_count += 2
         if stress_count > 2:
             jump mints_scene
@@ -1295,6 +1292,9 @@ label chapter5:
 
     scene black
     with dissolve
+    
+    if difficulty < 2:
+        $ stress_count = 0
     
     stop music fadeout 2.0
     $ renpy.pause(1)
@@ -1373,8 +1373,8 @@ label chapter5:
     j "Larger nomadic villages meant greater security for everyone."
     j "Nowadays, it's the opposite."
     j "Half a dozen people all standing at a stoplight,"
-    j "and none of us are rewarded for communicating."
-    j "No one feels safer in the company of strangers."
+    j "and none of us feel rewarded for communicating."
+    j "No one feels safety in numbers in the company of strangers."
     j "I could try and make smalltalk to alleviate the boredom,"
     j "but half the time I'm afraid I'll inadvertently offend someone."
     j "Like my greeting will be seen as a narcissistic cry for attention."
@@ -1382,7 +1382,7 @@ label chapter5:
     j "waltzing down the street, pretending the world is his."
     j "But I don't know..."
     j "How else am I supposed to engage with other people?"
-    j "Do I keep on with my dissipating college friends and boring coworkers forever?"
+    j "Do I keep on with my dissipating college friends and coworkers forever?"
     j "Whose to say one casual interaction won't lead to a lifelong friend?"
 
     menu:
@@ -1417,8 +1417,8 @@ label chapter5:
                   "Nice weather today.":
                       play sound "sounds/mints_xwalk_weather.wav"
                       $ renpy.pause(1)
-                      j "Ok, a few token nods for the world's biggest elevator cliche."
-                      j "Still, that wasn't the worst thing ever."
+                      j "Ok, a few token nods and mumbles for the world's best elevator cliche."
+                      j "Still, it could have been worse."
                       j "No lifelong friends, but no disgust either."
                       j "Maybe there's comfort in monotony after all."
                       if coffee_choice > 0:
@@ -1472,6 +1472,9 @@ label coffeeshop:
     
     stop music fadeout 2.0
     
+    if difficulty < 1:
+        $ stress_count = 0
+    
     if stress_count == 0:
         scene coffeeshop_0 movie
         with fade
@@ -1493,7 +1496,6 @@ label coffeeshop:
     j "Always."
     j "I could get out of my head."
     j "Get far away from this daily ritual."
-    j "The routine discomfort."
     j "And yet here I am..."
     j "In a room of people perusing and standing in lines."
     j "All waiting on the same buzz to kick off the day."
@@ -1537,7 +1539,6 @@ label quiet_coffee:
     j "Watching and waiting,"
     j "waiting for the discomfort to pass,"
     j "not her discomfort... ours."
-    j "It's pathetic."
     j "It's wrong."
     j "I'm better than this, aren't I?"
 
@@ -1575,7 +1576,7 @@ label loud_coffee:
     j "It's an honest mistake - just roll with it!"
     j "How bad can it be?"
     
-    o "You are a complete asshole, you know that?"
+    o "You are a complete ass, you know that?"
     o "If you ever talk to me again, I swear I'll punch you in the face."
     o "And forget this stupid coffee shop."
     o "I always hated it here anyways."
@@ -1586,7 +1587,6 @@ label loud_coffee:
     j "What a moron."
     j "But now everyone is staring at me, like I'm the one that did something wrong."
     j "Why are they doing that?"
-    j "Did I burst their bubble of detachment?"
     j "Did I break the unspoken pact to stay out of the way?"
     j "Is that all the thanks I get for trying to be a good person?"
     j "Forget it."
@@ -1604,12 +1604,11 @@ label nada_coffee:
     j "That guy is way too much of a jerk to deal with today."
     j "Now I'm going to be hungry all morning."
     j "Ah, man..."
-    j "That just makes me hate that guy even more."
+    j "That just makes me hate that guy even more!"
     j "Forget it, I don't even care."
     j "I'm just going to get my ass to work."
     j "The only sane place anywhere outside the confines of my apartment."
-    j "How demented is that?"
-    j "One sick joke after another, today."
+    j "How's that for irony?"
 
     $ stress_count += 1
     if stress_count > 2:
@@ -1632,6 +1631,9 @@ label chapter6:
     
     stop music fadeout 2.0
     $ renpy.pause(1)
+    
+    if difficulty < 2:
+        $ stress_count = 0
     
     $ scene_count += 1
     
@@ -1747,8 +1749,7 @@ label chapter6:
              j "I got it."
              j "Desk cleaning time."
              j "That will put my mind at peace."
-             j "You know, it really is disturbing how dirty your workspace gets"
-             j "just under normal working conditions."
+             j "You know, it really is disturbing how dirty your workspace gets."
              j "Look how much dead skin there is just buried in my keyboard."
              j "If I shook that thing upside down it would look like a blizzard."
              j "And look at all these little hairs all over my papers and my mousepad!"
@@ -1760,7 +1761,7 @@ label chapter6:
          "Reread 7 Habits of Highly Effective People.":
              j "Right."
              j "I gotta focus up with some genius stuff."
-             j "I need indepence..."
+             j "I need independence..."
              j "I NEED SYNERGY."
              j "I have no idea how to get synergy, though."
              j "I barely have enough normal kind of energy, most days."
@@ -1800,7 +1801,6 @@ label chapter6:
          "Sit and wait for something to happen.":
              j "Yeah..."
              j "I'm not doing anything."
-             j "This morning was plain stupid."
              j "I deserve just a second to gather my thoughts."
              j "No noise."
              j "No commitments..."
@@ -1923,11 +1923,14 @@ label phonecall:
                           
                           $ go_to_meeting += 1
                           
-                          $ stress_count += 2
-                          if stress_count > 2:
-                              jump mints_scene
+                          if difficulty > 0:
+                              $ stress_count += 2
+                              if stress_count > 2:
+                                  jump mints_scene
+                              else:
+                                  jump clientmeeting
                           else:
-                              jump clientmeeting           
+                              jump clientmeeting      
                       
                       "No way, José.":
                       
@@ -2438,11 +2441,14 @@ label mgmtmeeting:
                           
                           $ go_to_meeting += 1
                           
-                          $ stress_count += 2
-                          if stress_count > 2:
-                              jump mints_scene
+                          if difficulty > 0:                          
+                              $ stress_count += 2
+                              if stress_count > 2:
+                                  jump mints_scene
+                              else:
+                                  jump clientmeeting
                           else:
-                              jump clientmeeting           
+                              jump clientmeeting
                       
                       "Don't think so.":
                       
@@ -3010,6 +3016,9 @@ label clientmeeting:
     stop music fadeout 2.0
     $ renpy.pause(1)
     
+    if difficulty < 2:
+        $ stress_count = 0
+    
     if stress_count == 0:
         scene clientmtg_0 movie
         with fade
@@ -3075,7 +3084,12 @@ label clientmeeting:
             o "Alright, Joe."
             o "Let's see what brilliant stuff you have for me."
             
-            $ stress_count += 2
+            if difficulty > 1:
+                $ stress_count += 2
+            elif difficulty > 0:
+                $ stress_count += 1
+            else:
+                $ stress_count = 0
             
             if stress_count > 2:
                 j "Oh no."
@@ -3168,7 +3182,12 @@ label meeting_prompt:
                 o "You don't even know what this meeting is for, do you?"
                 o "Tom, who the hell is this clown?"
             
-                $ stress_count += 2
+                if difficulty > 1:
+                    $ stress_count += 2
+                elif difficulty > 0:
+                    $ stress_count += 1
+                else:
+                    $ stress_count = 0
             
                 if stress_count > 2:
                     j "Oh no."
@@ -3206,7 +3225,12 @@ label meeting_prompt:
                 o "You don't even know what this meeting is for, do you?"
                 o "Tom, who are these monkeys that do your work nowadays?"
             
-                $ stress_count += 2
+                if difficulty > 1:
+                    $ stress_count += 2
+                elif difficulty > 0:
+                    $ stress_count += 1
+                else:
+                    $ stress_count = 0
             
                 if stress_count > 2:
                     j "Oh no."
@@ -3251,7 +3275,12 @@ label meeting_prompt:
                 o "You want to talk marketing?"
                 o "How about you try marketing yourself to a new client?"
             
-                $ stress_count += 2
+                if difficulty > 1:
+                    $ stress_count += 2
+                elif difficulty > 0:
+                    $ stress_count += 1
+                else:
+                    $ stress_count = 0
             
                 if stress_count > 2:
                     j "Oh no."
@@ -3298,7 +3327,12 @@ label meeting_prompt:
                 o "You trying to ask for a job or something?"
                 o "Because buddy, this is about the worst way to go about it."
             
-                $ stress_count += 2
+                if difficulty > 1:
+                    $ stress_count += 2
+                elif difficulty > 0:
+                    $ stress_count += 1
+                else:
+                    $ stress_count = 0
             
                 if stress_count > 2:
                     j "Oh no."
@@ -3364,7 +3398,10 @@ label meeting_w_map:
                 o "Well you know what they say in the biz."
                 o "Show must go on!"
                 
-                $ stress_count += 1
+                if difficulty > 0:
+                    $ stress_count += 1
+                else:
+                    $ stress_count = 0
             
                 if stress_count > 2:
                     j "Oh no."
@@ -3417,7 +3454,10 @@ label meeting_w_map:
                 o "What a load of baloney!"
                 o "Tom, is this really the best you have to offer me?"
                 
-                $ stress_count += 1
+                if difficulty > 0:
+                    $ stress_count += 1
+                else:
+                    $ stress_count = 0
             
                 if stress_count > 2:
                     j "Oh no."
@@ -3450,7 +3490,10 @@ label meeting_w_map:
                 o "Am I being filmed or something?"
                 o "Please get this idiot out of my face."
                 
-                $ stress_count += 1
+                if difficulty > 0:
+                    $ stress_count += 1
+                else:
+                    $ stress_count = 0
             
                 if stress_count > 2:
                     j "Oh no."
@@ -3502,15 +3545,18 @@ label meeting_w_map:
                         o "Because if he's not going to tell me what I need to know..."
                         o "I'm not interested in his problems."
                         
-                        j "I don't have any problems!"
+                        if difficulty > 0:
+                            j "I don't have any problems!"
                         
-                        o "What do you call your lack of a presentation then?"
-                        o "Right... not problems."
-                        o "Just failure."
+                            o "What do you call your lack of a presentation then?"
+                            o "Right... not problems."
+                            o "Just failure."
                         
-                        $ meeting_panic += 1
+                            $ meeting_panic += 1
                 
-                        jump mints_scene   
+                            jump mints_scene
+                        else:
+                            jump meeting_w_map
                     
                     "At my desk, actually.":
                     
@@ -3568,7 +3614,10 @@ label meeting_w_map:
                         o "What the hell kind of presentation is this?"
                         o "This is utterly unacceptable."
                         
-                        $ stress_count += 2
+                        if difficulty > 0:
+                            $ stress_count += 2
+                        else:
+                            $ stress_count = 0
             
                         if stress_count > 2:
                             j "Oh no."
@@ -3598,7 +3647,10 @@ label meeting_w_map:
                         o "Is there any way we can crack this bozo's head open?"
                         o "I might be able to see the presentation better that way."
                 
-                        $ stress_count += 1
+                        if difficulty > 0:
+                            $ stress_count += 1
+                        else:
+                            $ stress_count = 0
             
                         if stress_count > 2:
                             j "Oh no."
@@ -3679,7 +3731,10 @@ label meeting_w_map:
                             o "Forget it, I don't want want to see the damn presentation."
                             o "I'm calling this off."
                             
-                            $ stress_count += 2
+                            if difficulty > 0:
+                                $ stress_count += 2
+                            else:
+                                $ stress_count = 0
             
                             if stress_count > 2:
                                 j "Oh no."
@@ -3722,7 +3777,10 @@ label meeting_w_map:
                             o "Forget it, I don't want want to see the damn presentation."
                             o "I'm calling this off."
                             
-                            $ stress_count += 2
+                            if difficulty > 0:
+                                $ stress_count += 2
+                            else:
+                                $ stress_count = 0
             
                             if stress_count > 2:
                                 j "Oh no."
@@ -3765,7 +3823,10 @@ label meeting_w_map:
                             o "Forget it, I don't want want to see the damn presentation."
                             o "I'm calling this off."
                             
-                            $ stress_count += 2
+                            if difficulty > 0:
+                                $ stress_count += 2
+                            else:
+                                $ stress_count = 0
             
                             if stress_count > 2:
                                 j "Oh no."
@@ -3809,7 +3870,10 @@ label meeting_w_map:
                             o "Forget it, I don't want want to see the damn presentation."
                             o "I'm calling this off."
                             
-                            $ stress_count += 2
+                            if difficulty > 0:
+                                $ stress_count += 2
+                            else:
+                                $ stress_count = 0
             
                             if stress_count > 2:
                                 j "Oh no."
@@ -3843,7 +3907,10 @@ label meeting_w_map:
                 o "We try to limit the subjectivity."
                 o "Try to stay off the bud for the rest of the presentation."
                 
-                $ stress_count += 1
+                if difficulty > 0:
+                    $ stress_count += 1
+                else:
+                    $ stress_count = 0
             
                 if stress_count > 2:
                     j "Oh no."
@@ -3888,7 +3955,10 @@ label meeting_w_map:
         o "Let's avoid talking about the desk as much as possible, please."
         o "Unless it plays a very key role in your presentation."
                 
-        $ stress_count += 1
+        if difficulty > 0:
+            $ stress_count += 1
+        else:
+            $ stress_count = 0
             
         if stress_count > 2:
             j "Oh no."
@@ -3927,6 +3997,9 @@ label chapter7:
     
     stop music fadeout 2.0
     $ renpy.pause(1)
+    
+    if difficulty < 2:
+        $ stress_count = 0
     
     $ scene_count += 1
     
@@ -3984,7 +4057,7 @@ label chapter7:
              j "Or maybe not - maybe that's why it seems too hard every day."
              j "All of us, trying to live into this fake well-adjusted routine."
              j "But all of us suffering equally by not saying anything about it."
-             j "And sure, I mean, I guess the opposite would be worse..."
+             j "And sure, I guess the opposite would be worse..."
              j "Not having a job to go to at all, driving myself nuts in my apartment."
              j "But isn't there some other alternative?"
              j "Isn't there a way where we don't just default to the norm?"
@@ -4016,7 +4089,10 @@ label chapter7:
              j "I'm surrounded by psychos,"
              j "a bunch of them probably here in this park."
              j "What the hell am I supposed to do?"
-             jump mints_scene
+             if difficulty > 0:
+                 jump mints_scene
+             else:
+                 jump end_of_lunch
 
          "What the hell do I know?":
              j "I guess if you could figure that kind of thing out,"
@@ -4069,12 +4145,15 @@ label end_of_lunch:
         j "Wait..."
         j "None? ...Really?"
         j "Wow."
-        j "Maybe I'm better at staying cool than I thought."
+        if difficulty < 1:        
+            j "Maybe I'm better at staying cool than I thought."
+            j "Or, maybe I put my life on an easy setting or something today."
+        else:
+            j "Maybe I'm better at staying cool than I thought."
         
         play music "sounds/mints_client_mtg_p3_ost.wav"
         
         j "I just get so caught up in keeping track of it all."
-        j "Marking strikes every time the pressure gets too intense."
         j "Like there's some kind of score board at the end."
         j "I don't want my life to be a never ending set of choices, good and bad."
         j "I don't want to stress about the score, whatever it might be."
@@ -4114,14 +4193,12 @@ label end_of_lunch:
         
         play music "sounds/mints_client_mtg_p3_ost.wav"
         
-        j "Won't I become one of those people that just stumbles through their life?"
-        j "Those people that I hate,"
-        j "who somehow thrive off their own flippancy,"
-        j "who make every decision with about as much focused thought as a labrador."
-        j "I have no desire to become one of those people."
-        j "But there has to be some middle ground, right?"
+        j "Won't I become one of those people that just stumbles through life?"
+        j "Those people who somehow thrive off their own flippancy,"
+        j "who make every decision with as much focused thought as a labrador."
+        j "But there has to be some alternative..."
         j "Somewhere between riding the wave without a care in the world,"
-        j "and letting it crash over me every time I'm determined to swim out further."
+        j "and letting it crash over me every time I'm determined to swim further."
         j "I don't know."
         j "I don't want my life to be a never ending set of choices, good and bad,"
         j "where I get a score at the end that I don't even know how to interpret."
@@ -4175,7 +4252,10 @@ label chapter9:
     
     play sound "sounds/mints_chp9_intro_ost.wav"
     $ renpy.pause(3.15)
-    
+
+    if difficulty < 2:
+        $ stress_count = 0
+
     $ scene_count += 1
 
     #scene chapter9_%r movie % stress_count
@@ -4317,8 +4397,7 @@ label tv_options:
             j "..."
             j "There is nothing for me here."
             j "Nothing but a void."
-            $ stress_count += 2
-            if stress_count > 2:
+            if difficulty > 0:
                 jump mints_scene
             else:
                 jump chapter10
@@ -4333,7 +4412,7 @@ label tv_options:
             j "Forget it."
             j "I'm going to bed."
             j "Maybe I'll have the patience tomorrow."
-            $ stress_count += 1
+            $ stress_count += 2
             if stress_count > 2:
                 jump mints_scene
             else:
@@ -4437,20 +4516,31 @@ label chapter10:
         o "Oh, wait,"
         o "one more thing..."
     else:
-        o "Wow, you didn't need any mints today!"
-        o "Isn't it crazy how you can keep your cool like that?"
-        o "I mean, it's kind of a bummer that there's only one way to do it..."
-        o "Stay on schedule,"
-        o "keep a tight, check-listed routine,"
-        o "limit your interaction with others,"
-        o "keep yourself distracted from your own thoughts where you can..."
-        o "But hey!"
-        o "Still pretty neat!"
-        o "Sleep tight. You deserve it."
-        o "Well..."
-        o "I mean..."
-        o "You deserve it..."
-        o "But still..."
+        if difficulty < 1:
+            o "Wow, you didn't need any mints today!"
+            o "Hold on a hot second..."
+            o "Did you use the easy setting?"
+            o "Ok, well..."
+            o "Big golf clap for you. Really."
+            o "How about tomorrow you try to up the ante a little?"
+            o "How else do you expect to learn anything from these lil' pep talks?"
+            o "Anyways..."
+            o "Today's not over yet..."        
+        else:
+            o "Wow, you didn't need any mints today!"
+            o "Isn't it crazy how you can keep your cool like that?"
+            o "I mean, it's kind of a bummer that there's only one way to do it..."
+            o "Stay on schedule,"
+            o "keep a tight, check-listed routine,"
+            o "limit your interaction with others,"
+            o "keep yourself distracted from your own thoughts where you can..."
+            o "But hey!"
+            o "Still pretty neat!"
+            o "Sleep tight. You deserve it."
+            o "Well..."
+            o "I mean..."
+            o "You deserve it..."
+            o "But still..."
         
     $ renpy.pause(1)
 
