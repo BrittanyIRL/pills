@@ -210,10 +210,9 @@ screen main_menu():
 
         alpha False
 
-        hotspot (268, 262, 107, 80) action Start() #Start
-        hotspot (111, 361, 80, 55) action Start("credits")
-     
-        hotspot (581, 244, 107, 80) action Quit(confirm=False)
+        hotspot (226, 300, 50, 60) action Start() #Start
+        hotspot (79, 404, 50, 38) action Start("credits")
+        hotspot (526, 300, 60, 60) action Quit(confirm=False)
 
 
 init -2:
