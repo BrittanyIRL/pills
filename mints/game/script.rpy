@@ -164,9 +164,9 @@ screen difficulty_map:
         ground "coolmenu.png"
         hover "coolmenu-hover.png"
 
-        hotspot (431,122,298,64) clicked Return("easy")        
-        hotspot (431,188,298,64) clicked Return("normal")
-        hotspot (413,254,298,64) clicked Return("hard")
+        hotspot (400,199,315,72) clicked Return("easy")        
+        hotspot (400,282,315,54) clicked Return("normal")
+        hotspot (400,346,315,48) clicked Return("hard")
 
 label start:
     
@@ -194,37 +194,50 @@ label start:
     $ randlng = renpy.random.randint(1,2)
     $ randjoke = renpy.random.randint(1,7)
     $ randwind = renpy.random.randint(1,2)
-    
-    scene intro_stranger movie
-    show background solid at left
-    
-    $ renpy.pause(5.0, hard=True)
-    
-    scene intro_text movie
-    show background solid at left  
-    
-    $ renpy.pause(3.0, hard=True)
-    j "Click to advance to the next line."
 
-    scene intro_click movie
+    scene black
+    with dissolve
     show background solid at left
+
+    menu:
+
+        "Play with Tutorial.":
+
+            scene intro_stranger movie
+            with fade
+            show background solid at left
     
-    call screen intro_clickmap
+            $ renpy.pause(5.0, hard=True)
     
-    $ result = _return
+            scene intro_text movie
+            show background solid at left  
     
-    if result == "click":
-        scene good_click movie
-        show background solid at left
-        $ renpy.pause(4.0, hard=True)
-        j "Click if you get it."
-        jump diff_pick
-    elif result == "dontclick":
-        scene bad_click movie
-        show background solid at left
-        $ renpy.pause(4.0, hard=True)
-        j "Click if you get it."
-        jump diff_pick
+            $ renpy.pause(5.0, hard=True)
+            j "Click to advance to the next line."
+
+            scene intro_click movie
+            show background solid at left
+    
+            call screen intro_clickmap
+    
+            $ result = _return
+    
+            if result == "click":
+                scene good_click movie
+                show background solid at left
+                $ renpy.pause(5.0, hard=True)
+                j "Click if you get it."
+                jump diff_pick
+            elif result == "dontclick":
+                scene bad_click movie
+                show background solid at left
+                $ renpy.pause(5.0, hard=True)
+                j "Click if you get it."
+                jump diff_pick
+
+        "Play without Tutorial.":
+        
+            jump diff_pick
         
 label diff_pick:
 
@@ -1109,22 +1122,22 @@ label chapter4_w_map:
             scene bag_2_1_1 movie
             show background solid at left
         elif stress_count == 0 and calendar_check < 1 and book_check > 0:
-            scene bag_0_0_1 movie
-            show background solid at left
-        elif stress_count == 1 and calendar_check < 1 and book_check > 0:
-            scene bag_1_0_1 movie
-            show background solid at left
-        elif stress_count == 2 and calendar_check < 1 and book_check > 0:
-            scene bag_2_0_1 movie
-            show background solid at left
-        elif stress_count == 0 and calendar_check > 0 and book_check < 1:
             scene bag_0_1_0 movie
             show background solid at left
-        elif stress_count == 1 and calendar_check > 0 and book_check < 1:
+        elif stress_count == 1 and calendar_check < 1 and book_check > 0:
             scene bag_1_1_0 movie
             show background solid at left
-        elif stress_count == 2 and calendar_check > 0 and book_check < 1:
+        elif stress_count == 2 and calendar_check < 1 and book_check > 0:
             scene bag_2_1_0 movie
+            show background solid at left
+        elif stress_count == 0 and calendar_check > 0 and book_check < 1:
+            scene bag_0_0_1 movie
+            show background solid at left
+        elif stress_count == 1 and calendar_check > 0 and book_check < 1:
+            scene bag_1_0_1 movie
+            show background solid at left
+        elif stress_count == 2 and calendar_check > 0 and book_check < 1:
+            scene bag_2_0_1 movie
             show background solid at left
         elif stress_count == 0 and calendar_check < 1 and book_check < 1:
             scene bag_0_0_0 movie
