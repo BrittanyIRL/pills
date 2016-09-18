@@ -124,6 +124,7 @@ image end_of_lunch_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, chann
 image end_of_lunch_2 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter7_1.webm")
 
 # then we have the three montage videos, for chapter 8, which we want to treat as not clickable videos
+image chapter8_lp movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter8_lp.webm")
 
 image chapter9_0 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter9_0.webm")
 # image chapter9_1 movie = Movie(size=(1200, 600), xalign=0.5, yalign=0, channel="backvid", play="chapter9_0.webm")
@@ -4306,8 +4307,10 @@ label chapter8:
     
     $ scene_count += 1
     
-    play movie "chapter8_lp.webm"
-    $ renpy.pause(71.0, hard=True)
+    scene chapter8_lp movie
+    show background solid at left
+    $ renpy.pause(70.5, hard=True)
+
     
     jump chapter9
     
@@ -4664,15 +4667,16 @@ label credits:
     # image cred = Text(credits_s, text_align=0.5) #use this if you want to use special fonts
     # image cred = Text(credits_s, text_align=0.5)
     image title = Text("{size=20}Mints", text_align=0.5)
-    image writing = Text("{size=20}Story and Logic by \nGerrit Feenstra")
-    image music = Text("{size=20}Score and Sound by \nGerrit Feenstra")
-    image video = Text("{size=20}Video by \nBrittany and Gerrit Feenstra")
-    image gui = Text("{size=20}GUI by \nBrittany Feenstra")
-    image programming = Text("{size=20}Developed in Python by \nGerrit and Brittany")
-    image renpy = Text("{size=20}Built on Ren'Py", text_align=0.5)
-    image location = Text("{size=20}Filmed in Seattle, WA August 2016", text_align=0.5)
-    image copyright = Text("{size=20}Made For Fun \n Copyright 2016", text_align=0.5)
-    image thanks = Text("{size=20}Thanks for Playing.", text_align=0.5)
+    image writing = Text("{size=20}Created and Built by Every Little Counts \nEvery Little Counts is Gerrit and Brittany Feenstra \n \nOriginal story by Gerrit Feenstra \n \nSoundtrack available at elccreative.bandcamp.com/album/mints-ost \n \nFilmed in Seattle, WA August 2016 \n \nCopyright 2016")
+    # image elc = Text("{size=20}Every Little Counts is Gerrit and Brittany Feenstra \n Visit elccreative.com for more information")
+    # image music = Text("{size=20}Soundtrack available at \n elccreative.bandcamp.com/album/mints-ost")
+    # image video = Text("{size=20}Video by \nBrittany and Gerrit Feenstra")
+    # image gui = Text("{size=20}GUI by \nBrittany Feenstra")
+    # image programming = Text("{size=20}Developed in Python by \nGerrit and Brittany")
+    # image renpy = Text("{size=20}Built on Ren'Py", text_align=0.5)
+    # image location = Text("{size=20}Filmed in Seattle, WA August 2016", text_align=0.5)
+    # image copyright = Text("{size=20}Made For Fun \n Copyright 2016", text_align=0.5)
+    image thanks = Text("{size=20}Thanks for Playing. \n \nVisit us at elccreative.com", text_align=0.5)
     # $ credits_speed = 5 #scrolling speed in seconds
     
     scene black #replace this with a fancy background
@@ -4689,67 +4693,75 @@ label credits:
         yanchor 0.5 ypos 0.5
         xanchor 0.5 xpos 0.5
     with dissolve
-    with Pause(2)
+    with Pause(5)
     hide writing
     with dissolve
     with Pause(2)
-    show music:
-        yanchor 0.5 ypos 0.5
-        xanchor 0.5 xpos 0.5
-    with dissolve
-    with Pause(2)
-    hide music
-    with dissolve
-    with Pause(2)
-    show video:
-        yanchor 0.5 ypos 0.5
-        xanchor 0.5 xpos 0.5
-    with dissolve
-    with Pause(2)
-    hide video
-    with dissolve
-    with Pause(2)
-    show gui:
-        yanchor 0.5 ypos 0.5
-        xanchor 0.5 xpos 0.5
-    with dissolve
-    with Pause(2)
-    hide gui
-    with dissolve
-    with Pause(2)
-    show programming:
-        yanchor 0.5 ypos 0.5
-        xanchor 0.5 xpos 0.5
-    with dissolve
-    with Pause(2)
-    hide programming
-    with dissolve
-    with Pause(2)
-    show renpy:
-        yanchor 0.5 ypos 0.5
-        xanchor 0.5 xpos 0.5
-    with dissolve
-    with Pause(2)
-    hide renpy
-    with dissolve
-    with Pause(2)
-    show location:
-        yanchor 0.5 ypos 0.5
-        xanchor 0.5 xpos 0.5
-    with dissolve
-    with Pause(2)
-    hide location
-    with dissolve
-    with Pause(2)
+    # show elc:
+    #     yanchor 0.5 ypos 0.5
+    #     xanchor 0.5 xpos 0.5
+    # with dissolve
+    # with Pause(2)
+    # hide elc
+    # with dissolve
+    # with Pause(2)
+    # show music:
+    #     yanchor 0.5 ypos 0.5
+    #     xanchor 0.5 xpos 0.5
+    # with dissolve
+    # with Pause(2)
+    # hide music
+    # with dissolve
+    # with Pause(2)
+    # show video:
+    #     yanchor 0.5 ypos 0.5
+    #     xanchor 0.5 xpos 0.5
+    # with dissolve
+    # with Pause(2)
+    # hide video
+    # with dissolve
+    # with Pause(2)
+    # show gui:
+    #     yanchor 0.5 ypos 0.5
+    #     xanchor 0.5 xpos 0.5
+    # with dissolve
+    # with Pause(2)
+    # hide gui
+    # with dissolve
+    # with Pause(2)
+    # show programming:
+    #     yanchor 0.5 ypos 0.5
+    #     xanchor 0.5 xpos 0.5
+    # with dissolve
+    # with Pause(2)
+    # hide programming
+    # with dissolve
+    # with Pause(2)
+    # show renpy:
+    #     yanchor 0.5 ypos 0.5
+    #     xanchor 0.5 xpos 0.5
+    # with dissolve
+    # with Pause(2)
+    # hide renpy
+    # with dissolve
+    # with Pause(2)
+    # show location:
+    #     yanchor 0.5 ypos 0.5
+    #     xanchor 0.5 xpos 0.5
+    # with dissolve
+    # with Pause(2)
+    # hide location
+    # with dissolve
+    # with Pause(2)
 
-    show copyright:
-        yanchor 0.5 ypos 0.5
-        xanchor 0.5 xpos 0.5
-    with dissolve
-    with Pause(2)
-    hide copyright
-    with dissolve
-    with Pause(2)
+    # show copyright:
+    #     yanchor 0.5 ypos 0.5
+    #     xanchor 0.5 xpos 0.5
+    # with dissolve
+    # with Pause(2)
+    # hide copyright
+    # with dissolve
+    # with Pause(2)
     show thanks:
         yanchor 0.5 ypos 0.5
         xanchor 0.5 xpos 0.5
