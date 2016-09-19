@@ -4321,6 +4321,7 @@ label chapter8:
     $ scene_count += 1
     
     scene chapter8_lp movie
+    with fade
     show background solid at left
     $ renpy.pause(70.5, hard=True)
 
@@ -4667,7 +4668,7 @@ label chapter10:
     
     j "Just have to wait for it."
     
-    $ renpy.pause(2)    
+    $ renpy.pause(1)    
     
     play music "sounds/mints_credits_ost.wav"
     
@@ -4706,7 +4707,7 @@ label credits:
         yanchor 0.5 ypos 0.5
         xanchor 0.5 xpos 0.5
     with dissolve
-    with Pause(5)
+    with Pause(10)
     hide writing
     with dissolve
     with Pause(2)
@@ -4779,7 +4780,7 @@ label credits:
         yanchor 0.5 ypos 0.5
         xanchor 0.5 xpos 0.5
     with dissolve
-    with Pause(2)
+    with Pause(5)
     hide thanks
     with dissolve
     with Pause(2)
